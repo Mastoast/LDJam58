@@ -57,29 +57,29 @@ function start_game(self)
 end
 
 function sound_down(self)
-    unlock_badge(all_achievements["soundp"])
+    unlock_badge("soundp")
 end 
 
 function sound_up(self)
-    unlock_badge(all_achievements["soundm"])
+    unlock_badge("soundm")
 end 
 
 function hour_midnight(self)
-    unlock_badge(all_achievements["time1"])
+    unlock_badge("time1")
 end 
 
 function date_movie(self)
-    unlock_badge(all_achievements["time2"])
+    unlock_badge("time2")
 end 
 
 function easy_mode(self)
-    unlock_badge(all_achievements["test1"])
+    unlock_badge("test1")
 end 
 
 function full_credit(self)
-    unlock_badge(all_achievements["test2"])
+    unlock_badge("test2")
 end 
 
 function not_full_credit(self)
-    unlock_badge(all_achievements["test3"])
+    unlock_badge("test3")
 end 
