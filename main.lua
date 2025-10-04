@@ -127,5 +127,5 @@ function find_item_table_index(item, table)
 end
 
 function on_cursor(object)
-    return object:contains(stat(32), stat(33))
+    return object:contains(cam.x + stat(32), cam.y + stat(33))
 end

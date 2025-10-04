@@ -34,6 +34,11 @@ function init_achievements_menu()
         badge.description = all_achievements[i+1].description
         badge.tip = all_achievements[i+1].tip
     end
+    --
+    local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
+    back_btn.text = "back"
+    back_btn:init()
+    back_btn.on_click = move_to_main_menu
 end
 
 function move_to_main_menu(self)
