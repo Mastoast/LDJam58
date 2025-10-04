@@ -95,21 +95,27 @@ function move_to_option_menu(self)
 end
 
 function move_to_sound_menu(self)
+    tcam.x, tcam.y = options_sound_menu.x, options_sound_menu.y
 end
 
 function move_to_time_menu(self)
+    tcam.x, tcam.y = options_time_menu.x, options_time_menu.y
 end
 
 function move_to_accessibility_menu(self)
+    tcam.x, tcam.y = options_accessibility_menu.x, options_accessibility_menu.y
 end
 
 function move_to_modes_menu(self)
+    tcam.x, tcam.y = options_modes_menu.x, options_modes_menu.y
 end
 
 function move_to_credits(self)
+    tcam.x, tcam.y = credits_screen.x, credits_screen.y
 end
 
 function move_to_splash_screen(self)
+    tcam.x, tcam.y = splash_screen.x, splash_screen.y
 end
 
 
