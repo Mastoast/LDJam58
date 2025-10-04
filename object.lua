@@ -119,7 +119,7 @@ function object.check_solid(self, ox, oy)
 
 end
 
-function create(type, x, y, hit_w, hit_h)
+function create(type, x, y, hit_w, hit_h, object_list)
     local obj = {}
     obj.base = type
     obj.x = x
@@ -127,7 +127,7 @@ function create(type, x, y, hit_w, hit_h)
     obj.hit_w = hit_w or type.hit_w or 8
     obj.hit_h = hit_h or type.hit_h or 8
     setmetatable(obj, lookup)
-    add(objects, obj)
+    add(object_list or objects, obj)
     obj:init()
     return obj
 end

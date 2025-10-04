@@ -61,20 +61,24 @@ end
 -- mouse cursor
 cursor = new_type(16)
 
-function cursor.update(self)
-    self.x = cam.x + stat(32)
-    self.y = cam.y + stat(33)
+function cursor.draw(self)
+    spr(self.spr, cam.x + stat(32), cam.y + stat(33))
 end
 
 -- achievement badge
 badge = new_type(0)
 
 function badge.draw(self)
-    -- print(self.name, self.x, self.y)
-    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, 9)
+    local achievement = all_achievements[self.achievement_index]
+    color = achievement.unlocked and 9 or 1
+    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
     if self.hover then
-        print(self.name, self.x, self.y + 10)
-        print(self.description, self.x, self.y + 18)
+        if achievement.unlocked then
+            print(achievement.name, self.x, self.y + 10)
+            print(achievement.description, self.x, self.y + 18)
+        else
+            print(achievement.tip, self.x, self.y + 10)
+        end
     end
 end
 

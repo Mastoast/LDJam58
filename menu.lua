@@ -8,6 +8,7 @@ function init_main_menu()
     start.text = "start"
     start.is_centered = true
     start:init()
+    start.on_click = start_game
     local options = create(text, 64, 40)
     options.text = "options"
     options.is_centered = true
@@ -30,9 +31,7 @@ function init_achievements_menu()
     local line_size = 5
     for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
-        badge.name = all_achievements[i+1].name
-        badge.description = all_achievements[i+1].description
-        badge.tip = all_achievements[i+1].tip
+        badge.achievement_index = i+1
     end
     --
     local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
@@ -41,10 +40,24 @@ function init_achievements_menu()
     back_btn.on_click = move_to_main_menu
 end
 
+--
+
+function unlock_badge(badge)
+    if badge.unlocked == true then return end
+    init_popup(badge)
+    badge.unlocked = true
+end
+
+--
+
 function move_to_main_menu(self)
     tcam.x, tcam.y = main_menu.x, main_menu.y
 end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
+end
+
+function start_game(self)
+    unlock_badge(all_achievements[4])
 end
