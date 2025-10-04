@@ -55,6 +55,7 @@ function text.draw(self)
     end
 end
 
+-- mouse cursor
 cursor = new_type(16)
 
 function cursor.update(self)
@@ -62,12 +63,13 @@ function cursor.update(self)
     self.y = cam.y + stat(33)
 end
 
+-- achievement badge
 badge = new_type(0)
 
 function badge.draw(self)
-    print(self.name, x, y)
+    print(self.name, self.x, self.y)
     if self.hover then
-        print(self.description, x, y + 10)
+        print(self.description, self.x, self.y + 10)
     end
 end
 
