@@ -4,9 +4,15 @@ function _init()
     freeze_time = 0
     shake = 0
     cam = {x = 0, y = 0}
+    current_menu = menu
     printable = 0
     --
     init_level()
+    init_menu(current_menu)
+end
+
+function init_menu(menu)
+    menu:init()
 end
 
 function init_level()
@@ -82,7 +88,7 @@ function _draw()
 
     -- UI
     
-    --print(printable, cam.x + 80, cam.y + 120, 4)
+    print(printable, cam.x + 80, cam.y + 120, -4)
 end
 
 -- UTILS

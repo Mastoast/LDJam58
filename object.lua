@@ -131,11 +131,16 @@ function create(type, x, y, hit_w, hit_h)
     return obj
 end
 
-function new_type(spr)
+function new_type(spr, base)
+    local base = base or object
     local obj = {}
     obj.spr = spr
-    obj.base = object
+    obj.base = base
     setmetatable(obj, lookup)
     types[spr] = obj
     return obj
+end
+
+function clone_table(tbl)
+  return {unpack(tbl)}
 end

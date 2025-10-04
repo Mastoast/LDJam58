@@ -3,7 +3,9 @@ version 32
 __lua__
 #include object.lua
 #include objects.lua
+#include menu.lua
 #include main.lua
+
 
 --❎🅾️⬆️⬇️⬅️➡️
 --█▥░➡️⧗▤⬆️☉🅾️◆
