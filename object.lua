@@ -21,6 +21,7 @@ function object.update(self) end
 function object.draw(self)
     spr(self.spr, self.x, self.y, 1, 1, self.flip_x, self.flip_y)
 end
+function object.on_click(self) end
 
 function object.move_x(self, x, on_collide)
     self.remainder_x += x

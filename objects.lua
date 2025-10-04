@@ -17,12 +17,25 @@ function clickable.draw(self)
     object.draw(self)
 end
 
+function clickable.on_hover(self) end
+function clickable.on_click(self) end
+
 text = new_type(0, clickable)
 text.spr = nil
 text.solid = false
 text.text = ""
 text.is_centered = false
 text.color = 7
+text.hover = true
+
+function text.init(self)
+    self.hit_h = 8
+    self.hit_w = #self.text*4
+    if self.is_centered then
+        self.hit_x = - (#self.text)*2
+    end
+    self.hit_y = -4
+end
 
 function text.update(self)
     clickable.update(self)
@@ -30,19 +43,23 @@ end
 
 function text.draw(self)
     if self.is_centered then
-        print_centered(self.text, 1, cam.y + self.y + 1, 0)
-        print_centered(self.text, 0, cam.y + self.y, text.color)
+        print_centered(self.text, self.x + 1, self.y + 1, 0)
+        print_centered(self.text, self.x, self.y, self.color)
+        if self.hover then
+            print("🐱", 64 - 10 - (#self.text * 2), self.y)
+            print("🐱", 64 + 2 + (#self.text * 2), self.y)
+        end
     else
-        print(self.text, cam.x + self.x + 1, cam.y + self.y + 1, 0)
-        print(self.text, cam.x + self.x, cam.y + self.y, text.color)
+        print(self.text, self.x + 1, self.y + 1, 0)
+        print(self.text, self.x, self.y, self.color)
     end
 end
 
 cursor = new_type(0)
 
 function cursor.update(self)
-    self.x = stat(32)
-    self.y = stat(33)
+    self.x = cam.x + stat(32)
+    self.y = cam.y + stat(33)
 end
 
 -- PARTICLES
