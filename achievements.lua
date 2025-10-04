@@ -16,6 +16,6 @@ all_achievements = {
     {name ="Sad Noises", description ="You just made our Sound Designer Sad", tip = "Disable the musics."},
     {name ="The end is never the end", description = "wow, you did it!", tip ="Launch the Game."},
     {name ="Kick the Bucket", description ="are you proud of yourself?", tip = "It's literal, try the Foot mode." },
-    {name ="Are you Lying to me?", description "è_é"=, tip = "The the Hour to something impossible."},
+    {name ="Are you Lying to me?", description = "è_é", tip = "The the Hour to something impossible."},
     --{name =, description =, tip = },
 }
