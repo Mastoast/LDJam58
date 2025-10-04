@@ -17,6 +17,7 @@ function _init()
     init_achievements_menu()
     init_options_menu()
     mouse = create(cursor, -120, -120)
+    printh("NEW RUN ===================")
 end
 
 -- gstate
@@ -51,31 +52,6 @@ function restart_progress()
     for index = 1, #all_achievements do
         dset(index, 0)
     end
-end
-
-function init_popup(achievement)
-    popup_objects = {}
-    gstate = 2
-    local title = create(text, cam.x + 64, cam.y + 48, 8, 8, popup_objects)
-    title.text = achievement.name
-    title.is_centered = true
-    title.color = 9
-    local desc = create(text, cam.x + 64, cam.y + 72, 8, 8, popup_objects)
-    desc.text = achievement.description
-    desc.is_centered = true
-    desc.color = 7
-end
-
-function pop_popups()
-    if #incoming_popups > 0 then
-        init_popup(incoming_popups[1])
-        del(incoming_popups, incoming_popups[1])
-    end
-end
-
-function close_popup()
-    popup_objects = {}
-    gstate = 1
 end
 
 function _update60()
@@ -130,25 +106,6 @@ function update_level()
     end
 end
 
-function update_popup()
-    for o in all(popup_objects) do
-
-        o.hover = on_cursor(o)
-        o:update()
-        
-        if btnp(❎) and o.hover then
-            o:on_click()
-        end
-
-        if o.destroyed then
-            del(popup_objects, o)
-        end
-    end
-    if btnp(❎) then
-        close_popup()
-    end
-end
-
 function _draw()
     cls(0)
     
@@ -176,19 +133,6 @@ function _draw()
     if gstate == 2 then draw_popup() end
     mouse:draw()
     print(printable, cam.x + 80, cam.y + 120, -4)
-end
-
-function draw_popup()
-    mx, my = 16, 16
-    -- fillp(0b0100111001000010)
-    fillp(0b1000010000100100)
-    rrectfill(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 0x21)
-    fillp()
-    rrect(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 9)
-
-    for o in all(popup_objects) do
-        o:draw()
-    end
 end
 
 -- UTILS
