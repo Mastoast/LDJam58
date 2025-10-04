@@ -10,7 +10,6 @@ clickable.spr = nil
 clickable.solid = false
 
 function clickable.update(self)
-    --printable = self.x
 end
 
 function clickable.draw(self)
@@ -26,7 +25,7 @@ text.solid = false
 text.text = ""
 text.is_centered = false
 text.color = 7
-text.hover = true
+text.hover = false
 
 function text.init(self)
     self.hit_h = 8

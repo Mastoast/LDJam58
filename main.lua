@@ -146,6 +146,17 @@ function print_centered(str, x, y, col)
     print(str, x - (#str * 2), y, col)
 end
 
+-- \f P0 : foreground color
+-- \# P0 : background color
+-- \^w : Wide. Doubles the width.
+-- \^t : Tall. Doubles the height.
+-- \^= : Stripey. When wide or tall, only even pixels are rendered.
+-- \^p : Pinball. Equivalent to wide, tall, and dotty.
+-- \^i : Inverted. The foreground color is used as the background, and vice versa.
+-- \^b : Bordered. Text has left and top padding. (On by default.)
+-- \^# : Solid background. The default is a transparent background.
+-- \^$ : Wrap. Automatically wraps text when it reaches the right edge of the screen.
+
 -- random range
 function rrnd(min, max)
     return flr(min + rnd(max - min))
