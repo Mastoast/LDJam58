@@ -62,6 +62,7 @@ function init_options_menu()
     time.text = "time"
     time.is_centered = true
     time:init()
+    --time.on_click =
     local accessibility = create(text, x + 64, y + 48)
     accessibility.text = "accessibility"
     accessibility.is_centered = true
@@ -71,7 +72,6 @@ function init_options_menu()
     modes.text = "modes"
     modes.is_centered = true
     modes:init()
-    modes.on_click = move_to_achievements
     --modes.on_click =
     --
 end
