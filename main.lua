@@ -17,7 +17,7 @@ end
 
 function init_menu(menu)
     menu:init()
-    create(cursor)
+    create(cursor, -120, -120)
 end
 
 function init_level()
@@ -54,11 +54,13 @@ function update_level()
     for o in all(objects) do
         if o.freeze > 0 then
             o.freeze -= 1
-        else
-            o:update()
+            break
         end
 
-        if o.base != player and o.destroyed then
+        o.hover = on_cursor(o)
+        o:update()
+
+        if o.destroyed then
             del(objects, o)
         end
     end
@@ -103,8 +105,8 @@ function lerp(start,finish,t)
 end
 
 -- print at center
-function print_centered(str, offset_x, y, col)
-    print(str, cam.x + 64 - (#str * 2) + offset_x, y, col)
+function print_centered(str, x, y, col)
+    print(str, x - (#str * 2), y, col)
 end
 
 -- random range
