@@ -25,15 +25,20 @@ end
 
 function init_achievements_menu()
     local x, y = badges_menu.x + 0, badges_menu.y + 0
-    local mx, my = 8, 16
+    local mx, my = 12, 20
     local distance = 23
-    local line_size = 1
+    local line_size = 5
     for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
         badge.name = all_achievements[i+1].name
         badge.description = all_achievements[i+1].description
         badge.tip = all_achievements[i+1].tip
     end
+    --
+    local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
+    back_btn.text = "back"
+    back_btn:init()
+    back_btn.on_click = move_to_main_menu
 end
 
 function move_to_main_menu(self)
