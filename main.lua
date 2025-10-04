@@ -33,8 +33,9 @@ function init_level()
     -- for index = 1, #all_achievements do
     --     dset(index, 1)
     -- end
+    -- load save
     for index = 1, #all_achievements do
-        all_achievements[index].unlocked = (dget(index) == 1 and true) or false
+        --all_achievements[index].unlocked = (dget(index) == 1 and true) or false
     end
     menuitem(1, "restart progress", function() restart_progress() end)
 end
@@ -49,9 +50,14 @@ end
 function init_popup(achievement)
     popup_objects = {}
     gstate = 2
-    local title = create(text, 64, 64, 8, 8, popup_objects)
+    local title = create(text, 64, 48, 8, 8, popup_objects)
     title.text = achievement.name
-    title.color = 2
+    title.is_centered = true
+    title.color = 9
+    local desc = create(text, 64, 72, 8, 8, popup_objects)
+    desc.text = achievement.description
+    desc.is_centered = true
+    desc.color = 7
 end
 
 function close_popup()
@@ -157,7 +163,10 @@ end
 
 function draw_popup()
     mx, my = 16, 16
-    rrectfill(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 7)
+    -- fillp(0b0100111001000010)
+    fillp(0b1000010000100100)
+    rrectfill(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 0x21)
+    fillp()
     rrect(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 9)
 
     for o in all(popup_objects) do
