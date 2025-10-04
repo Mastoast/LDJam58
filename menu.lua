@@ -25,9 +25,9 @@ end
 
 function init_achievements_menu()
     local x, y = badges_menu.x + 0, badges_menu.y + 0
-    local mx, my = 8, 16
+    local mx, my = 12, 20
     local distance = 23
-    local line_size = 1
+    local line_size = 5
     for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
         badge.name = all_achievements[i+1].name

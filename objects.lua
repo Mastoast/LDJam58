@@ -70,9 +70,11 @@ end
 badge = new_type(0)
 
 function badge.draw(self)
-    print(self.name, self.x, self.y)
+    -- print(self.name, self.x, self.y)
+    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, 9)
     if self.hover then
-        print(self.description, self.x, self.y + 10)
+        print(self.name, self.x, self.y + 10)
+        print(self.description, self.x, self.y + 18)
     end
 end
 
