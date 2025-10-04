@@ -26,14 +26,24 @@ function init_level()
     gtime = 0
     objects = {}
     particles = {}
-    -- gen checkpoints
-    -- for i=0, 127 do
-    --     for y=0, 63 do
-    --         if mget(i, y) == 4 then
-    --             create(rectangle, i*8 + 4, y*8 + 4)
-    --         end
-    --     end
+
+    -- saves
+    cartdata("mastoast_achievements_v1")
+    -- -- complete save
+    -- for index = 1, #all_achievements do
+    --     dset(index, 1)
     -- end
+    for index = 1, #all_achievements do
+        all_achievements[index].unlocked = (dget(index) == 1 and true) or false
+    end
+    menuitem(1, "restart progress", function() restart_progress() end)
+end
+
+function restart_progress()
+    --reset save
+    for index = 1, #all_achievements do
+        dset(index, 0)
+    end
 end
 
 function init_popup(achievement)

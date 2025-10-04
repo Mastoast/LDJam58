@@ -30,11 +30,9 @@ function init_achievements_menu()
     local mx, my = 12, 20
     local distance = 23
     local line_size = 5
-    local i = 0
-    for key, value in pairs( all_achievements ) do
+    for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
-        badge.code = key
-        i += 1
+        badge.achievement_index = i+1
     end
     --
     local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
@@ -71,17 +69,6 @@ function init_options_menu()
 end
 
 
-
-
-
---
-
-function unlock_badge(badge)
-    if badge.unlocked == true then return end
-    init_popup(badge)
-    badge.unlocked = true
-end
-
 --
 
 function move_to_main_menu(self)
@@ -90,7 +77,7 @@ end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
-    unlock_badge(all_achievements["badge"])
+    unlock_badge("badge")
 
 end
 
@@ -99,33 +86,33 @@ function move_to_option_menu(self)
 end
 
 function start_game(self)
-    unlock_badge(all_achievements["start1"])
+    unlock_badge("start1")
 end
 
 function sound_down(self)
-    unlock_badge(all_achievements["soundp"])
+    unlock_badge("soundp")
 end 
 
 function sound_up(self)
-    unlock_badge(all_achievements["soundm"])
+    unlock_badge("soundm")
 end 
 
 function hour_midnight(self)
-    unlock_badge(all_achievements["time1"])
+    unlock_badge("time1")
 end 
 
 function date_movie(self)
-    unlock_badge(all_achievements["time2"])
+    unlock_badge("time2")
 end 
 
 function easy_mode(self)
-    unlock_badge(all_achievements["test1"])
+    unlock_badge("test1")
 end 
 
 function full_credit(self)
-    unlock_badge(all_achievements["test2"])
+    unlock_badge("test2")
 end 
 
 function not_full_credit(self)
-    unlock_badge(all_achievements["test3"])
+    unlock_badge("test3")
 end 
