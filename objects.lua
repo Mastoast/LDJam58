@@ -55,7 +55,7 @@ function text.draw(self)
     end
 end
 
-cursor = new_type(0)
+cursor = new_type(16)
 
 function cursor.update(self)
     self.x = cam.x + stat(32)

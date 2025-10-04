@@ -7,7 +7,8 @@ function _init()
     ndeath = 0
     freeze_time = 0
     shake = 0
-    cam = {x = 0, y = 0}
+    cam = {x = 0, y = 0, speed = 0.1}
+    tcam = {x = 0, y = 0}
     current_menu = menu
     printable = 0
     --
@@ -47,6 +48,10 @@ function update_level()
         freeze_time -= 1
         return
     end
+
+    -- camera
+    cam.x = lerp(cam.x, tcam.x, cam.speed)
+    cam.y = lerp(cam.y, tcam.y, cam.speed)
 
     -- screenshake
     shake = max(shake - 1)
@@ -94,7 +99,6 @@ function _draw()
     end
 
     -- UI
-    
     print(printable, cam.x + 80, cam.y + 120, -4)
 end
 
