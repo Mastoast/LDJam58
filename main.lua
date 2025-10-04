@@ -4,6 +4,7 @@ function _init()
     -- disable key repeat
     poke(0x5f5c, -1)
     gtime = 0
+    gstate = 1
     ndeath = 0
     freeze_time = 0
     shake = 0
@@ -14,8 +15,12 @@ function _init()
     init_level()
     init_main_menu()
     init_achievements_menu()
-    create(cursor, -120, -120)
+    mouse = create(cursor, -120, -120)
 end
+
+-- gstate
+-- 1 = Menu
+-- 2 = popup
 
 function init_level()
     gtime = 0
@@ -31,11 +36,28 @@ function init_level()
     -- end
 end
 
+function init_popup(achievement)
+    popup_objects = {}
+    gstate = 2
+    local title = create(text, 64, 64, 8, 8, popup_objects)
+    title.text = achievement.name
+    title.color = 2
+end
+
+function close_popup()
+    popup_objects = {}
+    gstate = 1
+end
+
 function _update60()
     -- timers
     gtime += 1
 
-    update_level()
+    if gstate == 1 then
+        update_level()
+    elseif gstate == 2 then
+        update_popup()
+    end
 end
 
 function update_level()
@@ -61,7 +83,7 @@ function update_level()
         o.hover = on_cursor(o)
         o:update()
         
-        if btnp(5) and o.hover then
+        if btnp(❎) and o.hover then
             o:on_click()
         end
 
@@ -72,6 +94,25 @@ function update_level()
 
     for a in all(particles) do
         a:update()
+    end
+end
+
+function update_popup()
+    for o in all(popup_objects) do
+
+        o.hover = on_cursor(o)
+        o:update()
+        
+        if btnp(❎) and o.hover then
+            o:on_click()
+        end
+
+        if o.destroyed then
+            del(popup_objects, o)
+        end
+    end
+    if btnp(❎) then
+        close_popup()
     end
 end
 
@@ -99,7 +140,19 @@ function _draw()
     end
 
     -- UI
+    if gstate == 2 then draw_popup() end
+    mouse:draw()
     print(printable, cam.x + 80, cam.y + 120, -4)
+end
+
+function draw_popup()
+    mx, my = 16, 16
+    rrectfill(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 7)
+    rrect(cam.x + mx, cam.y + my, 128 - mx*2, 128 - my*2, 4, 9)
+
+    for o in all(popup_objects) do
+        o:draw()
+    end
 end
 
 -- UTILS
