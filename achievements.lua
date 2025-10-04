@@ -25,6 +25,8 @@ function unlock_badge(code)
     if badge.unlocked == true then return end
     init_popup(badge)
     badge.unlocked = true
+    local index = find_item_table_index(badge, all_achievements)
+    dset(index, 1)
 end
 
 function index_achievements()

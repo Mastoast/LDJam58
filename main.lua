@@ -29,16 +29,20 @@ function init_level()
 
     -- saves
     cartdata("mastoast_achievements_v1")
-    -- reset save
-    -- for index = 1, #all_achievements do
-    --     dset(index, 0)
-    -- end
     -- -- complete save
     -- for index = 1, #all_achievements do
     --     dset(index, 1)
     -- end
     for index = 1, #all_achievements do
         all_achievements[index].unlocked = (dget(index) == 1 and true) or false
+    end
+    menuitem(1, "restart progress", function() restart_progress() end)
+end
+
+function restart_progress()
+    --reset save
+    for index = 1, #all_achievements do
+        dset(index, 0)
     end
 end
 
