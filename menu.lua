@@ -1,6 +1,6 @@
 main_menu = {x = 0, y = 0}
 badges_menu = {x = 128, y = 128}
-
+options_menu = {x = 0, y = 128}
 
 function init_main_menu()
     --
@@ -13,6 +13,7 @@ function init_main_menu()
     options.text = "options"
     options.is_centered = true
     options:init()
+    options.on_click = move_to_option_menu
     local credits = create(text, 64, 48)
     credits.text = "credits"
     credits.is_centered = true
@@ -44,6 +45,37 @@ end
 
 --
 
+function init_options_menu()
+    local x, y = options_menu.x + 0, options_menu.y + 0
+    local sound = create(text,x + 64,y + 32)
+    sound.text = "sound"
+    sound.is_centered = true
+    sound:init()
+    --sound.on_click = 
+    local time = create(text, x + 64,y + 40)
+    time.text = "time"
+    time.is_centered = true
+    time:init()
+    local accessibility = create(text, x + 64,y + 48)
+    accessibility.text = "accessibility"
+    accessibility.is_centered = true
+    accessibility:init()
+    --accessibility.on_click = 
+    local modes = create(text, x + 64,y + 56)
+    modes.text = "modes"
+    modes.is_centered = true
+    modes:init()
+    modes.on_click = move_to_achievements 
+    --modes.on_click = 
+--
+end
+
+
+
+
+
+--
+
 function unlock_badge(badge)
     if badge.unlocked == true then return end
     init_popup(badge)
@@ -60,6 +92,10 @@ function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
     unlock_badge(all_achievements["badge"])
 
+end
+
+function move_to_option_menu(self)
+    tcam.x, tcam.y = options_menu.x, options_menu.y
 end
 
 function start_game(self)
