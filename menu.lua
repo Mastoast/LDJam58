@@ -76,7 +76,7 @@ function init_options_menu()
     --
 end
 
---
+-- access menus
 
 function move_to_main_menu(self)
     tcam.x, tcam.y = main_menu.x, main_menu.y
@@ -93,6 +93,28 @@ end
 function move_to_option_menu(self)
     tcam.x, tcam.y = options_menu.x, options_menu.y
 end
+
+function move_to_sound_menu(self)
+end
+
+function move_to_time_menu(self)
+end
+
+function move_to_accessibility_menu(self)
+end
+
+function move_to_modes_menu(self)
+end
+
+function move_to_credits(self)
+end
+
+function move_to_splash_screen(self)
+end
+
+
+
+-- unlock achievements
 
 function start_game(self)
     unlock_badge("start1")
