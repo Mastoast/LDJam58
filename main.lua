@@ -14,6 +14,7 @@ function _init()
     init_level()
     init_main_menu()
     init_achievements_menu()
+    create(cursor, -120, -120)
 end
 
 function init_level()
@@ -59,6 +60,10 @@ function update_level()
 
         o.hover = on_cursor(o)
         o:update()
+        
+        if btnp(5) and o.hover then
+            o:on_click()
+        end
 
         if o.destroyed then
             del(objects, o)

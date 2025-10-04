@@ -1,8 +1,8 @@
-menu = {}
-menu.objects = {}
+main_menu = {x = 0, y = 0}
+badges_menu = {x = 128, y = 128}
+
 
 function init_main_menu()
-    create(cursor, -120, -120)
     --
     local start = create(text, 64, 32)
     start.text = "start"
@@ -20,14 +20,12 @@ function init_main_menu()
     achievements.text = "achievements"
     achievements.is_centered = true
     achievements:init()
+    achievements.on_click = move_to_achievements
 end
 
-
-
 function init_achievements_menu()
-    printable = all_achievements[1].name
-    local x, y = 0, 0
-    local mx, my = 96, 16
+    local x, y = badges_menu.x + 0, badges_menu.y + 0
+    local mx, my = 8, 16
     local distance = 23
     local line_size = 1
     for i = 0, #all_achievements - 1 do
@@ -36,4 +34,12 @@ function init_achievements_menu()
         badge.description = all_achievements[i+1].description
         badge.tip = all_achievements[i+1].tip
     end
+end
+
+function move_to_main_menu(self)
+    tcam.x, tcam.y = main_menu.x, main_menu.y
+end
+
+function move_to_achievements(self)
+    tcam.x, tcam.y = badges_menu.x, badges_menu.y
 end
