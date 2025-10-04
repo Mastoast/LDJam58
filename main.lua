@@ -27,6 +27,7 @@ function init_level()
     gtime = 0
     objects = {}
     particles = {}
+    incoming_popups = {}
     badge_count = 0
 
     -- saves
@@ -65,6 +66,13 @@ function init_popup(achievement)
     desc.color = 7
 end
 
+function pop_popups()
+    if #incoming_popups > 0 then
+        init_popup(incoming_popups[1])
+        del(incoming_popups, incoming_popups[1])
+    end
+end
+
 function close_popup()
     popup_objects = {}
     gstate = 1
@@ -87,6 +95,10 @@ function update_level()
         freeze_time -= 1
         return
     end
+
+    --
+    pop_popups()
+    --
 
     -- camera
     cam.x = lerp(cam.x, tcam.x, cam.speed)
