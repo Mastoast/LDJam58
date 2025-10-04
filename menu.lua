@@ -56,6 +56,8 @@ end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
+    unlock_badge(all_achievements[1])
+
 end
 
 function start_game(self)
