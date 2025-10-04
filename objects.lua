@@ -58,6 +58,23 @@ function text.draw(self)
     end
 end
 
+checkbox = new_type(0, clickable)
+checkbox.spr = nil
+checkbox.checked = false
+checkbox.color = 7
+
+function checkbox.draw(self)
+    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, self.color)
+    if self.checked then
+        spr(0, self.x, self.y)
+        -- print("❎", self.x + 1, self.y + 1, self.color)
+    end
+end
+
+function checkbox.on_click(self)
+    self.checked = not self.checked
+end
+
 -- mouse cursor
 cursor = new_type(16)
 

@@ -11,22 +11,25 @@ game = { x = 512, y = 512}
 
 
 function init_main_menu()
+    local x, y = main_menu.x + 0, main_menu.y + 0
+    -- TESTS
+    local test_checkbox = create(checkbox, x + 16, y + 16)
     --
     local start = create(text, 64, 32)
     start.text = "start"
     start.is_centered = true
     start:init()
     start.on_click = start_game
-    local options = create(text, 64, 40)
+    local options = create(text, x + 64, y + 40)
     options.text = "options"
     options.is_centered = true
     options:init()
     options.on_click = move_to_option_menu
-    local credits = create(text, 64, 48)
+    local credits = create(text, x + 64, y + 48)
     credits.text = "credits"
     credits.is_centered = true
     credits:init()
-    local achievements = create(text, 64, 56)
+    local achievements = create(text, x + 64, y + 56)
     achievements.text = "achievements"
     achievements.is_centered = true
     achievements:init()
