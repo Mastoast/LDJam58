@@ -1,6 +1,14 @@
 main_menu = { x = 0, y = 0 }
 badges_menu = { x = 128, y = 128 }
 options_menu = { x = 0, y = 128 }
+options_sound_menu = { x = 0, y = 256}
+options_time_menu = { x = 0, y = 384}
+options_accessibility_menu = { x = 0, y = 512}
+options_modes_menu = { x = 0, y = 640}
+credits_screen = { x = 384, y = 384}
+splash_screen = {x = -256, y = 0}
+game = { x = 512, y = 512}
+
 
 function init_main_menu()
     --
