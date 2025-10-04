@@ -9,16 +9,11 @@ function _init()
     shake = 0
     cam = {x = 0, y = 0, speed = 0.1}
     tcam = {x = 0, y = 0}
-    current_menu = menu
     printable = 0
     --
     init_level()
-    init_menu(current_menu)
-end
-
-function init_menu(menu)
-    menu:init()
-    create(cursor, -120, -120)
+    init_main_menu()
+    init_achievements_menu()
 end
 
 function init_level()

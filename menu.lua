@@ -1,8 +1,9 @@
 menu = {}
 menu.objects = {}
 
-function menu.init(self)
-    self.objects = {}
+function init_main_menu()
+    create(cursor, -120, -120)
+    --
     local start = create(text, 64, 32)
     start.text = "start"
     start.is_centered = true
@@ -19,4 +20,13 @@ function menu.init(self)
     achievements.text = "achievements"
     achievements.is_centered = true
     achievements:init()
+end
+
+
+
+function init_achievements_menu()
+    local x, y = 100, 100
+    for a in all(achievements) do
+        
+    end
 end
