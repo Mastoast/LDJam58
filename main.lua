@@ -56,11 +56,11 @@ end
 function init_popup(achievement)
     popup_objects = {}
     gstate = 2
-    local title = create(text, 64, 48, 8, 8, popup_objects)
+    local title = create(text, cam.x + 64, cam.y + 48, 8, 8, popup_objects)
     title.text = achievement.name
     title.is_centered = true
     title.color = 9
-    local desc = create(text, 64, 72, 8, 8, popup_objects)
+    local desc = create(text, cam.x + 64, cam.y + 72, 8, 8, popup_objects)
     desc.text = achievement.description
     desc.is_centered = true
     desc.color = 7
