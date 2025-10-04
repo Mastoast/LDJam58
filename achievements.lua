@@ -2,7 +2,7 @@ all_achievements = {
     {code = "intro1", name = "\^t\^wa warm welcome", description = "you launched the game.", tip = ""},
     {code = "intro2", name = "\^t\^wfirst step", description = "you got your first//achievement.", tip = ""},
     {code = "intro3", name = "\^t\^wwow!!", description = "you got your second//achievement.", tip = ""},
-    {code = "start1", name = "\^t\^wyou are not//prepared", description = "try to//launch the game.", tip = "did you try to launch the game ?"},
+    {code = "start1", name = "\^t\^wyou are not//\^t\^wprepared", description = "try to//launch the game.", tip = "did you try to launch the game ?"},
     {code = "badge", name = "\^t\^wgreat success", description = "open the achievement page", tip = "why are you here? if you can read this, you've done it"},
     {code = "soundp", name = "\^t\^whello there", description = "lower the general sound", tip = "check the sound options."},
     {code = "soundm", name = "\^t\^wkenobi", description = "up the general sound", tip = "check the sound options, again."},

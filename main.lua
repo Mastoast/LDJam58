@@ -143,8 +143,12 @@ end
 
 -- print at center
 function print_centered(str, x, y, col, w)
-    local size = w and 2 or 2
-    print(str, x - (#str * size), y, col)
+    local size = w and 4 or 2
+    local strs = split(str, "//")
+    for i=0, #strs-1 do
+        local length = #(strs[i+1]) * size - size/2
+        print(strs[i+1], x - length, y + i * size*2, col)
+    end
 end
 
 -- \f P0 : foreground color
