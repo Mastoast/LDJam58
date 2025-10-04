@@ -142,8 +142,9 @@ function lerp(start,finish,t)
 end
 
 -- print at center
-function print_centered(str, x, y, col)
-    print(str, x - (#str * 2), y, col)
+function print_centered(str, x, y, col, w)
+    local size = w and 2 or 2
+    print(str, x - (#str * size), y, col)
 end
 
 -- \f P0 : foreground color

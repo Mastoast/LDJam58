@@ -1,11 +1,12 @@
 function init_popup(achievement)
     ptime = 0
-    panim_time = 25
+    panim_time = 20
     popup_objects = {}
     gstate = 2
-    local title = create(text, cam.x + 66, cam.y + 36, 8, 8, popup_objects)
+    local title = create(text, cam.x + 64, cam.y + 36, 8, 8, popup_objects)
     title.text = achievement.name
     title.is_centered = true
+    title.wide = true
     title.color = 9
     local desc = create(text, cam.x + 64, cam.y + 72, 8, 8, popup_objects)
     desc.text = achievement.description
@@ -68,7 +69,7 @@ function draw_popup()
     fillp(0b1000010100100100)
     rrectfill(cam.x + mx, cam.y + my, sx, sy, 4, 0x21)
     fillp()
-    rrect(cam.x + mx, cam.y + my, sx, sy, 4, 9)
+    rrect(cam.x + mx, cam.y + my, sx, sy, 4, 13)
 
     for o in all(popup_objects) do
         o:draw()

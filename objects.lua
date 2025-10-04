@@ -26,6 +26,7 @@ text.text = ""
 text.is_centered = false
 text.color = 7
 text.hover = false
+text.wide = false
 
 function text.init(self)
     self.hit_h = 8
@@ -42,8 +43,8 @@ end
 
 function text.draw(self)
     if self.is_centered then
-        print_centered(self.text, self.x + 1, self.y + 1, 0)
-        print_centered(self.text, self.x, self.y, self.color)
+        print_centered(self.text, self.x + 1, self.y + 1, 0, self.wide)
+        print_centered(self.text, self.x, self.y, self.color, self.wide)
         if self.hover then
             print("◆", 64 - 10 - (#self.text * 2), self.y)
             -- print("◆", 64 + 2 + (#self.text * 2), self.y)
@@ -83,6 +84,8 @@ end
 
 -- achievement badge
 badge = new_type(0)
+badge.hit_w = 6
+badge.hit_h = 6
 
 function badge.draw(self)
     local achievement = all_achievements[self.achievement_index]
@@ -90,11 +93,18 @@ function badge.draw(self)
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
     if self.hover then
         if achievement.unlocked then
-            print(achievement.name, self.x, self.y + 10)
-            print(achievement.description, self.x, self.y + 18)
+            -- print(achievement.name, self.x, self.y + 10)
+            -- print(achievement.description, self.x, self.y + 18)
         else
             print(achievement.tip, self.x, self.y + 10)
         end
+    end
+end
+
+function badge.on_click(self)
+    local achievement = all_achievements[self.achievement_index]
+    if achievement.unlocked then
+        add(incoming_popups, achievement)
     end
 end
 
