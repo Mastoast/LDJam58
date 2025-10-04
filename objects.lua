@@ -46,14 +46,14 @@ function text.draw(self)
         print_centered(self.text, self.x + 1, self.y + 1, 0)
         print_centered(self.text, self.x, self.y, self.color)
         if self.hover then
-            print("🐱", 64 - 10 - (#self.text * 2), self.y)
-            -- print("🐱", 64 + 2 + (#self.text * 2), self.y)
+            print("◆", 64 - 10 - (#self.text * 2), self.y)
+            -- print("◆", 64 + 2 + (#self.text * 2), self.y)
         end
     else
         print(self.text, self.x + 1, self.y + 1, 0)
         print(self.text, self.x, self.y, self.color)
         if self.hover then
-            print("🐱", self.x - 10, self.y)
+            print("◆", self.x - 10, self.y)
         end
     end
 end
