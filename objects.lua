@@ -5,7 +5,19 @@ function rectangle.draw(self)
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, self.color)
 end
 
-text = new_type(0)
+clickable = new_type(0)
+clickable.spr = nil
+clickable.solid = false
+
+function clickable.update(self)
+    printable = self
+end
+
+function clickable.draw(self)
+    --self.base:draw()
+end
+
+text = new_type(0, clickable)
 text.spr = nil
 text.solid = false
 text.text = ""
@@ -13,9 +25,11 @@ text.is_centered = false
 text.color = 7
 
 function text.update(self)
+    self.base:update()
 end
 
 function text.draw(self)
+    --self.base:draw()
     if self.is_centered then
         print_centered(self.text, 1, cam.y + self.y + 1, 0)
         print_centered(self.text, 0, cam.y + self.y, text.color)
