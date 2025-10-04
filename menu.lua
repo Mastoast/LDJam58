@@ -29,11 +29,9 @@ function init_achievements_menu()
     local mx, my = 12, 20
     local distance = 23
     local line_size = 5
-    local i = 0
-    for key, value in pairs( all_achievements ) do
+    for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
-        badge.code = key
-        i += 1
+        badge.achievement_index = i+1
     end
     --
     local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
@@ -44,24 +42,16 @@ end
 
 --
 
-function unlock_badge(badge)
-    if badge.unlocked == true then return end
-    init_popup(badge)
-    badge.unlocked = true
-end
-
---
-
 function move_to_main_menu(self)
     tcam.x, tcam.y = main_menu.x, main_menu.y
 end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
-    unlock_badge(all_achievements["badge"])
+    unlock_badge("badge")
 
 end
 
 function start_game(self)
-    unlock_badge(all_achievements["start1"])
+    unlock_badge("start1")
 end

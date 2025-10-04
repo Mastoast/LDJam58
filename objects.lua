@@ -69,7 +69,7 @@ end
 badge = new_type(0)
 
 function badge.draw(self)
-    local achievement = all_achievements[self.code]
+    local achievement = all_achievements[self.achievement_index]
     color = achievement.unlocked and 9 or 1
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
     if self.hover then
