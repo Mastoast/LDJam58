@@ -27,6 +27,7 @@ function unlock_badge(code)
     badge.unlocked = true
     local index = find_item_table_index(badge, all_achievements)
     dset(index, 1)
+    badge_count += 1
 end
 
 function index_achievements()

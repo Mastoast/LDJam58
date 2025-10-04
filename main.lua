@@ -27,6 +27,7 @@ function init_level()
     gtime = 0
     objects = {}
     particles = {}
+    badge_count = 0
 
     -- saves
     cartdata("mastoast_achievements_v1")
@@ -36,7 +37,10 @@ function init_level()
     -- end
     -- load save
     for index = 1, #all_achievements do
-        --all_achievements[index].unlocked = (dget(index) == 1 and true) or false
+        if dget(index) == 1 then
+            -- all_achievements[index].unlocked = true
+            -- badge_count += 1
+        end
     end
     menuitem(1, "restart progress", function() restart_progress() end)
 end
