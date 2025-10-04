@@ -25,8 +25,15 @@ end
 
 
 function init_achievements_menu()
-    local x, y = 100, 100
-    for a in all(achievements) do
-        
+    printable = all_achievements[1].name
+    local x, y = 0, 0
+    local mx, my = 96, 16
+    local distance = 23
+    local line_size = 1
+    for i = 0, #all_achievements - 1 do
+        local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
+        badge.name = all_achievements[i+1].name
+        badge.description = all_achievements[i+1].description
+        badge.tip = all_achievements[i+1].tip
     end
 end
