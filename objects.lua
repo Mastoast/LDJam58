@@ -62,6 +62,15 @@ function cursor.update(self)
     self.y = cam.y + stat(33)
 end
 
+badge = new_type(0)
+
+function badge.draw(self)
+    print(self.name, x, y)
+    if self.hover then
+        print(self.description, x, y + 10)
+    end
+end
+
 -- PARTICLES
 particles = {}
 
