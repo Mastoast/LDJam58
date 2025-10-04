@@ -1,4 +1,8 @@
 function _init()
+    -- enable mouse
+    poke(0x5f2d, 3)
+    -- disable key repeat
+    poke(0x5f5c, -1)
     gtime = 0
     ndeath = 0
     freeze_time = 0
@@ -13,6 +17,7 @@ end
 
 function init_menu(menu)
     menu:init()
+    create(cursor)
 end
 
 function init_level()
@@ -113,4 +118,8 @@ function find_item_table_index(item, table)
         if v == item then return k end
     end
     return 0
+end
+
+function on_cursor(object)
+    return object:contains(stat(32), stat(33))
 end
