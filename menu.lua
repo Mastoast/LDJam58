@@ -1,6 +1,6 @@
-main_menu = {x = 0, y = 0}
-badges_menu = {x = 128, y = 128}
-options_menu = {x = 0, y = 128}
+main_menu = { x = 0, y = 0 }
+badges_menu = { x = 128, y = 128 }
+options_menu = { x = 0, y = 128 }
 
 function init_main_menu()
     --
@@ -32,7 +32,7 @@ function init_achievements_menu()
     local line_size = 5
     for i = 0, #all_achievements - 1 do
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
-        badge.achievement_index = i+1
+        badge.achievement_index = i + 1
     end
     --
     local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
@@ -45,40 +45,41 @@ end
 
 function init_options_menu()
     local x, y = options_menu.x + 0, options_menu.y + 0
-    local sound = create(text,x + 64,y + 32)
+    local sound = create(text, x + 64, y + 32)
     sound.text = "sound"
     sound.is_centered = true
     sound:init()
-    --sound.on_click = 
-    local time = create(text, x + 64,y + 40)
+    --sound.on_click =
+    local time = create(text, x + 64, y + 40)
     time.text = "time"
     time.is_centered = true
     time:init()
-    local accessibility = create(text, x + 64,y + 48)
+    local accessibility = create(text, x + 64, y + 48)
     accessibility.text = "accessibility"
     accessibility.is_centered = true
     accessibility:init()
-    --accessibility.on_click = 
-    local modes = create(text, x + 64,y + 56)
+    --accessibility.on_click =
+    local modes = create(text, x + 64, y + 56)
     modes.text = "modes"
     modes.is_centered = true
     modes:init()
-    modes.on_click = move_to_achievements 
-    --modes.on_click = 
---
+    modes.on_click = move_to_achievements
+    --modes.on_click =
+    --
 end
-
 
 --
 
 function move_to_main_menu(self)
     tcam.x, tcam.y = main_menu.x, main_menu.y
+    unlock_badge("intro1")
+    unlock_badge("intro2")
+    unlock_badge("intro3")
 end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
     unlock_badge("badge")
-
 end
 
 function move_to_option_menu(self)
@@ -91,28 +92,28 @@ end
 
 function sound_down(self)
     unlock_badge("soundp")
-end 
+end
 
 function sound_up(self)
     unlock_badge("soundm")
-end 
+end
 
 function hour_midnight(self)
     unlock_badge("time1")
-end 
+end
 
 function date_movie(self)
     unlock_badge("time2")
-end 
+end
 
 function easy_mode(self)
     unlock_badge("test1")
-end 
+end
 
 function full_credit(self)
     unlock_badge("test2")
-end 
+end
 
 function not_full_credit(self)
     unlock_badge("test3")
-end 
+end
