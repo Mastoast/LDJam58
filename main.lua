@@ -15,6 +15,7 @@ function _init()
     init_level()
     init_main_menu()
     init_achievements_menu()
+    init_options_menu()
     mouse = create(cursor, -120, -120)
 end
 
