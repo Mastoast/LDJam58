@@ -10,6 +10,12 @@ all_achievements = {
     {name = "The Dark Knight", description = "Go back in time to the Release of the best Batman Movie", tip = "Set the year to when that movie came out"},
     {name = "Can I play, Daddy?", description = "It's part of the process", tip = "WHY ARE YOU READING THIS?"},
     {name = "Respect", description = "As you can see, we are very skilled", tip = "Look at the Credits until the End."},
-    {name = "Disrespect", description ="I'm disappointed in you", tip = "Quit the Credits before the End." }
+    {name = "Disrespect", description ="I'm disappointed in you", tip = "Quit the Credits before the End." },
+    {name = "Connected", description ="Stay up to date", tip = "Enable Patch-Notes."},
+    {name = "Quick Fix", description ="The Credit Speed is Fixed!", tip = "Read the Patch-Note."},
+    {name ="Sad Noises", description ="You just made our Sound Designer Sad", tip = "Disable the musics."},
+    {name ="The end is never the end", description = "wow, you did it!", tip ="Launch the Game."},
+    {name ="Kick the Bucket", description ="are you proud of yourself?", tip = "It's literal, try the Foot mode." },
+    {name ="Are you Lying to me?", description "è_é"=, tip = "The the Hour to something impossible."},
     --{name =, description =, tip = },
 }
