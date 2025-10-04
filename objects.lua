@@ -10,11 +10,11 @@ clickable.spr = nil
 clickable.solid = false
 
 function clickable.update(self)
-    printable = self
+    --printable = self.x
 end
 
 function clickable.draw(self)
-    --self.base:draw()
+    object.draw(self)
 end
 
 text = new_type(0, clickable)
@@ -25,11 +25,10 @@ text.is_centered = false
 text.color = 7
 
 function text.update(self)
-    self.base:update()
+    clickable.update(self)
 end
 
 function text.draw(self)
-    --self.base:draw()
     if self.is_centered then
         print_centered(self.text, 1, cam.y + self.y + 1, 0)
         print_centered(self.text, 0, cam.y + self.y, text.color)
@@ -37,6 +36,13 @@ function text.draw(self)
         print(self.text, cam.x + self.x + 1, cam.y + self.y + 1, 0)
         print(self.text, cam.x + self.x, cam.y + self.y, text.color)
     end
+end
+
+cursor = new_type(0)
+
+function cursor.update(self)
+    self.x = stat(32)
+    self.y = stat(33)
 end
 
 -- PARTICLES
