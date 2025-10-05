@@ -102,6 +102,10 @@ function init_options_menu()
     modes:init()
     modes.on_click = move_to_modes_menu
     --
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_main_menu
 end
 
 --
@@ -126,6 +130,10 @@ function init_sound_menu()
     sound_effects:init()
     -- sound_effects.on_click =
     --
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_option_menu
 end
 
 function init_time_menu()
