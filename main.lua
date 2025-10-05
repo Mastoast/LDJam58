@@ -43,6 +43,7 @@ function _init()
             -- badge_count += 1
         end
     end
+    check_badges()
     menuitem(1, "restart progress", function() restart_progress() end)
     --
     init_all_menus()
@@ -51,7 +52,7 @@ function _init()
 end
 
 --[[ TODO
-- start gameplay + unlock condition
+- gameplay visuals
 - better achievement popup w/ effects
 - better achievement popup from menu
 - better tips

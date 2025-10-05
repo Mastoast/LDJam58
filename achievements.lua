@@ -29,6 +29,14 @@ function unlock_badge(code)
     dset(index, 1)
     badge_count += 1
     add(incoming_popups, badge)
+    --
+    check_badges()
+end
+
+function check_badges()
+    if badge_count >= 20 then
+        mode_list["play"].locked = false
+    end
 end
 
 function index_achievements()

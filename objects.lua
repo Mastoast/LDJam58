@@ -200,9 +200,7 @@ function modnumber.on_click(self)
     local target = (cam.y + stat(33) > self.y) and -1 or 1
     local new_value = self.value + target
     if new_value < self.min or new_value > self.max then
-        psfx("error1")
-        spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
-        shake = 3
+        click_error()
         return
     end
     self.value = new_value

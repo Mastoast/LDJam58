@@ -399,7 +399,7 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
-    if badge_count >= 20 then
+    if mode == "play" then
         set_cam(game, true)
     else
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
