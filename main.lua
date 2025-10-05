@@ -53,6 +53,7 @@ end
 - start gameplay + unlock condition
 - better achievement popup w/ effects
 - better achievement popup from menu
+- better tips
 - blindmode inform player better
 - credit menu
 ]]

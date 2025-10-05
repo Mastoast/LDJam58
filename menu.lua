@@ -326,52 +326,58 @@ end
 
 function move_to_main_menu(self)
     psfx("transi2")
-    tcam.x, tcam.y = main_menu.x, main_menu.y
+    set_cam(main_menu)
     start_intro(self)
 end
 
 function move_to_achievements(self)
     psfx("transi1")
-    tcam.x, tcam.y = badges_menu.x, badges_menu.y
+    set_cam(badges_menu)
     achievement_achievement(self)
 end
 
 function move_to_option_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_menu.x, options_menu.y
+    set_cam(options_menu)
 end
 
 function move_to_sound_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_sound_menu.x, options_sound_menu.y
+    set_cam(options_sound_menu)
 end
 
 function move_to_time_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_time_menu.x, options_time_menu.y
+    set_cam(options_time_menu)
 end
 
 function move_to_accessibility_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_accessibility_menu.x, options_accessibility_menu.y
+    set_cam(options_accessibility_menu)
 end
 
 function move_to_modes_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_modes_menu.x, options_modes_menu.y
+    set_cam(options_modes_menu)
 end
 
 function move_to_credits(self)
     psfx("transi1")
-    tcam.x, tcam.y = credits_screen.x, credits_screen.y
+    set_cam(credits_screen)
 end
 
 function move_to_splash_screen(self)
     psfx("transi1")
-    tcam.x, tcam.y = splash_screen.x, splash_screen.y
+    set_cam(splash_screen)
 end
 
-
+function set_cam(coords, tp)
+    tp = tp or false
+    tcam.x, tcam.y = coords.x, coords.y
+    if tp then
+        cam.x, cam.y = coords.x, coords.y
+    end
+end
 
 -- unlock achievements
 
@@ -386,10 +392,14 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
-    local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
-    txt.text = "switch to play mode to start"
-    click_error()
-    unlock_badge("start1")
+    if badge_count >= 20 then
+        set_cam(game, true)
+    else
+        local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
+        txt.text = "switch to play mode to start"
+        click_error()
+        unlock_badge("start1")
+    end
 end
 
 function sound_down(self)
