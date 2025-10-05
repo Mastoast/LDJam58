@@ -15,6 +15,9 @@ function init_all_menus()
     init_achievements_menu()
     init_options_menu()
     init_sound_menu()
+    init_time_menu()
+    init_modes_menu()
+
 end
 
 function init_splash_screen_menu()
@@ -140,6 +143,25 @@ function init_time_menu()
     --
 end
 
+function init_modes_menu()
+    local x, y = options_modes_menu.x + 0, options_modes_menu.y + 0
+    local normal = create(text, x + 64, y + 40)
+    normal.text = "normal mode"
+    normal.is_centered = true
+    normal:init()
+   -- lumberjack.on_click = 
+    local lumberjack = create(text, x + 64, y + 40)
+    lumberjack.text = "lumberjack mode"
+    lumberjack.is_centered = true
+    lumberjack:init()
+   -- lumberjack.on_click = 
+    local boot = create(text, x + 64, y + 48)
+    boot.text = "boot mode"
+    boot.is_centered = true
+    boot:init()
+   -- boot.on_click = 
+    --
+end
 
 -- access menus
 
