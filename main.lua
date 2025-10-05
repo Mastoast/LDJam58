@@ -16,6 +16,14 @@ function _init()
     particles = {}
     incoming_popups = {}
     badge_count = 0
+    mode = "normal"
+
+    mode_list = {
+    normal = {tile = 16},
+    lumberjack = {tile = 32},
+    boot = {tile = 48}
+    }
+    printable = mode_list["lumberjack"].tile
     --
     -- saves
     cartdata("mastoast_achievements_v1")
@@ -129,7 +137,7 @@ function _draw()
     -- UI
     if gstate == 2 then draw_popup() end
     mouse:draw()
-    --print(printable, cam.x + 80, cam.y + 120, -4)
+    print(printable, cam.x + 80, cam.y + 120, -4)
 end
 
 -- UTILS
