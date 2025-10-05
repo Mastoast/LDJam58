@@ -9,6 +9,15 @@ credits_screen = { x = 384, y = 384}
 splash_screen = {x = -256, y = 0}
 game = { x = 512, y = 512}
 
+function init_all_menus()
+    init_level()
+    init_splash_screen_menu()
+    init_main_menu()
+    init_achievements_menu()
+    init_options_menu()
+    init_sound_menu()
+end
+
 function init_splash_screen_menu()
     local x, y = splash_screen.x + 0, splash_screen.y + 0
     local title = create(text, x + 64, y + 32)

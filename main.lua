@@ -12,11 +12,7 @@ function _init()
     tcam = {x = splash_screen.x, y = splash_screen.y}
     printable = 0
     --
-    init_level()
-    init_splash_screen_menu()
-    init_main_menu()
-    init_achievements_menu()
-    init_options_menu()
+    init_all_menus()
     mouse = create(cursor, -500, -500)
     test = create(asprite, cam.x, cam.y)
     printh("NEW RUN ===================")
