@@ -18,6 +18,18 @@ all_achievements = {
     {code = "test8", name ="\^t\^wkick the bucket", description ="are you proud of yourself?", tip = "it's literal, try the foot mode." },
     {code = "test9", name ="\^t\^ware you lying to me?", description = "è_é", tip = "the the hour to something impossible."},
     {code = "blind", name ="\^t\^wsecret mission", description = "you successfully prevented//the heist using//the 8 baboons", tip = ""},
+    {code = "birthday", name ="\^t\^wbirthday!", description = "it's your birthday, happy birthday!", tip = ""},
+    {code = "birthday_today", name ="\^t\^wyou're born when?!", description = "you look suspiciously old for your age.", tip = ""},
+    {code = "merry_christmas", name ="\^t\^wmerry_christmas!", description = "only coal for you!", tip = "have you been good this year?"},
+    {code = "marty_mcfly", name ="\^t\^w1.21 gigawatts.", description = "what the hell is a gigawatt?", tip = "ask marty."},
+    {code = "star_wars", name ="\^t\^wbe with you.", description = "I like the phantom menace.", tip = "don't sue us disney"},
+    {code = "parks_and_rec", name ="\^t\^wtreat yo' self day", description = "I'll take a Greasy Lard Bomb please!", tip = "I heard pawnee was great at this time of the year"},
+    {code = "groundhog_day", name ="\^t\^wtimelooping woodchuck", description = "you got out of the loop!", tip = ""},
+    {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "you've got to master them all to become the avatar.", tip = "water isn't so bad."},
+    {code = "terminator_two", name ="\^t\^wthe judgement day", description = "hasta la vista baby", tip = "he said he would be back."},
+    {code = "die_hard", name ="\^t\^who ho ho, now I have a machine gun", description = "no it really is a christmas movie!", tip = "it's a christmas movie !"},
+
+    {code = "konami", name ="\^t\^wkonami code", description = "such an og!", tip = ""},
     --{code = "", name ="", description = "", tip = ""},
 }
 
