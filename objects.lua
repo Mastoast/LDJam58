@@ -168,6 +168,44 @@ function asprite.draw(self)
     sspr((f.spr % 16) * 8, flr(f.spr \ 16) * 8, self.hit_w, self.hit_h, self.x, self.y, self.hit_w * self.size, self.hit_h * self.size, f.fx, f.fy)
 end
 
+modnumber = new_type(0)
+modnumber.value = 0
+modnumber.c = 7
+modnumber.sc = 9
+modnumber.min = 0
+modnumber.max = 100
+
+function modnumber.init(self)
+    self.hit_h = 20
+    self.hit_y = -8
+    self.hit_w = #tostr(self.max)*4-1
+end
+
+function modnumber.draw(self)
+    local target = (cam.y + stat(33) > self.y) and "down" or "up"
+    local upc = (self.hover and target == "up") and self.sc or self.c
+    local downc = (self.hover and target == "down") and self.sc or self.c
+    local s = tostr(self.value)
+    local btnx = self.x + self.hit_w/2 - 2
+    print("⬆️", btnx + 1, self.y - 6, 0)
+    print("⬆️", btnx, self.y - 7, upc)
+    print(s, self.x, self.y, self.c)
+    print("⬇️", btnx + 1, self.y + 6+1, 0)
+    print("⬇️", btnx, self.y + 6, downc)
+end
+
+function modnumber.on_click(self)
+    local target = (cam.y + stat(33) > self.y) and -1 or 1
+    local new_value = self.value + target
+    if new_value < self.min or new_value > self.max then
+        psfx("error1")
+        spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
+        shake = 3
+        return
+    end
+    self.value = new_value
+end
+
 -- PARTICLES
 particles = {}
 

@@ -142,6 +142,7 @@ function _draw()
     -- UI
     if gstate == 2 then draw_popup() end
     mouse:draw()
+    printable = stat(32).." "..stat(33)
     print(printable, cam.x + 80, cam.y + 120, -4)
 end
 
@@ -162,7 +163,7 @@ function print_centered(str, x, y, col, w, ui)
         else
             print(strs[i+1], x - length, y + i * size*2, col)
         end
-    end    
+    end
 end
 
 -- \f P0 : foreground color
