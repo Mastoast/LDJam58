@@ -24,6 +24,7 @@ function text.init(self)
 end
 
 function text.draw(self)
+    if self.text == "" then return end
     if self.is_centered then
         print_centered(self.text, self.x + 1, self.y + 1, 0, self.wide)
         print_centered(self.text, self.x, self.y, self.color, self.wide)

@@ -89,8 +89,12 @@ function update_level()
         o.hover = on_cursor(o)
         o:update()
         
-        if btnp(❎) and o.hover then
-            o:on_click()
+        if o.hover then
+            if btnp(❎) then
+                o:on_click(❎)
+            elseif btnp(🅾️) then
+                o:on_right_click(🅾️)
+            end
         end
 
         if o.destroyed then
