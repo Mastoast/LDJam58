@@ -20,9 +20,12 @@ function _init()
     printh("NEW RUN ===================")
 end
 
--- gstate
--- 1 = Menu
--- 2 = popup
+--[[
+gstate
+1 = Menu
+2 = popup
+]]
+
 
 function init_level()
     gtime = 0
@@ -142,13 +145,17 @@ function lerp(start,finish,t)
 end
 
 -- print at center
-function print_centered(str, x, y, col, w)
-    local size = w and 4 or 2
+function print_centered(str, x, y, col, w, ui)
+    local size = w and 3 or 2
     local strs = split(str, "//")
     for i=0, #strs-1 do
         local length = #(strs[i+1]) * size - size/2
-        print(strs[i+1], x - length, y + i * size*2, col)
-    end
+        if ui then
+            print(strs[i+1], cam.x + 64 - length, cam.y + y + i * size*2, col)
+        else
+            print(strs[i+1], x - length, y + i * size*2, col)
+        end
+    end    
 end
 
 -- \f P0 : foreground color
