@@ -142,7 +142,6 @@ function init_sound_menu()
     local sound_effects_cb = create(checkbox, sound_effects.x  - 40, sound_effects.y-1)
     sound_effects_cb.checked = true
     sound_effects_cb.on_click = function(self)
-        printh(self.checked)
         checkbox.on_click(self)
         sfx_on = self.checked
     end
@@ -155,18 +154,48 @@ end
 
 function init_time_menu()
     local x, y = options_time_menu.x + 0, options_time_menu.y + 0
-    local date = create(text, x + 64, y + 32)
+    local date = create(text, x + 64, y + 10)
     date.text = "date"
     date.is_centered = true
     date:init()
     date.selectable = false
-    --date.on_click = 
-    local hour = create(text, x + 64, y + 42)
-    hour.text = "hour"
-    hour.is_centered = true
-    hour:init()
-    hour.selectable = false
-    --hour.on_click =
+    --
+    local year = create(modnumber, x + 35, y + 30)
+    year.value = 1993
+    year.min = 1900
+    year.max = 2050
+    year:init()
+    local month = create(modnumber, x + 60, y + 30)
+    month.value = 10
+    month.min = 1
+    month.max = 12
+    month:init()
+    local day = create(modnumber, x + 80, y + 30)
+    day.value = 23
+    day.min = 1
+    day.max = 31
+    day:init()
+    --
+    local birthday = create(text, x + 64, y + 64)
+    birthday.text = "your birthday"
+    birthday.is_centered = true
+    birthday:init()
+    birthday.selectable = false
+    local year = create(modnumber, x + 35, y + 84)
+    year.value = 1989
+    year.min = 1900
+    year.max = 2050
+    year:init()
+    local month = create(modnumber, x + 60, y + 84)
+    month.value = 12
+    month.min = 1
+    month.max = 12
+    month:init()
+    local day = create(modnumber, x + 80, y + 84)
+    day.value = 31
+    day.min = 1
+    day.max = 31
+    day:init()
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
