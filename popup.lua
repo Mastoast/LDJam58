@@ -1,6 +1,6 @@
-function init_popup(achievement)
+function init_popup(achievement, anim_time)
     ptime = 0
-    panim_time = 20
+    panim_time = anim_time or (achievement.unlocked and 180) or 15
     pratio = 0
     popup_objects = {}
     gstate = 2

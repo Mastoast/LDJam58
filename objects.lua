@@ -118,20 +118,25 @@ function badge.draw(self)
     color = achievement.unlocked and 9 or 1
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
     if self.hover then
+        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, color)
         if achievement.unlocked then
             -- print(achievement.name, self.x, self.y + 10)
             -- print(achievement.description, self.x, self.y + 18)
         else
-            print(achievement.tip, self.x, self.y + 10)
+            --print(achievement.tip, self.x, self.y + 10)
         end
     end
 end
 
 function badge.on_click(self)
     local achievement = all_achievements[self.achievement_index]
-    if achievement.unlocked then
-        add(incoming_popups, achievement)
-    end
+    init_popup(achievement, 7)
+    psfx("ko1")
+end
+
+function badge.on_hover(self)
+    local fx = {"bip1", "bip2", "bip3", "bip4", "bip5"}
+    psfx(rchoice(fx))
 end
 
 -- animated sprite

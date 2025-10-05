@@ -23,6 +23,7 @@ function object.draw(self)
 end
 function object.on_click(self) end
 function object.on_right_click(self) end
+function object.on_hover(self) end
 
 function object.move_x(self, x, on_collide)
     self.remainder_x += x

@@ -58,6 +58,7 @@ function init_main_menu()
     achievements.on_click = move_to_achievements
     local badgecnt = create(text, x + 64, 64)
     badgecnt.is_centered = false
+    badgecnt.selectable = false
     badgecnt.update = function(self)
         self.text = "(" .. badge_count .. "|" .. tostring(#all_achievements) .. ")"
         self:init()
