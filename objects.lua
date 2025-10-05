@@ -225,7 +225,7 @@ function notif.draw(self)
     print("\#8\^#"..self.text, cam.x, cam.y + 122, self.c)
 end
 
-player = new_type(3)
+player = new_type(100)
 player.speed = 0.8
 
 function player.update(self)
