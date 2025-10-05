@@ -18,6 +18,7 @@ function _init()
     init_achievements_menu()
     init_options_menu()
     mouse = create(cursor, -500, -500)
+    test = create(asprite, cam.x, cam.y)
     printh("NEW RUN ===================")
 end
 
