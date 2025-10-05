@@ -1,4 +1,5 @@
 function _init()
+    printh("NEW RUN ===================")
     -- enable mouse
     poke(0x5f2d, 3)
     -- disable key repeat
@@ -46,7 +47,7 @@ function _init()
     --
     init_all_menus()
     mouse = create(cursor, -500, -500)
-    printh("NEW RUN ===================")
+    printh("END INIT ================")
 end
 
 --[[ TODO

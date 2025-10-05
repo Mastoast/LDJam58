@@ -18,6 +18,7 @@ function init_all_menus()
     init_time_menu()
     init_modes_menu()
     init_accessibility_menu()
+    init_gameplay()
 end
 
 function init_splash_screen_menu()
@@ -275,6 +276,12 @@ function init_accessibility_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_option_menu
+end
+
+function init_gameplay()
+    local ply = create(player, game.x + 64, game.y + 64)
+    local plyt = create(text, game.x + 8, game.y + 112)
+    ply.target = plyt
 end
 
 -- stuff
