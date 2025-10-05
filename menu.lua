@@ -153,7 +153,7 @@ end
 
 function init_modes_menu()
     local x, y = options_modes_menu.x + 0, options_modes_menu.y + 0
-    local normal = create(text, x + 64, y + 40)
+    local normal = create(text, x + 64, y + 32)
     normal.text = "normal mode"
     normal.is_centered = true
     normal:init()
