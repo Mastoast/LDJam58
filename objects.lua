@@ -56,7 +56,7 @@ function button.init(self)
     self.hit_h = 8 + self.margin*2
     self.hit_w = #self.text*4 + self.margin*2
     if self.is_centered then
-        self.hit_x = - (#self.text)*2
+        --self.hit_x = - (#self.text)*2
     end
     self.hit_y = -2
 end
@@ -89,8 +89,10 @@ end
 
 checkbox_mode = new_type(64)
 checkbox_mode.color = 7
+checkbox_mode.sc = 5
 function checkbox_mode.draw(self)
-    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, self.color)
+    local color = mode_list[self.mode].locked and self.sc or self.color
+    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, color)
     if self.mode == mode then
         spr(self.spr, self.x, self.y)
     end
@@ -198,14 +200,43 @@ function modnumber.on_click(self)
     local target = (cam.y + stat(33) > self.y) and -1 or 1
     local new_value = self.value + target
     if new_value < self.min or new_value > self.max then
-        psfx("error1")
-        spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
-        shake = 3
+        click_error()
         return
     end
     self.value = new_value
     -- psfx("click1")
     on_date_change()
+end
+
+notif = new_type(0)
+notif.text = ""
+notif.c = 15
+notif.sc = 9
+notif.l = 140
+
+function notif.update(self)
+    self.l -= 1
+    if self.l <= 0 then
+        del(objects, self)
+    end
+end
+
+function notif.draw(self)
+    print("\#8\^#"..self.text, cam.x, cam.y + 122, self.c)
+end
+
+player = new_type(3)
+player.speed = 0.8
+
+function player.update(self)
+    if btn(0) then self.x -= self.speed end
+    if btn(1) then self.x += self.speed end
+    if btn(2) then self.y -= self.speed end
+    if btn(3) then self.y += self.speed end
+    if self:overlaps(self.target) then
+        set_cam(main_menu, true)
+        self.x, self.y = game.x + 64, game.y + 64
+    end
 end
 
 -- PARTICLES

@@ -1,4 +1,5 @@
 function _init()
+    printh("NEW RUN ===================")
     -- enable mouse
     poke(0x5f2d, 3)
     -- disable key repeat
@@ -23,7 +24,8 @@ function _init()
     mode_list = {
         normal = {tile = 16},
         lumberjack = {tile = 48},
-        boot = {tile = 32}
+        boot = {tile = 32},
+        play = {tile = 16, locked = true}
     }
     tday = {}
     bday = {}
@@ -37,16 +39,26 @@ function _init()
     -- load save
     for index = 1, #all_achievements do
         if dget(index) == 1 then
-            all_achievements[index].unlocked = true
-            badge_count += 1
+            -- all_achievements[index].unlocked = true
+            -- badge_count += 1
         end
     end
+    check_badges()
     menuitem(1, "restart progress", function() restart_progress() end)
     --
     init_all_menus()
     mouse = create(cursor, -500, -500)
-    printh("NEW RUN ===================")
+    printh("END INIT ================")
 end
+
+--[[ TODO
+- gameplay visuals
+- better achievement popup w/ effects
+- better achievement popup from menu
+- better tips
+- blindmode inform player better
+- credit menu
+]]
 
 --[[
 gstate
@@ -147,7 +159,7 @@ function _draw()
     if gstate == 2 then draw_popup() end
     mouse:draw()
     printable = stat(32).." "..stat(33)
-    print(printable, cam.x + 80, cam.y + 120, -4)
+    print(printable, cam.x + 80, cam.y, -4)
 end
 
 -- UTILS

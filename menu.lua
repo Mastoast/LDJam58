@@ -18,6 +18,7 @@ function init_all_menus()
     init_time_menu()
     init_modes_menu()
     init_accessibility_menu()
+    init_gameplay()
 end
 
 function init_splash_screen_menu()
@@ -37,7 +38,7 @@ end
 function init_main_menu()
     local x, y = main_menu.x + 0, main_menu.y + 0
     local start = create(text, 64, 32)
-    start.text = "start"
+    start.text = "new game"
     start.is_centered = true
     start:init()
     start.on_click = start_game
@@ -220,7 +221,6 @@ function init_modes_menu()
     normal_checkbox.on_click = switch_mode
     normal_checkbox.mode = "normal"
 
-   -- lumberjack.on_click = 
     local lumberjack = create(text, x + 64, y + 42)
     lumberjack.text = "lumberjack mode"
     lumberjack.is_centered = true
@@ -238,7 +238,16 @@ function init_modes_menu()
     local boot_checkbox = create(checkbox_mode, boot.x  - 40, boot.y-1)
     boot_checkbox.on_click = switch_mode
     boot_checkbox.mode = "boot"
-   -- boot.on_click = 
+
+    local play = create(text, x + 64, y + 62)
+    play.text = "play mode"
+    play.is_centered = true
+    play:init()
+    play.selectable = false
+    local play_cb = create(checkbox_mode, play.x  - 40, play.y-1)
+    play_cb.on_click = switch_mode
+    play_cb.mode = "play"
+
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
@@ -269,6 +278,12 @@ function init_accessibility_menu()
     bckbtn.on_right_click = move_to_option_menu
 end
 
+function init_gameplay()
+    local ply = create(player, game.x + 64, game.y + 64)
+    local plyt = create(text, game.x + 8, game.y + 112)
+    ply.target = plyt
+end
+
 -- stuff
 
 function update_colorblind_mode()
@@ -294,7 +309,13 @@ function colorblind_seq()
 end
 
 function switch_mode(self)
-    mode = self.mode
+    if mode_list[self.mode].locked then
+        local n = create(notif, 0, 0)
+        n.text = "get 20 achievements to unlock"
+        click_error()
+    else
+        mode = self.mode
+    end
 end
 
 function on_date_change()
@@ -334,52 +355,58 @@ end
 
 function move_to_main_menu(self)
     psfx("transi2")
-    tcam.x, tcam.y = main_menu.x, main_menu.y
+    set_cam(main_menu)
     start_intro(self)
 end
 
 function move_to_achievements(self)
     psfx("transi1")
-    tcam.x, tcam.y = badges_menu.x, badges_menu.y
+    set_cam(badges_menu)
     achievement_achievement(self)
 end
 
 function move_to_option_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_menu.x, options_menu.y
+    set_cam(options_menu)
 end
 
 function move_to_sound_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_sound_menu.x, options_sound_menu.y
+    set_cam(options_sound_menu)
 end
 
 function move_to_time_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_time_menu.x, options_time_menu.y
+    set_cam(options_time_menu)
 end
 
 function move_to_accessibility_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_accessibility_menu.x, options_accessibility_menu.y
+    set_cam(options_accessibility_menu)
 end
 
 function move_to_modes_menu(self)
     psfx("transi1")
-    tcam.x, tcam.y = options_modes_menu.x, options_modes_menu.y
+    set_cam(options_modes_menu)
 end
 
 function move_to_credits(self)
     psfx("transi1")
-    tcam.x, tcam.y = credits_screen.x, credits_screen.y
+    set_cam(credits_screen)
 end
 
 function move_to_splash_screen(self)
     psfx("transi1")
-    tcam.x, tcam.y = splash_screen.x, splash_screen.y
+    set_cam(splash_screen)
 end
 
-
+function set_cam(coords, tp)
+    tp = tp or false
+    tcam.x, tcam.y = coords.x, coords.y
+    if tp then
+        cam.x, cam.y = coords.x, coords.y
+    end
+end
 
 -- unlock achievements
 
@@ -394,10 +421,14 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
-    psfx("error1")
-    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
-    shake = 3
-    unlock_badge("start1")
+    if mode == "play" then
+        set_cam(game, true)
+    else
+        local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
+        txt.text = "switch to play mode to start"
+        click_error()
+        unlock_badge("start1")
+    end
 end
 
 function sound_down(self)
