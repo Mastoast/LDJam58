@@ -228,6 +228,9 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
+    psfx("error1")
+    spawn_particles(5, 3, self.x, self.y, 2)
+    shake = 3
     unlock_badge("start1")
 end
 
