@@ -17,11 +17,12 @@ function _init()
     incoming_popups = {}
     badge_count = 0
     mode = "normal"
+    checkbox_modes = {}
 
     mode_list = {
     normal = {tile = 16},
-    lumberjack = {tile = 32},
-    boot = {tile = 48}
+    lumberjack = {tile = 48},
+    boot = {tile = 32}
     }
     printable = mode_list["lumberjack"].tile
     --

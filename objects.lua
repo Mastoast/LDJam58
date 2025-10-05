@@ -13,6 +13,7 @@ text.is_centered = false
 text.color = 7
 text.hover = false
 text.wide = false
+text.selectable = true
 
 function text.init(self)
     self.hit_h = 8
@@ -28,14 +29,14 @@ function text.draw(self)
     if self.is_centered then
         print_centered(self.text, self.x + 1, self.y + 1, 0, self.wide)
         print_centered(self.text, self.x, self.y, self.color, self.wide)
-        if self.hover then
+        if self.hover and self.selectable then
             print("◆", 64 - 10 - (#self.text * 2), self.y)
             -- print("◆", 64 + 2 + (#self.text * 2), self.y)
         end
     else
         print(self.text, self.x + 1, self.y + 1, 0)
         print(self.text, self.x, self.y, self.color)
-        if self.hover then
+        if self.hover and self.selectable then
             print("◆", self.x - 10, self.y)
         end
     end
@@ -82,7 +83,19 @@ end
 
 function checkbox.on_click(self)
     self.checked = not self.checked
+
 end
+
+
+checkbox_mode = new_type(64)
+checkbox_mode.color = 7
+function checkbox_mode.draw(self)
+    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, self.color)
+    if self.mode == mode then
+        spr(self.spr, self.x, self.y)
+    end
+end
+
 
 -- mouse cursor
 cursor = new_type(16)

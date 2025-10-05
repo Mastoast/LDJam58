@@ -112,18 +112,26 @@ function init_sound_menu()
     general_sound.text = "general sound"
     general_sound.is_centered = true
     general_sound:init()
-    local general_sound_checkbox = create(checkbox, general_sound.x  - 16, general_sound.y)
+    general_sound.selectable = false
+    local general_sound_checkbox = create(checkbox, general_sound.x  - 40, general_sound.y-1)
 
     --general_sound.on_click = 
-    local music = create(text, x + 64, y + 40)
+    local music = create(text, x + 64, y + 42)
     music.text = "music"
     music.is_centered = true
     music:init()
+    music.selectable = false
+
+    local music_checkbox = create(checkbox, music.x  - 40, music.y-1)
+
     --music.on_click =
-    local sound_effects = create(text, x + 64, y + 48)
+    local sound_effects = create(text, x + 64, y + 52)
     sound_effects.text = "effects"
     sound_effects.is_centered = true
     sound_effects:init()
+    sound_effects.selectable = false
+    local sound_effects = create(checkbox, sound_effects.x  - 40, sound_effects.y-1)
+
     -- sound_effects.on_click =
     --
 end
@@ -134,11 +142,13 @@ function init_time_menu()
     date.text = "date"
     date.is_centered = true
     date:init()
+    date.selectable = false
     --date.on_click = 
-    local hour = create(text, x + 64, y + 48)
+    local hour = create(text, x + 64, y + 42)
     hour.text = "hour"
     hour.is_centered = true
     hour:init()
+    hour.selectable = false
     --hour.on_click =
     --
 end
@@ -149,20 +159,38 @@ function init_modes_menu()
     normal.text = "normal mode"
     normal.is_centered = true
     normal:init()
+    normal.selectable = false
+    local normal_checkbox = create(checkbox_mode, normal.x  - 40, normal.y-1)
+    normal_checkbox.on_click = switch_mode
+    normal_checkbox.mode = "normal"
+
    -- lumberjack.on_click = 
-    local lumberjack = create(text, x + 64, y + 40)
+    local lumberjack = create(text, x + 64, y + 42)
     lumberjack.text = "lumberjack mode"
     lumberjack.is_centered = true
     lumberjack:init()
-   -- lumberjack.on_click = 
-    local boot = create(text, x + 64, y + 48)
+    lumberjack.selectable = false
+    local lumberjack_checkbox = create(checkbox_mode, lumberjack.x  - 40, lumberjack.y-1)
+    lumberjack_checkbox.on_click = switch_mode
+    lumberjack_checkbox.mode = "lumberjack"
+
+    local boot = create(text, x + 64, y + 52)
     boot.text = "boot mode"
     boot.is_centered = true
     boot:init()
+    boot.selectable = false
+    local boot_checkbox = create(checkbox_mode, boot.x  - 40, boot.y-1)
+    boot_checkbox.on_click = switch_mode
+    boot_checkbox.mode = "boot"
    -- boot.on_click = 
     --
 end
 
+-- stuff
+
+function switch_mode(self)
+    mode = self.mode
+end
 -- access menus
 
 function move_to_main_menu(self)
