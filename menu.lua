@@ -60,24 +60,62 @@ function init_options_menu()
     sound.text = "sound"
     sound.is_centered = true
     sound:init()
-    --sound.on_click =
+    sound.on_click = move_to_sound_menu
     local time = create(text, x + 64, y + 40)
     time.text = "time"
     time.is_centered = true
     time:init()
-    --time.on_click =
+    time.on_click = move_to_time_menu
     local accessibility = create(text, x + 64, y + 48)
     accessibility.text = "accessibility"
     accessibility.is_centered = true
     accessibility:init()
-    --accessibility.on_click =
+    accessibility.on_click = move_to_accessibility_menu
     local modes = create(text, x + 64, y + 56)
     modes.text = "modes"
     modes.is_centered = true
     modes:init()
-    --modes.on_click =
+    modes.on_click = move_to_modes_menu
     --
 end
+
+--
+
+function init_sound_menu()
+    local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
+    local general_sound = create(text, x + 64, y + 32)
+    general_sound.text = "general sound"
+    general_sound.is_centered = true
+    general_sound:init()
+    --general_sound.on_click = 
+    local music = create(text, x + 64, y + 40)
+    music.text = "music"
+    music.is_centered = true
+    music:init()
+    --music.on_click =
+    local sound_effects = create(text, x + 64, y + 48)
+    sound_effects.text = "effects"
+    sound_effects.is_centered = true
+    sound_effects:init()
+    -- sound_effects.on_click =
+    --
+end
+
+function init_time_menu()
+    local x, y = options_time_menu.x + 0, options_time_menu.y + 0
+    local date = create(text, x + 64, y + 32)
+    date.text = "date"
+    date.is_centered = true
+    date:init()
+    --date.on_click = 
+    local hour = create(text, x + 64, y + 48)
+    hour.text = "hour"
+    hour.is_centered = true
+    hour:init()
+    --hour.on_click =
+    --
+end
+
 
 -- access menus
 
