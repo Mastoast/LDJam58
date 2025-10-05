@@ -83,14 +83,12 @@ end
 
 function move_to_main_menu(self)
     tcam.x, tcam.y = main_menu.x, main_menu.y
-    unlock_badge("intro1")
-    unlock_badge("intro2")
-    unlock_badge("intro3")
+    start_intro(self)
 end
 
 function move_to_achievements(self)
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
-    unlock_badge("badge")
+    achievement_achievement(self)
 end
 
 function move_to_option_menu(self)
@@ -124,6 +122,16 @@ end
 
 
 -- unlock achievements
+
+function start_intro(self)
+    unlock_badge("intro1")
+    unlock_badge("intro2")
+    unlock_badge("intro3")
+end
+
+function achievement_achievement(self)
+unlock_badge("badge")
+end
 
 function start_game(self)
     unlock_badge("start1")
