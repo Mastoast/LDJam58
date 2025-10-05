@@ -67,7 +67,7 @@ function button.draw(self)
     print(self.text, self.x, self.y, self.ctxt)
 end
 
-checkbox = new_type(35)
+checkbox = new_type(64)
 checkbox.checked = false
 checkbox.color = 7
 
