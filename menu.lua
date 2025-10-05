@@ -55,6 +55,10 @@ function init_main_menu()
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_splash_screen
 end
 
 function init_achievements_menu()
@@ -67,10 +71,10 @@ function init_achievements_menu()
         badge.achievement_index = i + 1
     end
     --
-    local back_btn = create(text, badges_menu.x + 110, badges_menu.y + 112)
-    back_btn.text = "back"
-    back_btn:init()
-    back_btn.on_click = move_to_main_menu
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_main_menu
 end
 
 --
@@ -212,7 +216,7 @@ function start_intro(self)
 end
 
 function achievement_achievement(self)
-unlock_badge("badge")
+    unlock_badge("badge")
 end
 
 function start_game(self)
