@@ -13,3 +13,17 @@ function psfx(code)
     if not fx then printh("NO SFX: "..code) return end
     sfx(fx.n, -1, fx.offset, fx.length)
 end
+
+
+--[[ MUSICS
+]]
+
+musics = {
+    fanfare = {n = 0}
+}
+
+function pmusic(code)
+    local msc = musics[code]
+    if not msc then printh("NO MUSIC: "..code) return end
+    music(msc)
+end
