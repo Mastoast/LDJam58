@@ -16,13 +16,14 @@ function _init()
     particles = {}
     incoming_popups = {}
     badge_count = 0
+    sfx_on = true
+    music_on = true
+    --
     mode = "normal"
-    checkbox_modes = {}
-
     mode_list = {
-    normal = {tile = 16},
-    lumberjack = {tile = 48},
-    boot = {tile = 32}
+        normal = {tile = 16},
+        lumberjack = {tile = 48},
+        boot = {tile = 32}
     }
 
     --
@@ -35,15 +36,14 @@ function _init()
     -- load save
     for index = 1, #all_achievements do
         if dget(index) == 1 then
-            -- all_achievements[index].unlocked = true
-            -- badge_count += 1
+            all_achievements[index].unlocked = true
+            badge_count += 1
         end
     end
     menuitem(1, "restart progress", function() restart_progress() end)
     --
     init_all_menus()
     mouse = create(cursor, -500, -500)
-    test = create(asprite, cam.x, cam.y)
     printh("NEW RUN ===================")
 end
 

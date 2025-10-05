@@ -102,8 +102,9 @@ cursor = new_type(16)
 
 function cursor.draw(self)
     spr(mode_list[mode].tile, cam.x + stat(32), cam.y + stat(33))
-
 end
+
+
 
 -- achievement badge
 badge = new_type(0)

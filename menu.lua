@@ -82,7 +82,7 @@ end
 function init_options_menu()
     local x, y = options_menu.x + 0, options_menu.y + 0
     local sound = create(text, x + 64, y + 32)
-    sound.text = "sound"
+    sound.text = "audio"
     sound.is_centered = true
     sound:init()
     sound.on_click = move_to_sound_menu
@@ -112,12 +112,12 @@ end
 
 function init_sound_menu()
     local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
-    local general_sound = create(text, x + 64, y + 32)
-    general_sound.text = "general sound"
-    general_sound.is_centered = true
-    general_sound:init()
-    general_sound.selectable = false
-    local general_sound_checkbox = create(checkbox, general_sound.x  - 40, general_sound.y-1)
+    -- local general_sound = create(text, x + 64, y + 32)
+    -- general_sound.text = "general sound"
+    -- general_sound.is_centered = true
+    -- general_sound:init()
+    -- general_sound.selectable = false
+    -- local general_sound_checkbox = create(checkbox, general_sound.x  - 40, general_sound.y-1)
 
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 42)
@@ -126,18 +126,27 @@ function init_sound_menu()
     music:init()
     music.selectable = false
 
-    local music_checkbox = create(checkbox, music.x  - 40, music.y-1)
+    local music_cb = create(checkbox, music.x  - 40, music.y-1)
+    music_cb.checked = true
+    music_cb.on_click = function(self)
+        checkbox.on_click(self)
+        music_on = self.checked
+    end
 
-    --music.on_click =
     local sound_effects = create(text, x + 64, y + 52)
-    sound_effects.text = "effects"
+    sound_effects.text = "sound effects"
     sound_effects.is_centered = true
     sound_effects:init()
     sound_effects.selectable = false
-    local sound_effects = create(checkbox, sound_effects.x  - 40, sound_effects.y-1)
+    
+    local sound_effects_cb = create(checkbox, sound_effects.x  - 40, sound_effects.y-1)
+    sound_effects_cb.checked = true
+    sound_effects_cb.on_click = function(self)
+        printh(self.checked)
+        checkbox.on_click(self)
+        sfx_on = self.checked
+    end
 
-    -- sound_effects.on_click =
-    --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
@@ -159,6 +168,10 @@ function init_time_menu()
     hour.selectable = false
     --hour.on_click =
     --
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_option_menu
 end
 
 function init_modes_menu()
@@ -192,6 +205,10 @@ function init_modes_menu()
     boot_checkbox.mode = "boot"
    -- boot.on_click = 
     --
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_option_menu
 end
 
 -- stuff
@@ -214,30 +231,37 @@ function move_to_achievements(self)
 end
 
 function move_to_option_menu(self)
+    psfx("transi1")
     tcam.x, tcam.y = options_menu.x, options_menu.y
 end
 
 function move_to_sound_menu(self)
+    psfx("transi1")
     tcam.x, tcam.y = options_sound_menu.x, options_sound_menu.y
 end
 
 function move_to_time_menu(self)
+    psfx("transi1")
     tcam.x, tcam.y = options_time_menu.x, options_time_menu.y
 end
 
 function move_to_accessibility_menu(self)
+    psfx("transi1")
     tcam.x, tcam.y = options_accessibility_menu.x, options_accessibility_menu.y
 end
 
 function move_to_modes_menu(self)
+    psfx("transi1")
     tcam.x, tcam.y = options_modes_menu.x, options_modes_menu.y
 end
 
 function move_to_credits(self)
+    psfx("transi1")
     tcam.x, tcam.y = credits_screen.x, credits_screen.y
 end
 
 function move_to_splash_screen(self)
+    psfx("transi1")
     tcam.x, tcam.y = splash_screen.x, splash_screen.y
 end
 
@@ -257,7 +281,7 @@ end
 
 function start_game(self)
     psfx("error1")
-    spawn_particles(5, 3, self.x, self.y, 2)
+    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
     shake = 3
     unlock_badge("start1")
 end

@@ -10,6 +10,7 @@ sfxs = {
 }
 
 function psfx(code)
+    if not sfx_on then return end
     local fx = sfxs[code]
     if not fx then printh("NO SFX: "..code) return end
     sfx(fx.n, -1, fx.offset, fx.length)
@@ -24,6 +25,7 @@ musics = {
 }
 
 function pmusic(code)
+    if not music_on then return end
     local msc = musics[code]
     if not msc then printh("NO MUSIC: "..code) return end
     music(msc, 0, 15)
