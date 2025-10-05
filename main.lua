@@ -23,7 +23,8 @@ function _init()
     mode_list = {
         normal = {tile = 16},
         lumberjack = {tile = 48},
-        boot = {tile = 32}
+        boot = {tile = 32},
+        play = {tile = 16, locked = true}
     }
     tday = {}
     bday = {}
@@ -49,7 +50,7 @@ function _init()
 end
 
 --[[ TODO
-- start gameplay
+- start gameplay + unlock condition
 - better achievement popup w/ effects
 - better achievement popup from menu
 - blindmode inform player better
@@ -155,7 +156,7 @@ function _draw()
     if gstate == 2 then draw_popup() end
     mouse:draw()
     printable = stat(32).." "..stat(33)
-    print(printable, cam.x + 80, cam.y + 120, -4)
+    print(printable, cam.x + 80, cam.y, -4)
 end
 
 -- UTILS

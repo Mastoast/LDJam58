@@ -56,7 +56,7 @@ function button.init(self)
     self.hit_h = 8 + self.margin*2
     self.hit_w = #self.text*4 + self.margin*2
     if self.is_centered then
-        self.hit_x = - (#self.text)*2
+        --self.hit_x = - (#self.text)*2
     end
     self.hit_y = -2
 end
@@ -89,8 +89,10 @@ end
 
 checkbox_mode = new_type(64)
 checkbox_mode.color = 7
+checkbox_mode.sc = 5
 function checkbox_mode.draw(self)
-    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, self.color)
+    local color = mode_list[self.mode].locked and self.sc or self.color
+    rect(self.x, self.y, self.x + self.hit_w-1, self.y + self.hit_h-1, color)
     if self.mode == mode then
         spr(self.spr, self.x, self.y)
     end
@@ -206,6 +208,23 @@ function modnumber.on_click(self)
     self.value = new_value
     -- psfx("click1")
     on_date_change()
+end
+
+notif = new_type(0)
+notif.text = ""
+notif.c = 15
+notif.sc = 9
+notif.l = 140
+
+function notif.update(self)
+    self.l -= 1
+    if self.l <= 0 then
+        del(objects, self)
+    end
+end
+
+function notif.draw(self)
+    print("\#8\^#"..self.text, cam.x, cam.y + 122, self.c)
 end
 
 -- PARTICLES

@@ -37,7 +37,7 @@ end
 function init_main_menu()
     local x, y = main_menu.x + 0, main_menu.y + 0
     local start = create(text, 64, 32)
-    start.text = "start"
+    start.text = "new game"
     start.is_centered = true
     start:init()
     start.on_click = start_game
@@ -220,7 +220,6 @@ function init_modes_menu()
     normal_checkbox.on_click = switch_mode
     normal_checkbox.mode = "normal"
 
-   -- lumberjack.on_click = 
     local lumberjack = create(text, x + 64, y + 42)
     lumberjack.text = "lumberjack mode"
     lumberjack.is_centered = true
@@ -238,7 +237,16 @@ function init_modes_menu()
     local boot_checkbox = create(checkbox_mode, boot.x  - 40, boot.y-1)
     boot_checkbox.on_click = switch_mode
     boot_checkbox.mode = "boot"
-   -- boot.on_click = 
+
+    local play = create(text, x + 64, y + 62)
+    play.text = "play mode"
+    play.is_centered = true
+    play:init()
+    play.selectable = false
+    local play_cb = create(checkbox_mode, play.x  - 40, play.y-1)
+    play_cb.on_click = switch_mode
+    play_cb.mode = "play"
+
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
@@ -294,13 +302,25 @@ function colorblind_seq()
 end
 
 function switch_mode(self)
-    mode = self.mode
+    if mode_list[self.mode].locked then
+        local n = create(notif, 0, 0)
+        n.text = "get 20 achievements to unlock"
+        click_error()
+    else
+        mode = self.mode
+    end
 end
 
 function on_date_change()
     if tday.year.value == bday.year.value then
         printh(tday.year.value)
     end
+end
+
+function click_error()
+    psfx("error1")
+    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
+    shake = 3
 end
 -- access menus
 
@@ -366,9 +386,9 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
-    psfx("error1")
-    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
-    shake = 3
+    local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
+    txt.text = "switch to play mode to start"
+    click_error()
     unlock_badge("start1")
 end
 
