@@ -17,7 +17,8 @@ function init_popup(achievement)
 end
 
 function pop_popups()
-    if #incoming_popups > 0 then
+    local safe_distance = 1
+    if #incoming_popups > 0 and abs(cam.x - tcam.x) < safe_distance and abs(cam.x - tcam.x) < safe_distance then
         init_popup(incoming_popups[1])
         del(incoming_popups, incoming_popups[1])
     end

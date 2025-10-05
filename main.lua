@@ -8,11 +8,12 @@ function _init()
     ndeath = 0
     freeze_time = 0
     shake = 0
-    cam = {x = 0, y = 0, speed = 0.1}
-    tcam = {x = 0, y = 0}
+    cam = {x = splash_screen.x, y = splash_screen.y, speed = 0.1}
+    tcam = {x = splash_screen.x, y = splash_screen.y}
     printable = 0
     --
     init_level()
+    init_splash_screen_menu()
     init_main_menu()
     init_achievements_menu()
     init_options_menu()
@@ -120,7 +121,7 @@ function _draw()
     end
 
     -- draw map
-    map(0, 0, 0, 0, 16, 16)
+    map(0, 48, splash_screen.x, splash_screen.y, 16, 16)
 
     -- draw objects
     for o in all(objects) do
