@@ -1,8 +1,10 @@
 function init_popup(achievement)
     ptime = 0
     panim_time = 20
+    pratio = 0
     popup_objects = {}
     gstate = 2
+    --
     local title = create(text, cam.x + 64, cam.y + 36, 8, 8, popup_objects)
     title.text = achievement.name
     title.is_centered = true
@@ -31,19 +33,8 @@ end
 
 function update_popup()
     ptime += 1
-    -- for o in all(popup_objects) do
+    pratio = min(ptime / panim_time, 1)
 
-    --     o.hover = on_cursor(o)
-    --     o:update()
-        
-    --     if btnp(❎) and o.hover then
-    --         o:on_click()
-    --     end
-
-    --     if o.destroyed then
-    --         del(popup_objects, o)
-    --     end
-    -- end
     if pop_cor and costatus(pop_cor) != 'dead' then
         coresume(pop_cor)
         return
@@ -56,19 +47,23 @@ function popup_animation()
     while ptime < panim_time do
         yield()
     end
-    while not btnp(❎) do
+    local cbtn = create(button, cam.x + 64, cam.y + 90, 8, 8, popup_objects)
+    cbtn.text = "ok"
+    cbtn.c = 9
+    cbtn:init()
+    while not (on_cursor(cbtn) and btnp(❎)) do
+        cbtn.hover = on_cursor(cbtn)
         yield()
     end
     close_popup()
 end
 
 function draw_popup()
-    local ratio = min(ptime / panim_time, 1)
     local mx, my = 16, 16
-    local sx = lerp(0, 128 - mx*2, ratio)
-    local sy = lerp(0, 128 - my*2, ratio)
-    local x = lerp(cam.x + 64, cam.x + mx, ratio)
-    local y = lerp(cam.y + 64, cam.y + my, ratio)
+    local sx = lerp(0, 128 - mx*2, pratio)
+    local sy = lerp(0, 128 - my*2, pratio)
+    local x = lerp(cam.x + 64, cam.x + mx, pratio)
+    local y = lerp(cam.y + 64, cam.y + my, pratio)
     -- fillp(0b0100111001000010)
     fillp(0b1000010100100100)
     rrectfill(x, y, sx, sy, 4, 0x21)
