@@ -62,14 +62,17 @@ function popup_animation()
 end
 
 function draw_popup()
+    local ratio = min(ptime / panim_time, 1)
     local mx, my = 16, 16
-    local sx = lerp(0, 128 - mx*2, min(ptime / panim_time, 1))
-    local sy = lerp(0, 128 - my*2, min(ptime / panim_time, 1))
+    local sx = lerp(0, 128 - mx*2, ratio)
+    local sy = lerp(0, 128 - my*2, ratio)
+    local x = lerp(cam.x + 64, cam.x + mx, ratio)
+    local y = lerp(cam.y + 64, cam.y + my, ratio)
     -- fillp(0b0100111001000010)
     fillp(0b1000010100100100)
-    rrectfill(cam.x + mx, cam.y + my, sx, sy, 4, 0x21)
+    rrectfill(x, y, sx, sy, 4, 0x21)
     fillp()
-    rrect(cam.x + mx, cam.y + my, sx, sy, 4, 13)
+    rrect(x, y, sx, sy, 4, 13)
 
     for o in all(popup_objects) do
         o:draw()

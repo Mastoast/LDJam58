@@ -135,7 +135,7 @@ function _draw()
     -- UI
     if gstate == 2 then draw_popup() end
     mouse:draw()
-    print(printable, cam.x + 80, cam.y + 120, -4)
+    --print(printable, cam.x + 80, cam.y + 120, -4)
 end
 
 -- UTILS
