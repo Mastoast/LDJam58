@@ -116,6 +116,41 @@ function badge.on_click(self)
     end
 end
 
+-- animated sprite
+
+asprite = new_type(0)
+asprite.sprs = {
+    {spr = 66, fx = false, fy = false},
+    {spr = 68, fx = false, fy = false},
+    {spr = 70, fx = false, fy = false},
+    {spr = 72, fx = false, fy = false},
+    {spr = 70, fx = true, fy = false},
+    {spr = 68, fx = true, fy = false}
+}
+asprite.fx = false
+asprite.fy = false
+asprite.spd = 12
+asprite.hit_h = 16
+asprite.hit_w = 16
+
+function asprite.init(self)
+    self.frame = 1
+    self.t = 0
+end
+
+function asprite.update(self)
+    self.t += 1
+    if self.t % self.spd == 0 then
+        self.frame = (self.frame+1) % (#self.sprs + 1)
+        if self.frame == 0 then self.frame = 1 end
+    end
+end
+
+function asprite.draw(self)
+    local f = self.sprs[self.frame]
+    sspr((f.spr % 16) * 8, flr(f.spr \ 16) * 8, self.hit_w, self.hit_h, self.x, self.y, self.hit_w, self.hit_h, f.fx, f.fy)
+end
+
 -- PARTICLES
 particles = {}
 
