@@ -132,6 +132,7 @@ asprite.fy = false
 asprite.spd = 12
 asprite.hit_h = 16
 asprite.hit_w = 16
+asprite.size = 1
 
 function asprite.init(self)
     self.frame = 1
@@ -148,7 +149,7 @@ end
 
 function asprite.draw(self)
     local f = self.sprs[self.frame]
-    sspr((f.spr % 16) * 8, flr(f.spr \ 16) * 8, self.hit_w, self.hit_h, self.x, self.y, self.hit_w, self.hit_h, f.fx, f.fy)
+    sspr((f.spr % 16) * 8, flr(f.spr \ 16) * 8, self.hit_w, self.hit_h, self.x, self.y, self.hit_w * self.size, self.hit_h * self.size, f.fx, f.fy)
 end
 
 -- PARTICLES
