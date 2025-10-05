@@ -10,7 +10,6 @@ splash_screen = {x = -256, y = 0}
 game = { x = 512, y = 512}
 
 function init_all_menus()
-    init_level()
     init_splash_screen_menu()
     init_main_menu()
     init_achievements_menu()
@@ -34,9 +33,6 @@ end
 
 function init_main_menu()
     local x, y = main_menu.x + 0, main_menu.y + 0
-    -- TESTS
-    local test_checkbox = create(checkbox, x + 16, y + 16)
-    --
     local start = create(text, 64, 32)
     start.text = "start"
     start.is_centered = true
@@ -144,11 +140,13 @@ end
 -- access menus
 
 function move_to_main_menu(self)
+    psfx("transi2")
     tcam.x, tcam.y = main_menu.x, main_menu.y
     start_intro(self)
 end
 
 function move_to_achievements(self)
+    psfx("transi1")
     tcam.x, tcam.y = badges_menu.x, badges_menu.y
     achievement_achievement(self)
 end

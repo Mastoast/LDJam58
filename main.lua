@@ -3,6 +3,7 @@ function _init()
     poke(0x5f2d, 3)
     -- disable key repeat
     poke(0x5f5c, -1)
+    --
     gtime = 0
     gstate = 1
     ndeath = 0
@@ -11,6 +12,25 @@ function _init()
     cam = {x = splash_screen.x, y = splash_screen.y, speed = 0.1}
     tcam = {x = splash_screen.x, y = splash_screen.y}
     printable = 0
+    objects = {}
+    particles = {}
+    incoming_popups = {}
+    badge_count = 0
+    --
+    -- saves
+    cartdata("mastoast_achievements_v1")
+    -- -- complete save
+    -- for index = 1, #all_achievements do
+    --     dset(index, 1)
+    -- end
+    -- load save
+    for index = 1, #all_achievements do
+        if dget(index) == 1 then
+            all_achievements[index].unlocked = true
+            badge_count += 1
+        end
+    end
+    menuitem(1, "restart progress", function() restart_progress() end)
     --
     init_all_menus()
     mouse = create(cursor, -500, -500)
@@ -23,30 +43,6 @@ gstate
 1 = Menu
 2 = popup
 ]]
-
-
-function init_level()
-    gtime = 0
-    objects = {}
-    particles = {}
-    incoming_popups = {}
-    badge_count = 0
-
-    -- saves
-    cartdata("mastoast_achievements_v1")
-    -- -- complete save
-    -- for index = 1, #all_achievements do
-    --     dset(index, 1)
-    -- end
-    -- load save
-    for index = 1, #all_achievements do
-        if dget(index) == 1 then
-            -- all_achievements[index].unlocked = true
-            -- badge_count += 1
-        end
-    end
-    menuitem(1, "restart progress", function() restart_progress() end)
-end
 
 function restart_progress()
     --reset save
