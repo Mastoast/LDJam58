@@ -23,13 +23,13 @@ end
 function init_splash_screen_menu()
     local x, y = splash_screen.x + 0, splash_screen.y + 0
     local title = create(text, x + 64, y + 32)
-    title.text = "\^t\^wnom style"
+    title.text = "\^t\^wshadow sword       //// \^t\^    iv"
     title.is_centered = true
-    title.color = 12
+    title.color = 10
     title:init()
-    local startbtn = create(button, x + 48, y + 72)
+    local startbtn = create(button, x + 45, y + 72)
     startbtn.text = "start game"
-    startbtn.is_centered = false
+    startbtn.is_centered = true
     startbtn:init()
     startbtn.on_click = move_to_main_menu
 end
