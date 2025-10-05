@@ -52,6 +52,7 @@ end
 gstate
 1 = Menu
 2 = popup
+3 = colorblind mode
 ]]
 
 function restart_progress()
@@ -69,6 +70,8 @@ function _update60()
         update_level()
     elseif gstate == 2 then
         update_popup()
+    elseif gstate == 3 then
+        update_colorblind_mode()
     end
 end
 
@@ -119,7 +122,7 @@ end
 
 function _draw()
     cls(0)
-    
+    if gstate == 3 then return end
     -- camera
     if shake > 0 then
         camera(cam.x - 2 + rnd(5), cam.y - 2 + rnd(5))
@@ -181,6 +184,11 @@ end
 -- random range
 function rrnd(min, max)
     return flr(min + rnd(max - min))
+end
+
+-- random choice from table
+function rchoice(table)
+    return table[flr(rnd(#table)) + 1]
 end
 
 -- find index for element in table

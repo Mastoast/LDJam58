@@ -10,7 +10,7 @@ function init_popup(achievement)
     title.is_centered = true
     title.wide = true
     title.color = 9
-    local desc = create(text, cam.x + 64, cam.y + 72, 8, 8, popup_objects)
+    local desc = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
     desc.text = achievement.description
     desc.is_centered = true
     desc.color = 7

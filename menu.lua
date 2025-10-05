@@ -248,11 +248,20 @@ end
 
 function init_accessibility_menu()
     local x, y = options_accessibility_menu.x, options_accessibility_menu.y
-    local blindtxt = create(text, x + 64, y + 42)
+
+    local blindtxt = create(text, x + 64, y + 56)
     blindtxt.text = "colorblind mode"
-    blindtxt.is_centered = false
+    blindtxt.is_centered = true
     blindtxt:init()
     blindtxt.selectable = false
+    local blind_cb = create(checkbox, blindtxt.x  - 40, blindtxt.y-1)
+    blind_cb.checked = false
+    blind_cb.on_click = function(self)
+        psfx("error2")
+        unlock_badge("blind")
+        gstate = 3
+        blind_cor = cocreate(colorblind_seq)
+    end
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
@@ -261,6 +270,28 @@ function init_accessibility_menu()
 end
 
 -- stuff
+
+function update_colorblind_mode()
+    if blind_cor and costatus(blind_cor) != 'dead' then
+        coresume(blind_cor)
+        return
+    else
+        blind_cor = nil
+    end
+end
+
+function colorblind_seq()
+    local clickcnt = 0
+    while clickcnt < 12 do
+        if btnp(❎) then
+            prand_sfx()
+            clickcnt += 1
+        end
+        yield()
+    end
+    psfx("error2")
+    gstate = 1
+end
 
 function switch_mode(self)
     mode = self.mode

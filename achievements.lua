@@ -17,6 +17,7 @@ all_achievements = {
     {code = "test7", name ="\^t\^wthe end is never the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "test8", name ="\^t\^wkick the bucket", description ="are you proud of yourself?", tip = "it's literal, try the foot mode." },
     {code = "test9", name ="\^t\^ware you lying to me?", description = "è_é", tip = "the the hour to something impossible."},
+    {code = "blind", name ="\^t\^wsecret mission", description = "you successfully prevented//the heist using//the 8 baboons", tip = ""},
     --{code = "", name ="", description = "", tip = ""},
 }
 
