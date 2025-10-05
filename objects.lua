@@ -204,6 +204,8 @@ function modnumber.on_click(self)
         return
     end
     self.value = new_value
+    -- psfx("click1")
+    on_date_change()
 end
 
 -- PARTICLES

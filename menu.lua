@@ -17,7 +17,7 @@ function init_all_menus()
     init_sound_menu()
     init_time_menu()
     init_modes_menu()
-
+    init_accessibility_menu()
 end
 
 function init_splash_screen_menu()
@@ -175,6 +175,9 @@ function init_time_menu()
     day.min = 1
     day.max = 31
     day:init()
+    tday.year = year
+    tday.month = month
+    tday.day = day
     --
     local birthday = create(text, x + 64, y + 64)
     birthday.text = "your birthday"
@@ -196,6 +199,9 @@ function init_time_menu()
     day.min = 1
     day.max = 31
     day:init()
+    bday.year = year
+    bday.month = month
+    bday.day = day
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
@@ -240,10 +246,30 @@ function init_modes_menu()
     bckbtn.on_right_click = move_to_option_menu
 end
 
+function init_accessibility_menu()
+    local x, y = options_accessibility_menu.x, options_accessibility_menu.y
+    local blindtxt = create(text, x + 64, y + 42)
+    blindtxt.text = "colorblind mode"
+    blindtxt.is_centered = false
+    blindtxt:init()
+    blindtxt.selectable = false
+    --
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_option_menu
+end
+
 -- stuff
 
 function switch_mode(self)
     mode = self.mode
+end
+
+function on_date_change()
+    if tday.year.value == bday.year.value then
+        printh(tday.year.value)
+    end
 end
 -- access menus
 
