@@ -52,7 +52,6 @@ function _init()
 end
 
 --[[ TODO
-- better tips
 - gameplay visuals
 - better achievement popup w/ effects
 - credit menu
