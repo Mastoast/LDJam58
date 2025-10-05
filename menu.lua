@@ -16,11 +16,11 @@ function init_splash_screen_menu()
     title.is_centered = true
     title.color = 12
     title:init()
-    local start = create(text, x + 64, y + 72)
-    start.text = "start game"
-    start.is_centered = true
-    start:init()
-    start.on_click = move_to_main_menu
+    local startbtn = create(button, x + 48, y + 72)
+    startbtn.text = "start game"
+    startbtn.is_centered = false
+    startbtn:init()
+    startbtn.on_click = move_to_main_menu
 end
 
 function init_main_menu()
