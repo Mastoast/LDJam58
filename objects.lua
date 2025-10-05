@@ -58,7 +58,7 @@ function text.draw(self)
     end
 end
 
-checkbox = new_type(0, clickable)
+checkbox = new_type(35, clickable)
 checkbox.spr = nil
 checkbox.checked = false
 checkbox.color = 7
