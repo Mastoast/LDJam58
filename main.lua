@@ -17,7 +17,7 @@ function _init()
     init_main_menu()
     init_achievements_menu()
     init_options_menu()
-    mouse = create(cursor, -120, -120)
+    mouse = create(cursor, -500, -500)
     printh("NEW RUN ===================")
 end
 

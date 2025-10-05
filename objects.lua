@@ -5,21 +5,7 @@ function rectangle.draw(self)
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, self.color)
 end
 
-clickable = new_type(0)
-clickable.spr = nil
-clickable.solid = false
-
-function clickable.update(self)
-end
-
-function clickable.draw(self)
-    object.draw(self)
-end
-
-function clickable.on_hover(self) end
-function clickable.on_click(self) end
-
-text = new_type(0, clickable)
+text = new_type(0)
 text.spr = nil
 text.solid = false
 text.text = ""
@@ -35,10 +21,6 @@ function text.init(self)
         self.hit_x = - (#self.text)*2
     end
     self.hit_y = -2
-end
-
-function text.update(self)
-    clickable.update(self)
 end
 
 function text.draw(self)
@@ -58,7 +40,34 @@ function text.draw(self)
     end
 end
 
-checkbox = new_type(35, clickable)
+button = new_type(0)
+button.spr = nil
+button.text = ""
+button.is_centered = false
+button.c = 5
+button.sc = 13
+button.ctxt = 7
+button.margin = 2
+button.hover = false
+
+function button.init(self)
+    self.hit_h = 8 + self.margin*2
+    self.hit_w = #self.text*4 + self.margin*2
+    if self.is_centered then
+        self.hit_x = - (#self.text)*2
+    end
+    self.hit_y = -2
+end
+
+function button.draw(self)
+    local color = self.hover and self.sc or self.c
+    rrectfill(self.x - self.margin + 1, self.y - self.margin + 1, self.hit_w, self.hit_h, 3, 0)
+    rrectfill(self.x - self.margin, self.y - self.margin, self.hit_w, self.hit_h, 3, color)
+    print(self.text, self.x + 1, self.y + 1, 0)
+    print(self.text, self.x, self.y, self.ctxt)
+end
+
+checkbox = new_type(35)
 checkbox.checked = false
 checkbox.color = 7
 
