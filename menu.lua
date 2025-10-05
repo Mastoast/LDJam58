@@ -109,7 +109,7 @@ function init_sound_menu()
     general_sound.text = "general sound"
     general_sound.is_centered = true
     general_sound:init()
-    local general_sound_checkbox = create(checkbox, general_sound  - 16, general_sound)
+    --local general_sound_checkbox = create(checkbox, general_sound  - 16, general_sound)
 
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 40)
