@@ -9,6 +9,19 @@ credits_screen = { x = 384, y = 384}
 splash_screen = {x = -256, y = 0}
 game = { x = 512, y = 512}
 
+function init_splash_screen_menu()
+    local x, y = splash_screen.x + 0, splash_screen.y + 0
+    local title = create(text, x + 64, y + 32)
+    title.text = "\^t\^wnom style"
+    title.is_centered = true
+    title.color = 12
+    title:init()
+    local start = create(text, x + 64, y + 72)
+    start.text = "start game"
+    start.is_centered = true
+    start:init()
+    start.on_click = move_to_main_menu
+end
 
 function init_main_menu()
     local x, y = main_menu.x + 0, main_menu.y + 0
