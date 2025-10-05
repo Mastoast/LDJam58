@@ -25,7 +25,8 @@ function _init()
         lumberjack = {tile = 48},
         boot = {tile = 32}
     }
-
+    tday = {}
+    bday = {}
     --
     -- saves
     cartdata("mastoast_achievements_v1")
