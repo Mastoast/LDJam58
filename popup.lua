@@ -21,12 +21,14 @@ end
 function pop_popups()
     local safe_distance = 1
     if #incoming_popups > 0 and abs(cam.x - tcam.x) < safe_distance and abs(cam.x - tcam.x) < safe_distance then
+        psfx("notif1s")
         init_popup(incoming_popups[1])
         del(incoming_popups, incoming_popups[1])
     end
 end
 
 function close_popup()
+    psfx("notif2")
     gstate = 1
     popup_objects = {}
 end

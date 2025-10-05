@@ -26,8 +26,8 @@ function _init()
     -- load save
     for index = 1, #all_achievements do
         if dget(index) == 1 then
-            all_achievements[index].unlocked = true
-            badge_count += 1
+            -- all_achievements[index].unlocked = true
+            -- badge_count += 1
         end
     end
     menuitem(1, "restart progress", function() restart_progress() end)
