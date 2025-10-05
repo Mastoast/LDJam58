@@ -356,7 +356,13 @@ function on_date_change()
         die_hard()
     end
 end
-    
+
+function click_error()
+    psfx("error1")
+    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
+    shake = 3
+end
+
 -- access menus
 
 function move_to_main_menu(self)
