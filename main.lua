@@ -24,7 +24,7 @@ function _init()
     lumberjack = {tile = 48},
     boot = {tile = 32}
     }
-    printable = mode_list["lumberjack"].tile
+
     --
     -- saves
     cartdata("mastoast_achievements_v1")
