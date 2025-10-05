@@ -325,16 +325,38 @@ function switch_mode(self)
 end
 
 function on_date_change()
-    if tday.year.value == bday.year.value then
-        printh(tday.year.value)
+    if tday.day == bday.day and tday.month == bday.month then
+        birthday()
+        if tday.year.value == bday.year.value then
+            birthday_is_today()
+        end
+    end
+    if tday.day == 25 and tday.month == 12 then
+        merry_christmas()
+    end 
+    if tday.year == 1955 and tday.day == 5 and tday.month == 11 then
+        marty_mcfly()
+    end 
+    if tday.day == 4 and tday.month == 5 then
+        star_wars()
+    end 
+    if tday.day == 13 and tday.month == 10 then
+        parks_and_rec()
+    end 
+    if tday.day == 2 and tday.month == 2 then
+        groundhog_day()
+    end 
+    if tday.day == 21 and tday.month == 9 then
+        do_you_remember()
+    end 
+    if tday.year == 1997 and tday.day == 29 and tday.month == 8 then
+        terminator_two()
+    end
+    if tday.year == 1988 and tday.day == 24 and tday.month == 12 then
+        die_hard()
     end
 end
-
-function click_error()
-    psfx("error1")
-    spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
-    shake = 3
-end
+    
 -- access menus
 
 function move_to_main_menu(self)
@@ -441,4 +463,48 @@ end
 
 function not_full_credit(self)
     unlock_badge("test3")
+end
+
+function birthday(self)
+    unlock_badge("birthday")
+end
+
+function birthday_is_today(self)
+    unlock_badge("birthday_today")
+end
+
+function merry_christmas(self)
+    unlock_badge("christmas")
+end
+
+function marty_mcfly(self)
+    unlock_badge("marty_mcfly")
+end
+
+function star_wars(self)
+    unlock_badge("star_wars")
+end
+
+function parks_and_rec(self)
+    unlock_badge("parks_and_rec")
+end
+
+function groundhog_day(self)
+    unlock_badge("groundhog_day")
+end
+
+function do_you_remember(self)
+    unlock_badge("do_you_remember")
+end
+
+function terminator_two(self)
+    unlock_badge("terminator_two")
+end
+
+function die_hard(self)
+    unlock_badge("die_hard")
+end
+
+function konami(self)
+    konami("die_hard")
 end
