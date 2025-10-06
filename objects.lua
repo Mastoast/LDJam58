@@ -115,10 +115,11 @@ badge.hit_h = 6
 
 function badge.draw(self)
     local achievement = all_achievements[self.achievement_index]
-    color = achievement.unlocked and 9 or 1
-    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
+    col = achievement.unlocked and 9 or 1
+    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, col)
     if self.hover then
-        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, color)
+        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, col)
+        print_centered(achievement.name, cam.x + 64, cam.y + 90, col, true, false)
         if achievement.unlocked then
             -- print(achievement.name, self.x, self.y + 10)
             -- print(achievement.description, self.x, self.y + 18)
