@@ -32,6 +32,7 @@ all_achievements = {
     {code = "perfect_murder", name ="\^t\^wperfect murder", description = "nooooo!", tip = "no witnesses//don't forget your shoes."},
     {code = "win", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
+    {code = "our_code", name ="\^t\^wfind the secret//code", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
      --{code = "", name ="", description = "", tip = ""},
 }
 
@@ -56,7 +57,8 @@ end
 
 kcodei = 1
 kcode = {⬆️,⬆️,⬇️,⬇️,⬅️,➡️,⬅️,➡️,🅾️,❎}
-
+ourcodei = 1
+ourcode = {⬅️,⬅️,⬅️,⬆️,⬆️,⬆️,🅾️,🅾️,🅾️,🅾️}
 function update_inputs()
     if btnp(kcode[kcodei]) then
         kcodei += 1
@@ -66,6 +68,15 @@ function update_inputs()
         end
     elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
         kcodei = 1
+    end
+    if btnp(ourcode[ourcodei]) then
+        ourcodei += 1
+        if ourcodei > #ourcode then
+            unlock_badge("our_code")
+            ourcodei = 1
+        end
+    elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
+        ourcodei = 1
     end
 end
 
