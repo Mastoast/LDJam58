@@ -115,10 +115,11 @@ badge.hit_h = 6
 
 function badge.draw(self)
     local achievement = all_achievements[self.achievement_index]
-    color = achievement.unlocked and 9 or 1
-    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
+    col = achievement.unlocked and 9 or 1
+    rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, col)
     if self.hover then
-        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, color)
+        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, col)
+        print_centered(achievement.name, cam.x + 64, cam.y + 90, col, true, false)
         if achievement.unlocked then
             -- print(achievement.name, self.x, self.y + 10)
             -- print(achievement.description, self.x, self.y + 18)
@@ -156,11 +157,8 @@ asprite.spd = 12
 asprite.hit_h = 16
 asprite.hit_w = 16
 asprite.size = 1
-
-function asprite.init(self)
-    self.frame = 1
-    self.t = 0
-end
+asprite.t = 0
+asprite.frame = 1
 
 function asprite.update(self)
     self.t += 1
@@ -220,8 +218,13 @@ notif.text = ""
 notif.c = 15
 notif.sc = 9
 notif.l = 140
+notif.dlt = 8
+notif.dltsp = 1.5
 
 function notif.update(self)
+    if self.dlt > 0 then
+        self.dlt = max(0, self.dlt - self.dltsp)
+    end
     self.l -= 1
     if self.l <= 0 then
         del(objects, self)
@@ -229,7 +232,7 @@ function notif.update(self)
 end
 
 function notif.draw(self)
-    print("\#8\^#"..self.text, cam.x, cam.y + 122, self.c)
+    print("\#8\^#"..self.text, cam.x, cam.y + 122 + self.dlt, self.c)
 end
 
 player = new_type(100)

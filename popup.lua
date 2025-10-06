@@ -16,6 +16,8 @@ function init_popup(achievement, anim_time)
         desc.text = achievement.description
         desc.is_centered = true
         desc.color = 7
+        local coin = create(asprite, cam.x + 56, cam.y + 8, 16, 16, popup_objects)
+        coin.size = 1
     else
         local tip = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
         tip.text = achievement.tip
@@ -46,6 +48,10 @@ function update_popup()
     ptime += 1
     pratio = min(ptime / panim_time, 1)
 
+    for o in all(popup_objects) do
+        o:update()
+    end
+
     if pop_cor and costatus(pop_cor) != 'dead' then
         coresume(pop_cor)
         return
@@ -75,11 +81,15 @@ function draw_popup()
     local sy = lerp(0, 128 - my*2, pratio)
     local x = lerp(cam.x + 64, cam.x + mx, pratio)
     local y = lerp(cam.y + 64, cam.y + my, pratio)
-    -- fillp(0b0100111001000010)
-    fillp(0b1000010100100100)
-    rrectfill(x, y, sx, sy, 4, 0x21)
-    fillp()
-    rrect(x, y, sx, sy, 4, 13)
+
+    -- fillp(0b1000010100100100)
+    --rrectfill(x, y, sx, sy, 4, 0x21)
+    -- fillp()
+    -- rrect(x, y, sx, sy, 4, 13)
+    
+    local mrg = 2
+    rrectfill(x - mrg, y - mrg, sx + mrg*2, sy+mrg*2, 4, 13)
+    draw_gradient(x, y, sx, sy, 0x21)
 
     for o in all(popup_objects) do
         o:draw()

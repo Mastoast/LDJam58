@@ -57,6 +57,7 @@ end
 - better achievement popup w/ effects
 - credit menu
 - unlock credits speed
+- gradients
 ]]
 
 --[[
@@ -154,8 +155,7 @@ function _draw()
         camera(cam.x, cam.y)
     end
 
-    -- draw map
-    map(0, 48, splash_screen.x, splash_screen.y, 16, 16)
+    draw_spash_screen()
 
     -- draw objects
     for o in all(objects) do
