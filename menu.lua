@@ -76,12 +76,13 @@ function init_main_menu()
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
-    local badgecnt = create(text, x + 64, 80)
-    badgecnt.is_centered = false
-    badgecnt.selectable = false
+    local badgecnt = create(object, x + 64, 80)
     badgecnt.update = function(self)
-        self.text = "(" .. badge_count .. "|" .. tostring(#all_achievements) .. ")"
-        self:init()
+        self.text = "(" .. badge_count .. "/" .. tostring(#all_achievements) .. ")"
+        self.draw = function(self)
+            print(self.text, self.x+1, self.y+1, 0)
+            print(self.text, self.x, self.y, 7)
+        end
     end
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
@@ -155,6 +156,7 @@ function init_sound_menu()
         if music_on == true and sfx_on == true then
             sound_up()
         end 
+        click_valid()
     end
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 42)
@@ -173,6 +175,7 @@ function init_sound_menu()
         if music_on == false then
             unlock_badge("sad_hector")
         end
+        click_valid()
     end
 
     local sound_effects = create(text, x + 64, y + 52)
@@ -186,6 +189,7 @@ function init_sound_menu()
     sound_effects_cb.on_click = function(self)
         checkbox.on_click(self)
         sfx_on = self.checked
+        click_valid()
     end
 
     local bckbtn = create(text, x, y)
@@ -285,7 +289,7 @@ function init_accessibility_menu()
     local blind_cb = create(checkbox, blindtxt.x  - 40, blindtxt.y-1)
     blind_cb.checked = false
     blind_cb.on_click = function(self)
-        psfx("error2")
+        psfx("tchak")
         unlock_badge("blind")
         gstate = 3
         blind_cor = cocreate(colorblind_seq)
@@ -323,7 +327,7 @@ function colorblind_seq()
         end
         yield()
     end
-    psfx("error2")
+    psfx("tchak")
     gstate = 1
 end
 

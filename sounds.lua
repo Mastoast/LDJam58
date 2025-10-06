@@ -8,6 +8,7 @@ sfxs = {
     ko2 = {n = 8, offset = 17, length = 1},
     ko3 = {n = 8, offset = 18, length = 1},
     kokoko = {n = 8, offset = 16, length = 3},
+    tchak = {n = 8, offset = 24, length = 4},
     notif1 = {n = 9, offset = 0, length = 2},
     notif2 = {n = 9, offset = 2, length = 2},
     error1 = {n = 9, offset = 8, length = 1},
@@ -53,5 +54,5 @@ function pmusic(code)
     if not music_on then return end
     local msc = musics[code]
     if not msc then printh("NO MUSIC: "..code) return end
-    music(msc, 0, 15)
+    music(msc, 0)
 end

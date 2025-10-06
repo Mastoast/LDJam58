@@ -54,6 +54,21 @@ function check_badges()
     end
 end
 
+kcodei = 1
+kcode = {⬆️,⬆️,⬇️,⬇️,⬅️,➡️,⬅️,➡️,🅾️,❎}
+
+function update_inputs()
+    if btnp(kcode[kcodei]) then
+        kcodei += 1
+        if kcodei > #kcode then
+            unlock_badge("konami")
+            kcodei = 1
+        end
+    elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
+        kcodei = 1
+    end
+end
+
 function index_achievements()
     all_achievements_index = {}
     for a in all(all_achievements) do
