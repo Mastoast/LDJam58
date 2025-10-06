@@ -54,7 +54,10 @@ function _init()
 end
 
 --[[ TODO
-- gameplay visuals
+konami code
+kick bucket
+kick char
+badge on win
 ]]
 
 --[[

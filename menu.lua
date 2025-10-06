@@ -555,7 +555,7 @@ function draw_spash_screen()
     rectfill(splash_screen.x, splash_screen.y + sline, splash_screen.x + 128, splash_screen.y + 128 + sline, 1)
     draw_gradient(splash_screen.x, splash_screen.y + sline - gh/2, 128, gh, 0x1c)
     -- draw map
-    map(0, 48, splash_screen.x, splash_screen.y, 16, 16)
+    map(0, 48, splash_screen.x, splash_screen.y, 14, 16)
 end
 
 function draw_game()
