@@ -54,10 +54,8 @@ end
 --[[ TODO
 - gameplay visuals
 - better achievement popup w/ effects
-- better achievement popup from menu
-- better tips
-- blindmode inform player better
 - credit menu
+- unlock credits speed
 ]]
 
 --[[
@@ -111,6 +109,9 @@ function update_level()
             break
         end
 
+        if not o.hover and on_cursor(o) then
+            o:on_hover()
+        end
         o.hover = on_cursor(o)
         o:update()
         

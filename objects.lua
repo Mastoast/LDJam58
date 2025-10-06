@@ -64,7 +64,7 @@ end
 function button.draw(self)
     local color = self.hover and self.sc or self.c
     rrectfill(self.x - self.margin + 1, self.y - self.margin + 1, self.hit_w, self.hit_h, 3, 0)
-    rrectfill(self.x - self.margin, self.y - self.margin, self.hit_w, self.hit_h, 3, color)
+    rrectfill(self.x - self.margin-1, self.y - self.margin-1, self.hit_w, self.hit_h, 3, color)
     print(self.text, self.x + 1, self.y + 1, 0)
     print(self.text, self.x, self.y, self.ctxt)
 end
@@ -118,20 +118,25 @@ function badge.draw(self)
     color = achievement.unlocked and 9 or 1
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, color)
     if self.hover then
+        rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, color)
         if achievement.unlocked then
             -- print(achievement.name, self.x, self.y + 10)
             -- print(achievement.description, self.x, self.y + 18)
         else
-            print(achievement.tip, self.x, self.y + 10)
+            --print(achievement.tip, self.x, self.y + 10)
         end
     end
 end
 
 function badge.on_click(self)
     local achievement = all_achievements[self.achievement_index]
-    if achievement.unlocked then
-        add(incoming_popups, achievement)
-    end
+    init_popup(achievement, 7)
+    psfx("ko1")
+end
+
+function badge.on_hover(self)
+    local fx = {"bip1", "bip2", "bip3", "bip4", "bip5"}
+    psfx(rchoice(fx))
 end
 
 -- animated sprite
@@ -204,7 +209,9 @@ function modnumber.on_click(self)
         return
     end
     self.value = new_value
-    -- psfx("click1")
+    local sfx = target == 1 and "ko2" or "ko3"
+    psfx(sfx)
+    spawn_particles(2, 3, cam.x + stat(32), cam.y + stat(33), 9)
     on_date_change()
 end
 

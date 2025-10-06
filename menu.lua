@@ -58,6 +58,7 @@ function init_main_menu()
     achievements.on_click = move_to_achievements
     local badgecnt = create(text, x + 64, 64)
     badgecnt.is_centered = false
+    badgecnt.selectable = false
     badgecnt.update = function(self)
         self.text = "(" .. badge_count .. "|" .. tostring(#all_achievements) .. ")"
         self:init()
@@ -83,8 +84,6 @@ function init_achievements_menu()
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_main_menu
 end
-
---
 
 function init_options_menu()
     local x, y = options_menu.x + 0, options_menu.y + 0
@@ -114,8 +113,6 @@ function init_options_menu()
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_main_menu
 end
-
---
 
 function init_sound_menu()
     local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
@@ -320,7 +317,10 @@ function switch_mode(self)
         n.text = "get 20 achievements to unlock"
         click_error()
     else
-        mode = self.mode
+        if mode != self.mode then
+            mode = self.mode
+            click_valid()
+        end
     end
 end
 
@@ -361,6 +361,11 @@ function click_error()
     psfx("error1")
     spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 2)
     shake = 3
+end
+
+function click_valid()
+    psfx("tok1")
+    spawn_particles(6, 3, cam.x + stat(32), cam.y + stat(33), 11)
 end
 
 -- access menus

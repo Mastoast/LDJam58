@@ -1,19 +1,28 @@
-function init_popup(achievement)
+function init_popup(achievement, anim_time)
     ptime = 0
-    panim_time = 20
+    panim_time = anim_time or (achievement.unlocked and 180) or 15
     pratio = 0
     popup_objects = {}
     gstate = 2
     --
+    local tcol = achievement.unlocked and 9 or 13
     local title = create(text, cam.x + 64, cam.y + 36, 8, 8, popup_objects)
     title.text = achievement.name
     title.is_centered = true
     title.wide = true
-    title.color = 9
-    local desc = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
-    desc.text = achievement.description
-    desc.is_centered = true
-    desc.color = 7
+    title.color = tcol
+    if achievement.unlocked then
+        local desc = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
+        desc.text = achievement.description
+        desc.is_centered = true
+        desc.color = 7
+    else
+        local tip = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
+        tip.text = achievement.tip
+        tip.is_centered = true
+        tip.color = 7
+    end
+
     --
     pop_cor = cocreate(popup_animation)
 end
