@@ -479,6 +479,7 @@ function start_game(self)
     if mode == "play" then
         set_cam(game, true)
         ply.active = true
+        unlock_badge("launchgame")
     else
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
         txt.text = "switch to play mode to start"

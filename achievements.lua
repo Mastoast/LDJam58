@@ -30,7 +30,7 @@ all_achievements = {
     {code = "die_hard", name ="\^t\^who ho ho, now//I have a machine gun", description = "it really is a christmas movie!", tip = "welcome to the party pal!"},
     {code = "tree", name ="\^t\^wwork work", description = "Me not that kind of orc!", tip = "cut the tree."},
     {code = "perfect_murder", name ="\^t\^wperfect murder", description = "nooooo!", tip = "no witnesses//don't forget your shoes."},
-    {code = "win", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
+    {code = "launchgame", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
     {code = "our_code", name ="\^t\^wfind the secret//code", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
      --{code = "", name ="", description = "", tip = ""},

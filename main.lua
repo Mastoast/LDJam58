@@ -56,9 +56,7 @@ end
 --[[ TODO
 kick bucket
 kick char
-badge on win
 background on menus
-crop character
 ]]
 
 --[[

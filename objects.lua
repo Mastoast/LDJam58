@@ -245,11 +245,14 @@ function player.update(self)
     if btn(1) then self.x += self.speed end
     if btn(2) then self.y -= self.speed end
     if btn(3) then self.y += self.speed end
+    self.x = mid(game.x+36, self.x, game.x + 120-36)
+    self.y = mid(game.y+44, self.y, game.y + 120-44)
     if self:overlaps(self.target) then
         self.x, self.y = game.x + 64, game.y + 64
         is_on_credits = true
         set_cam(credits_screen, true)
         self.active = false
+        unlock_badge("finish_the_game")
     end
 end
 
