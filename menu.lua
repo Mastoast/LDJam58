@@ -76,7 +76,7 @@ function init_main_menu()
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
-    local badgecnt = create(object, x + 64, 80)
+    local badgecnt = create(object, x + 64, 80, 24, 8)
     badgecnt.update = function(self)
         self.text = "(" .. badge_count .. "/" .. tostring(#all_achievements) .. ")"
         self.draw = function(self)
@@ -84,6 +84,14 @@ function init_main_menu()
             print(self.text, self.x, self.y, 7)
         end
     end
+    badgecnt.on_click = function(self)
+        if mode == "lumberjack" then
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 10)
+            psfx("kokoko")
+            unlock_badge("paid_attention")
+        end
+    end
+
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
