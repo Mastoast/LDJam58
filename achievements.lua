@@ -24,7 +24,7 @@ all_achievements = {
     {code = "star_wars", name ="\^t\^wbe with you.", description = "I like the phantom menace.", tip = "don't sue us disney"},
     {code = "parks_and_rec", name ="\^t\^wtreat yo' self day", description = "I'll take a Greasy Lard Bomb please!", tip = "I heard pawnee was great at this time of the year."},
     {code = "groundhog_day", name ="\^t\^wtimelooping woodchuck", description = "you got out of the loop!", tip = "I'm a god."},
-    {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "1978, what a year...", tip = "3/4 of the Avatar, you're just missing water."},
+    {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "1978, what a year...", tip = "three quarters of the Avatar, you're just missing water."},
     {code = "terminator_two", name ="\^t\^wthe judgement day", description = "hasta la vista baby", tip = "he said he would be back."},
     {code = "die_hard", name ="\^t\^who ho ho, now I have a machine gun", description = "it really is a christmas movie!", tip = "welcome to the party pal!"},
     {code = "tree", name ="\^t\^wwork work", description = "Me not that kind of orc!", tip = "cut the tree."},
