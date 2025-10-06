@@ -285,7 +285,7 @@ function init_accessibility_menu()
     local blind_cb = create(checkbox, blindtxt.x  - 40, blindtxt.y-1)
     blind_cb.checked = false
     blind_cb.on_click = function(self)
-        psfx("error2")
+        psfx("tchak")
         unlock_badge("blind")
         gstate = 3
         blind_cor = cocreate(colorblind_seq)
@@ -323,7 +323,7 @@ function colorblind_seq()
         end
         yield()
     end
-    psfx("error2")
+    psfx("tchak")
     gstate = 1
 end
 

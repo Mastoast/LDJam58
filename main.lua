@@ -58,6 +58,7 @@ konami code
 kick bucket
 kick char
 badge on win
+background on menus
 ]]
 
 --[[
