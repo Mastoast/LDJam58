@@ -64,7 +64,7 @@ end
 function button.draw(self)
     local color = self.hover and self.sc or self.c
     rrectfill(self.x - self.margin + 1, self.y - self.margin + 1, self.hit_w, self.hit_h, 3, 0)
-    rrectfill(self.x - self.margin, self.y - self.margin, self.hit_w, self.hit_h, 3, color)
+    rrectfill(self.x - self.margin-1, self.y - self.margin-1, self.hit_w, self.hit_h, 3, color)
     print(self.text, self.x + 1, self.y + 1, 0)
     print(self.text, self.x, self.y, self.ctxt)
 end
