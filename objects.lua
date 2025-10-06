@@ -209,7 +209,9 @@ function modnumber.on_click(self)
         return
     end
     self.value = new_value
-    -- psfx("click1")
+    local sfx = target == 1 and "ko2" or "ko3"
+    psfx(sfx)
+    spawn_particles(2, 3, cam.x + stat(32), cam.y + stat(33), 9)
     on_date_change()
 end
 
