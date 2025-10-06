@@ -136,7 +136,26 @@ end
 
 function init_sound_menu()
     local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
+    
+    local general_sound = create(text, x + 64, y + 32)
+    general_sound.text = "general sound"
+    general_sound.is_centered = true
+    general_sound:init()
+    general_sound.selectable = false
 
+    local general_sound_cb = create(checkbox, general_sound.x  - 40, general_sound.y-1)
+    general_sound_cb.checked = true
+    general_sound_cb.on_click = function(self)
+        checkbox.on_click(self)
+        music_on = self.checked
+        sfx_on = self.checked
+        if music_on == false and sfx_on == false then
+            sound_down()
+        end 
+        if music_on == true and sfx_on == true then
+            sound_up()
+        end 
+    end
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 42)
     music.text = "music"
@@ -144,11 +163,16 @@ function init_sound_menu()
     music:init()
     music.selectable = false
 
+    
+
     local music_cb = create(checkbox, music.x  - 40, music.y-1)
     music_cb.checked = true
     music_cb.on_click = function(self)
         checkbox.on_click(self)
         music_on = self.checked
+        if music_on == false then
+            sad_hector()
+        end
     end
 
     local sound_effects = create(text, x + 64, y + 52)
@@ -449,9 +473,9 @@ function sound_up(self)
     unlock_badge("soundm")
 end
 
-function hour_midnight(self)
-    unlock_badge("time1")
-end
+--function hour_midnight(self)
+--    unlock_badge("time1")
+--end
 
 function date_movie(self)
     unlock_badge("time2")
@@ -468,6 +492,10 @@ end
 function not_full_credit(self)
     unlock_badge("test3")
 end
+
+function sad_hector(self)
+    unlock_badge("test6")
+end 
 
 function birthday(self)
     unlock_badge("birthday")
