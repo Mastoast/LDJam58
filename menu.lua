@@ -548,7 +548,13 @@ function kick_the_bucket(self)
     unlock_badge("kick_the_bucket")
 end
 
+function finish_the_game(self)
+    unlock_badge("finish_the_game")
+end
 
+function perfect_murder(self)
+    unlock_badge("perfect_murder")
+end
 -- specific draws
 
 function draw_spash_screen()
