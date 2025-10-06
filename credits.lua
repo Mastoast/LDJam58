@@ -3,7 +3,8 @@ credit_text =[[credits
 
 
 
-responsible for 90% of the code that works
+responsible for 90%
+of the code that works
 mastoast
 
 writer Who thought meta humor was still cool
@@ -108,7 +109,6 @@ starfish can eat almost anything in the ocean. they feed by pushing their stomac
 
 ]]
 
--- TODO center lines
 -- TODO stop on max scroll
 -- TODO success on max scroll
 function make_credits_appear(self)
@@ -154,9 +154,10 @@ function print_mltxt(str, x, y, col)
     -- print(str, x, y, col)
     local ymrg = 8
     local strs = split(str, "\n")
-    for i=0, #strs-1 do
-        local lstr = "\^$" .. strs[i+1]
+    local i = 0
+    for lstr in all(strs) do
         local length = #(lstr) * 2
         print(lstr, x - length, y + i * ymrg, col)
+        i = i + 1
     end
 end
