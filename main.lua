@@ -76,6 +76,8 @@ end
 function _update60()
     -- timers
     gtime += 1
+    -- screenshake
+    shake = max(shake - 1)
 
     if gstate == 1 then
         update_level()
@@ -103,9 +105,6 @@ function update_level()
     -- camera
     cam.x = lerp(cam.x, tcam.x, cam.speed)
     cam.y = lerp(cam.y, tcam.y, cam.speed)
-
-    -- screenshake
-    shake = max(shake - 1)
 
     for o in all(objects) do
         if o.freeze > 0 then

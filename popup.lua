@@ -7,8 +7,9 @@ function init_popup(achievement, anim_time, btn_time, isnew)
     popup_objects = {}
     gstate = 2
     --
+    local tty = 28
     local tcol = achievement.unlocked and 9 or 13
-    local title = create(text, cam.x + 64, cam.y + 36, 8, 8, popup_objects)
+    local title = create(text, cam.x + 64, cam.y + tty, 8, 8, popup_objects)
     title.text = achievement.name
     title.is_centered = true
     title.wide = true
