@@ -102,12 +102,12 @@ function init_splash_screen_menu()
                 psfx("ko1")
                 self.life -= 1
             else
-                psfx("kokoko")
+                psfx("metal")
                 spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
                 del(objects, self)
                 unlock_badge("kick_the_bucket")
             end
-            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
             shake = 3
         end
     end
