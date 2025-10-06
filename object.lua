@@ -19,7 +19,7 @@ object.freeze = 0
 function object.init(self) end
 function object.update(self) end
 function object.draw(self)
-    spr(self.spr, self.x, self.y, 1, 1, self.flip_x, self.flip_y)
+    spr(self.spr, self.x, self.y, self.hit_w/8, self.hit_h/8, self.flip_x, self.flip_y)
 end
 function object.on_click(self) end
 function object.on_right_click(self) end

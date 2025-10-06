@@ -160,7 +160,7 @@ function _draw()
     if gstate == 2 then draw_popup() end
     mouse:draw()
     printable = stat(32).." "..stat(33)
-    print(printable, cam.x + 80, cam.y, -4)
+    print(printable, cam.x + 80, cam.y, 15)
 end
 
 -- UTILS

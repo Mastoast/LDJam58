@@ -28,6 +28,7 @@ all_achievements = {
     {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "you've got to master them all to become the avatar.", tip = "water isn't so bad."},
     {code = "terminator_two", name ="\^t\^wthe judgement day", description = "hasta la vista baby", tip = "he said he would be back."},
     {code = "die_hard", name ="\^t\^who ho ho, now I have a machine gun", description = "no it really is a christmas movie!", tip = "it's a christmas movie !"},
+    {code = "tree", name ="\^t\^warbre", description = "arbre desc", tip = "cut the tree"},
 
     {code = "konami", name ="\^t\^wkonami code", description = "such an og!", tip = ""},
     --{code = "", name ="", description = "", tip = ""},
@@ -35,6 +36,7 @@ all_achievements = {
 
 function unlock_badge(code)
     local badge = all_achievements_index[code]
+    if badge == nil then printh("NO BADGE: "..code) return end
     if badge.unlocked == true then return end
     badge.unlocked = true
     local index = find_item_table_index(badge, all_achievements)

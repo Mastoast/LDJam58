@@ -33,6 +33,24 @@ function init_splash_screen_menu()
     startbtn.is_centered = true
     startbtn:init()
     startbtn.on_click = move_to_main_menu
+    local tree = create(object, x + 2, y + 60, 16, 32)
+    tree.spr = 1
+    tree.life = 3
+    tree.on_click = function(self)
+        if mode == "lumberjack" then
+            if self.life > 1 then
+                psfx("ko1")
+                self.life -= 1
+            else
+                psfx("kokoko")
+                spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
+                del(objects, self)
+                unlock_badge("tree")
+            end
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
+            shake = 3
+        end
+    end
 end
 
 function init_main_menu()
