@@ -107,7 +107,16 @@ when they get attacked by a predator, they'll rip off their own arm to get away 
 
 starfish can eat almost anything in the ocean. they feed by pushing their stomach out of their mouth and directly digesting their prey. fun fact, there's an area in Kumamoto Prefecture where they eat starfish. As you'd expect from a relative of the sea urchin, you strip the skin to eat the insides, like with sea urchins.
 
+
+
+
+
+
+
+thanks for playing!
 ]]
+
+creditheight = #(split(credit_text, "\n")) * 10
 
 -- TODO stop on max scroll
 -- TODO success on max scroll
@@ -134,7 +143,8 @@ function make_credits_appear(self)
             psfx("error1")
         end
     end
-    bckbtn.on_right_click = function(self) 
+    bckbtn.on_right_click = function(self)
+        unlock_badge("credit1")
         is_on_credits = false
         move_to_main_menu()
     end
@@ -142,6 +152,10 @@ end
 
 function credit_update()
     if is_on_credits == true then
+        if cam.y > creditheight + 128 + 32 then
+            unlock_badge("credit2")
+            return
+        end
         local frameskp = (mode == "patched" and btn(❎) and 5) or 1
         local credit_speed = (mode == "patched" and btn(❎) and 1) or 59
         if gtime % 60 >= credit_speed then
