@@ -54,5 +54,5 @@ function pmusic(code)
     if not music_on then return end
     local msc = musics[code]
     if not msc then printh("NO MUSIC: "..code) return end
-    music(msc, 0, 15)
+    music(msc, 0)
 end

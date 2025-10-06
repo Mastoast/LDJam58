@@ -131,7 +131,7 @@ end
 
 function badge.on_click(self)
     local achievement = all_achievements[self.achievement_index]
-    init_popup(achievement, 7)
+    init_popup(achievement, 7, 10, false)
     psfx("ko1")
 end
 

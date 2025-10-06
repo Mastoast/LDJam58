@@ -156,6 +156,7 @@ function init_sound_menu()
         if music_on == true and sfx_on == true then
             sound_up()
         end 
+        click_valid()
     end
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 42)
@@ -174,6 +175,7 @@ function init_sound_menu()
         if music_on == false then
             unlock_badge("sad_hector")
         end
+        click_valid()
     end
 
     local sound_effects = create(text, x + 64, y + 52)
@@ -187,6 +189,7 @@ function init_sound_menu()
     sound_effects_cb.on_click = function(self)
         checkbox.on_click(self)
         sfx_on = self.checked
+        click_valid()
     end
 
     local bckbtn = create(text, x, y)

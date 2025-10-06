@@ -1,7 +1,9 @@
-function init_popup(achievement, anim_time)
+function init_popup(achievement, anim_time, btn_time, isnew)
     ptime = 0
-    panim_time = anim_time or (achievement.unlocked and 180) or 15
+    panim_time = anim_time or (achievement.unlocked and 15) or 10
+    pbtn_time = btn_time or (achievement.unlocked and 170) or 15
     pratio = 0
+    pnew = isnew or false
     popup_objects = {}
     gstate = 2
     --
@@ -33,7 +35,7 @@ function pop_popups()
     local safe_distance = 1
     if #incoming_popups > 0 and abs(cam.x - tcam.x) < safe_distance and abs(cam.x - tcam.x) < safe_distance then
         pmusic("fanfare")
-        init_popup(incoming_popups[1])
+        init_popup(incoming_popups[1], 15, 170, true)
         del(incoming_popups, incoming_popups[1])
     end
 end
@@ -61,13 +63,19 @@ function update_popup()
 end
 
 function popup_animation()
-    while ptime < panim_time do
+    while ptime < pbtn_time do
         yield()
     end
     local cbtn = create(button, cam.x + 64, cam.y + 90, 8, 8, popup_objects)
     cbtn.text = "ok"
     cbtn.c = 9
     cbtn:init()
+    if pnew then
+        spawn_particles(5, 3, cbtn.x, cbtn.y, 10)
+        spawn_particles(5, 3, cbtn.x + 8, cbtn.y + 8, 10)
+        spawn_particles(5, 3, cbtn.x + 8, cbtn.y, 10)
+        spawn_particles(5, 3, cbtn.x, cbtn.y + 8, 10)
+    end
     while not (on_cursor(cbtn) and btnp(❎)) do
         cbtn.hover = on_cursor(cbtn)
         yield()

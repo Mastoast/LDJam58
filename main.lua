@@ -88,6 +88,7 @@ function _update60()
     end
     credit_update()
     update_inputs()
+    update_particles()
 end
 
 function update_level()
@@ -132,7 +133,9 @@ function update_level()
             del(objects, o)
         end
     end
+end
 
+function update_particles()
     for a in all(particles) do
         a:update()
     end
@@ -156,13 +159,14 @@ function _draw()
         o:draw()
     end
 
+    -- UI
+    if gstate == 2 then draw_popup() end
+    
     -- draw particles
     for a in all(particles) do
         a:draw()
     end
 
-    -- UI
-    if gstate == 2 then draw_popup() end
     mouse:draw()
     printable = stat(32).." "..stat(33)
     -- print(printable, cam.x + 80, cam.y, 15)
