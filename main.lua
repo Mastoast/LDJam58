@@ -56,9 +56,7 @@ end
 --[[ TODO
 kick bucket
 kick char
-badge on win
 background on menus
-crop character
 ]]
 
 --[[
@@ -168,7 +166,7 @@ function _draw()
     end
 
     mouse:draw()
-    printable = stat(32).." "..stat(33)
+    --printable = stat(32).." "..stat(33)
     -- print(printable, cam.x + 80, cam.y, 15)
 end
 

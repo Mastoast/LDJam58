@@ -125,21 +125,62 @@ I MUST HAVE SOMETHING MORE
 
 
 
-here goes:
+HERE GOES:
 
-sea anemones are relatives of the jellyfish. they have these tiny hairs growing on them that they use to feed by stunning fish, shrimp, zooplankton, and so on.
+SEA ANEMONES ARE RELATIVES OF
+THE JELLYFISH. THEY HAVE THESE
+TINY HAIRS GROWING ON THEM
+THAT THEY USE TO FEED BY
+STUNNING FISH, SHRIMP,
+ZOOPLANKTON, AND SO ON.
 
-but they can survive for years without food. they're like jellyfish in that way. there are even sea anemones that have lived longer than 70 years with the proper care.
+BUT THEY CAN SURVIVE FOR YEARS
+WITHOUT FOOD. THEY'RE LIKE
+JELLYFISH IN THAT WAY. THERE
+ARE EVEN SEA ANEMONES THAT HAVE
+LIVED LONGER THAN 70 YEARS WITH
+THE PROPER CARE.
 
-they're found all throughout the world's oceans, and they can slowly move too. there are also fish that live inside them called anemonefish. the sea anemones protect them from predators and share their food scraps.
+THEY'RE FOUND ALL THROUGHOUT
+THE WORLD'S OCEANS, AND THEY
+CAN SLOWLY MOVE TOO. THERE ARE
+ALSO FISH THAT LIVE INSIDE THEM
+CALLED ANEMONEFISH. THE SEA
+ANEMONES PROTECT THEM FROM
+PREDATORS AND SHARE THEIR
+FOOD SCRAPS.
 
-in tropical waters, sea anemones latch on to coral reefs or rocks.
+IN TROPICAL WATERS, SEA
+ANEMONES LATCH ON TO CORAL
+REEFS OR ROCKS.
 
-starfish are echinoderms and relatives of the sea urchin. there are as many as 2,000 starfish species around the world. not all of them are star-shaped either. there's even a species with 30 arms.
+STARFISH ARE ECHINODERMS AND
+RELATIVES OF THE SEA URCHIN.
+THERE ARE AS MANY AS 2,000
+STARFISH SPECIES AROUND THE
+WORLD. NOT ALL OF THEM ARE
+STAR-SHAPED EITHER. THERE'S
+EVEN A SPECIES WITH 30 ARMS.
 
-when they get attacked by a predator, they'll rip off their own arm to get away while the predator eats it. their arms can regenerate, so I guess they regrow later.
+WHEN THEY GET ATTACKED BY A
+PREDATOR, THEY'LL RIP OFF THEIR
+OWN ARM TO GET AWAY WHILE THE
+PREDATOR EATS IT. THEIR ARMS
+CAN REGENERATE, SO I GUESS
+THEY REGROW LATER.
 
-starfish can eat almost anything in the ocean. they feed by pushing their stomach out of their mouth and directly digesting their prey. fun fact, there's an area in Kumamoto Prefecture where they eat starfish. As you'd expect from a relative of the sea urchin, you strip the skin to eat the insides, like with sea urchins.
+STARFISH CAN EAT ALMOST
+ANYTHING IN THE OCEAN. THEY
+FEED BY PUSHING THEIR STOMACH
+OUT OF THEIR MOUTH AND DIRECTLY
+DIGESTING THEIR PREY. FUN FACT,
+THERE'S AN AREA IN KUMAMOTO
+PREFECTURE WHERE THEY EAT
+STARFISH. AS YOU'D EXPECT FROM
+A RELATIVE OF THE SEA URCHIN,
+YOU STRIP THE SKIN TO EAT THE
+INSIDES, LIKE WITH SEA URCHINS.
+
 
 
 
@@ -150,9 +191,10 @@ starfish can eat almost anything in the ocean. they feed by pushing their stomac
 thanks for playing!
 ]]
 
-creditheight = #(split(credit_text, "\n")) * 10
+creditheight = #(split(credit_text, "\n")) * 9.2
 
 function make_credits_appear(self)
+    x, y = credits_screen.x, credits_screen.y
     local play = create(text, credits_screen.x+64, credits_screen.y+120)
     play.text = credit_text
     play.is_centered = false

@@ -88,6 +88,8 @@ function init_main_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_splash_screen
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_achievements_menu()
@@ -104,6 +106,8 @@ function init_achievements_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_main_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_options_menu()
@@ -133,6 +137,8 @@ function init_options_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_main_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_sound_menu()
@@ -196,6 +202,8 @@ function init_sound_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_option_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_time_menu()
@@ -253,6 +261,8 @@ function init_time_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_option_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_modes_menu()
@@ -276,6 +286,8 @@ function init_modes_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_option_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_accessibility_menu()
@@ -299,6 +311,8 @@ function init_accessibility_menu()
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_option_menu
+    local bcktxt = create(text, x + 120-46, y+120)
+    bcktxt.text = "🅾️ to go back"
 end
 
 function init_gameplay()
@@ -465,6 +479,7 @@ function start_game(self)
     if mode == "play" then
         set_cam(game, true)
         ply.active = true
+        unlock_badge("launchgame")
     else
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
         txt.text = "switch to play mode to start"
