@@ -23,6 +23,7 @@ sfxs = {
     bip3 = {n = 9, offset = 4, length = 1},
     bip4 = {n = 9, offset = 5, length = 1},
     bip5 = {n = 9, offset = 6, length = 1},
+    metal = {n = 9, offset = 24, length = 1},
 }
 
 function psfx(code)
