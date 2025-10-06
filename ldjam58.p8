@@ -4,6 +4,7 @@ __lua__
 #include object.lua
 #include objects.lua
 #include popup.lua
+#include credits.lua
 #include menu.lua
 #include achievements.lua
 #include sounds.lua
