@@ -171,7 +171,7 @@ function init_sound_menu()
         checkbox.on_click(self)
         music_on = self.checked
         if music_on == false then
-            sad_hector()
+            unlock_badge("sad_hector")
         end
     end
 
@@ -496,10 +496,6 @@ end
 function not_full_credit(self)
     unlock_badge("test3")
 end
-
-function sad_hector(self)
-    unlock_badge("test6")
-end 
 
 function birthday(self)
     unlock_badge("birthday")
