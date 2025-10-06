@@ -137,6 +137,7 @@ thanks for playing!
 creditheight = #(split(credit_text, "\n")) * 10
 
 function make_credits_appear(self)
+    x, y = credits_screen.x, credits_screen.y
     local play = create(text, credits_screen.x+64, credits_screen.y+120)
     play.text = credit_text
     play.is_centered = false
