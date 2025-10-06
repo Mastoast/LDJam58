@@ -55,9 +55,7 @@ end
 --[[ TODO
 - gameplay visuals
 - better achievement popup w/ effects
-- credit menu
 - unlock credits speed
-- gradients
 ]]
 
 --[[
