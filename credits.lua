@@ -1,6 +1,4 @@
-function make_credits_appear(self)
- local play = create(text, credits_screen.x, credits_screen.y+50)
-    play.text = [[credits
+credit_text =[[credits
 
 
 
@@ -109,7 +107,33 @@ function make_credits_appear(self)
     starfish can eat almost anything in the ocean. they feed by pushing their stomach out of their mouth and directly digesting their prey. fun fact, there's an area in Kumamoto Prefecture where they eat starfish. As you'd expect from a relative of the sea urchin, you strip the skin to eat the insides, like with sea urchins.
 
     ]]
-    play.is_centered = true
-    play:init()
+test = [[
+salut
+
+salut
+salut
+
+salut
+]]
+function make_credits_appear(self)
+    local play = create(text, credits_screen.x, credits_screen.y+30)
+    play.text = credit_text
+    play.is_centered = false
     play.selectable = false
+    play.color = 10
+    play:init()
+    --printh(credit_text)
+    --printh(play.color)
+    local bckbtn = create(text, credits_screen.x, credits_screen.y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 3000
+    bckbtn.on_right_click = function(self) 
+        is_on_credits = false
+        move_to_main_menu()
     end
+end
+
+-- if is_on_credits == true then
+--     tcam.y = tcam.y+1
+--     printh(tcam.y)
+-- end
