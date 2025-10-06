@@ -19,6 +19,7 @@ function init_all_menus()
     init_modes_menu()
     init_accessibility_menu()
     init_gameplay()
+    make_credits_appear()
 end
 
 function init_splash_screen_menu()
@@ -51,6 +52,7 @@ function init_main_menu()
     credits.text = "credits"
     credits.is_centered = true
     credits:init()
+    credits.on_click = move_to_credits
     local achievements = create(text, x + 64, y + 56)
     achievements.text = "achievements"
     achievements.is_centered = true
@@ -409,6 +411,7 @@ end
 
 function move_to_credits(self)
     psfx("transi1")
+    is_on_credits = true
     set_cam(credits_screen)
 end
 

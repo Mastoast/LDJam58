@@ -19,6 +19,7 @@ function _init()
     badge_count = 0
     sfx_on = true
     music_on = true
+    is_on_credits = false
     --
     mode = "normal"
     mode_list = {
@@ -39,8 +40,8 @@ function _init()
     -- load save
     for index = 1, #all_achievements do
         if dget(index) == 1 then
-            -- all_achievements[index].unlocked = true
-            -- badge_count += 1
+            all_achievements[index].unlocked = true
+            badge_count += 1
         end
     end
     check_badges()
@@ -83,7 +84,17 @@ function _update60()
     elseif gstate == 3 then
         update_colorblind_mode()
     end
+    if gtime % 60 == 0 then
+        slow_update()
+    end
 end
+
+function slow_update()
+    if is_on_credits == true then
+        tcam.y = tcam.y+1
+        printh(tcam.y)
+    end
+end 
 
 function update_level()
     -- freeze
