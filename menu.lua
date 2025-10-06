@@ -56,27 +56,27 @@ end
 
 function init_main_menu()
     local x, y = main_menu.x + 0, main_menu.y + 0
-    local start = create(text, 64, 32)
+    local start = create(text, 64, 40)
     start.text = "new game"
     start.is_centered = true
     start:init()
     start.on_click = start_game
-    local options = create(text, x + 64, y + 40)
+    local options = create(text, x + 64, y + 50)
     options.text = "options"
     options.is_centered = true
     options:init()
     options.on_click = move_to_option_menu
-    local credits = create(text, x + 64, y + 48)
+    local credits = create(text, x + 64, y + 60)
     credits.text = "credits"
     credits.is_centered = true
     credits:init()
     credits.on_click = move_to_credits
-    local achievements = create(text, x + 64, y + 56)
+    local achievements = create(text, x + 64, y + 70)
     achievements.text = "achievements"
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
-    local badgecnt = create(text, x + 64, 64)
+    local badgecnt = create(text, x + 64, 80)
     badgecnt.is_centered = false
     badgecnt.selectable = false
     badgecnt.update = function(self)
@@ -107,22 +107,22 @@ end
 
 function init_options_menu()
     local x, y = options_menu.x + 0, options_menu.y + 0
-    local sound = create(text, x + 64, y + 32)
+    local sound = create(text, x + 64, y + 50)
     sound.text = "audio"
     sound.is_centered = true
     sound:init()
     sound.on_click = move_to_sound_menu
-    local time = create(text, x + 64, y + 40)
+    local time = create(text, x + 64, y + 60)
     time.text = "time"
     time.is_centered = true
     time:init()
     time.on_click = move_to_time_menu
-    local accessibility = create(text, x + 64, y + 48)
+    local accessibility = create(text, x + 64, y + 70)
     accessibility.text = "accessibility"
     accessibility.is_centered = true
     accessibility:init()
     accessibility.on_click = move_to_accessibility_menu
-    local modes = create(text, x + 64, y + 56)
+    local modes = create(text, x + 64, y + 80)
     modes.text = "modes"
     modes.is_centered = true
     modes:init()
@@ -136,12 +136,6 @@ end
 
 function init_sound_menu()
     local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
-    -- local general_sound = create(text, x + 64, y + 32)
-    -- general_sound.text = "general sound"
-    -- general_sound.is_centered = true
-    -- general_sound:init()
-    -- general_sound.selectable = false
-    -- local general_sound_checkbox = create(checkbox, general_sound.x  - 40, general_sound.y-1)
 
     --general_sound.on_click = 
     local music = create(text, x + 64, y + 42)
@@ -235,42 +229,20 @@ end
 
 function init_modes_menu()
     local x, y = options_modes_menu.x + 0, options_modes_menu.y + 0
-    local normal = create(text, x + 64, y + 32)
-    normal.text = "normal mode"
-    normal.is_centered = true
-    normal:init()
-    normal.selectable = false
-    local normal_checkbox = create(checkbox_mode, normal.x  - 40, normal.y-1)
-    normal_checkbox.on_click = switch_mode
-    normal_checkbox.mode = "normal"
-
-    local lumberjack = create(text, x + 64, y + 42)
-    lumberjack.text = "lumberjack mode"
-    lumberjack.is_centered = true
-    lumberjack:init()
-    lumberjack.selectable = false
-    local lumberjack_checkbox = create(checkbox_mode, lumberjack.x  - 40, lumberjack.y-1)
-    lumberjack_checkbox.on_click = switch_mode
-    lumberjack_checkbox.mode = "lumberjack"
-
-    local boot = create(text, x + 64, y + 52)
-    boot.text = "boot mode"
-    boot.is_centered = true
-    boot:init()
-    boot.selectable = false
-    local boot_checkbox = create(checkbox_mode, boot.x  - 40, boot.y-1)
-    boot_checkbox.on_click = switch_mode
-    boot_checkbox.mode = "boot"
-
-    local play = create(text, x + 64, y + 62)
-    play.text = "play mode"
-    play.is_centered = true
-    play:init()
-    play.selectable = false
-    local play_cb = create(checkbox_mode, play.x  - 40, play.y-1)
-    play_cb.on_click = switch_mode
-    play_cb.mode = "play"
-
+    local ystrt = 32
+    local yspace = 15
+    local i = 0
+    for k, v in pairs(mode_list) do
+        local modetxt = create(text, x + 64, y + ystrt + i * yspace)
+        modetxt.text = k.." mode"
+        modetxt.is_centered = true
+        modetxt:init()
+        modetxt.selectable = false
+        local mode_cb = create(checkbox_mode, modetxt.x  - 40, modetxt.y-1)
+        mode_cb.on_click = switch_mode
+        mode_cb.mode = k
+        i += 1
+    end
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
