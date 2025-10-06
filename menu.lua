@@ -23,7 +23,46 @@ function init_all_menus()
 end
 
 function init_splash_screen_menu()
+    
     local x, y = splash_screen.x + 0, splash_screen.y + 0
+    local tree2 = create(object, x + 12, y + 10, 16, 32)
+    tree2.spr = 1
+    tree2.life = 3
+    tree2.on_click = function(self)
+        if mode == "lumberjack" then
+            if self.life > 1 then
+                psfx("ko1")
+                self.life -= 1
+            else
+                psfx("kokoko")
+                spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
+                del(objects, self)
+                unlock_badge("tree")
+            end
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
+            shake = 3
+        end
+    end
+    local title = create(text, x + 64, y + 32)
+        local x, y = splash_screen.x + 0, splash_screen.y + 0
+    local tree3 = create(object, x + 22, y + 50, 16, 32)
+    tree3.spr = 1
+    tree3.life = 3
+    tree3.on_click = function(self)
+        if mode == "lumberjack" then
+            if self.life > 1 then
+                psfx("ko1")
+                self.life -= 1
+            else
+                psfx("kokoko")
+                spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
+                del(objects, self)
+                unlock_badge("tree")
+            end
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
+            shake = 3
+        end
+    end
     local title = create(text, x + 64, y + 32)
     title.text = "\^t\^wshadow sword       //// \^t\^    iv"
     title.is_centered = true
@@ -34,6 +73,7 @@ function init_splash_screen_menu()
     startbtn.is_centered = true
     startbtn:init()
     startbtn.on_click = move_to_main_menu
+    
     local tree = create(object, x + 2, y + 60, 16, 32)
     tree.spr = 1
     tree.life = 3
@@ -47,6 +87,25 @@ function init_splash_screen_menu()
                 spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
                 del(objects, self)
                 unlock_badge("tree")
+            end
+            spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
+            shake = 3
+        end
+    end
+
+    local bucket = create(object, x + 98, y + 79, 8, 8)
+    bucket.spr = 19
+    bucket.life = 1
+    bucket.on_click = function(self)
+        if mode == "boot" then
+            if self.life > 1 then
+                psfx("ko1")
+                self.life -= 1
+            else
+                psfx("kokoko")
+                spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 6)
+                del(objects, self)
+                unlock_badge("kick_the_bucket")
             end
             spawn_particles(5, 3, cam.x + stat(32), cam.y + stat(33), 4)
             shake = 3
