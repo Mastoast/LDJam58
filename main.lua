@@ -54,11 +54,11 @@ function _init()
 end
 
 --[[ TODO
-konami code
 kick bucket
 kick char
 badge on win
 background on menus
+crop character
 ]]
 
 --[[
@@ -87,6 +87,7 @@ function _update60()
         update_colorblind_mode()
     end
     credit_update()
+    update_inputs()
 end
 
 function update_level()

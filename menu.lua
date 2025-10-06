@@ -76,12 +76,13 @@ function init_main_menu()
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
-    local badgecnt = create(text, x + 64, 80)
-    badgecnt.is_centered = false
-    badgecnt.selectable = false
+    local badgecnt = create(object, x + 64, 80)
     badgecnt.update = function(self)
-        self.text = "(" .. badge_count .. "|" .. tostring(#all_achievements) .. ")"
-        self:init()
+        self.text = "(" .. badge_count .. "/" .. tostring(#all_achievements) .. ")"
+        self.draw = function(self)
+            print(self.text, self.x+1, self.y+1, 0)
+            print(self.text, self.x, self.y, 7)
+        end
     end
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
