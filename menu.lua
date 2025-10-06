@@ -147,6 +147,8 @@ function init_achievements_menu()
     bckbtn.on_right_click = move_to_main_menu
     local bcktxt = create(text, x + 120-46, y+120)
     bcktxt.text = "🅾️ to go back"
+    local tiptxt = create(text, x, y+120)
+    tiptxt.text = "❎ to get a hint"
 end
 
 function init_options_menu()
