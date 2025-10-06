@@ -519,3 +519,29 @@ end
 function konami(self)
     konami("die_hard")
 end
+
+-- specific draws
+
+function draw_spash_screen()
+    local sline = 96
+    local gh = 42
+    rectfill(splash_screen.x, splash_screen.y, splash_screen.x + 128, splash_screen.y + sline, 12)
+    rectfill(splash_screen.x, splash_screen.y + sline, splash_screen.x + 128, splash_screen.y + 128 + sline, 1)
+    draw_gradient(splash_screen.x, splash_screen.y + sline - gh/2, 128, gh, 0x1c)
+    -- draw map
+    map(0, 48, splash_screen.x, splash_screen.y, 16, 16)
+end
+
+function draw_gradient(x, y, w, h, c)
+    local fpat={
+        0b0000100000000000, 0b1000000000100000, 0b0010000010100000, 0b1010000010100000, 0b1010010010100000, 0b1010010010100001,
+        0b1010010110100101,
+        0b0101111001011010, 0b0101111101011011, 0b0101111101011111, 0b0101111111011111, 0b0111111111011111, 0b1111011111111111
+    }
+    for i=1, #fpat do
+        local ly = y + (h * (i-1)) / #fpat
+        fillp(fpat[(i)])
+        rectfill(x,ly,x+w-1,ly+h/#fpat,c)
+    end
+    fillp()
+end
