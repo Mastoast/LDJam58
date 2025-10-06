@@ -157,11 +157,8 @@ asprite.spd = 12
 asprite.hit_h = 16
 asprite.hit_w = 16
 asprite.size = 1
-
-function asprite.init(self)
-    self.frame = 1
-    self.t = 0
-end
+asprite.t = 0
+asprite.frame = 1
 
 function asprite.update(self)
     self.t += 1
