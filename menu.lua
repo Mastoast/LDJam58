@@ -171,7 +171,7 @@ function init_sound_menu()
         checkbox.on_click(self)
         music_on = self.checked
         if music_on == false then
-            sad_hector()
+            unlock_badge("sad_hector")
         end
     end
 
@@ -298,8 +298,8 @@ function init_accessibility_menu()
 end
 
 function init_gameplay()
-    local ply = create(player, game.x + 64, game.y + 64)
-    local plyt = create(text, game.x + 8, game.y + 112)
+    ply = create(player, game.x + 64, game.y + 64)
+    local plyt = create(text, game.x + 88, game.y + 44)
     ply.target = plyt
 end
 
@@ -460,6 +460,7 @@ end
 function start_game(self)
     if mode == "play" then
         set_cam(game, true)
+        ply.active = true
     else
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
         txt.text = "switch to play mode to start"
@@ -495,10 +496,6 @@ end
 function not_full_credit(self)
     unlock_badge("test3")
 end
-
-function sad_hector(self)
-    unlock_badge("test6")
-end 
 
 function birthday(self)
     unlock_badge("birthday")
@@ -564,7 +561,12 @@ function draw_spash_screen()
     rectfill(splash_screen.x, splash_screen.y + sline, splash_screen.x + 128, splash_screen.y + 128 + sline, 1)
     draw_gradient(splash_screen.x, splash_screen.y + sline - gh/2, 128, gh, 0x1c)
     -- draw map
-    map(0, 48, splash_screen.x, splash_screen.y, 16, 16)
+    map(0, 48, splash_screen.x, splash_screen.y, 14, 16)
+end
+
+function draw_game()
+    local s = 7
+    map(15, 58, game.x+64-s*4, game.y + 64-s*4, s, s)
 end
 
 function draw_gradient(x, y, w, h, c)

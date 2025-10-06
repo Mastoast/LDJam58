@@ -54,7 +54,10 @@ function _init()
 end
 
 --[[ TODO
-- gameplay visuals
+konami code
+kick bucket
+kick char
+badge on win
 ]]
 
 --[[
@@ -144,6 +147,7 @@ function _draw()
     end
 
     draw_spash_screen()
+    draw_game()
 
     -- draw objects
     for o in all(objects) do
