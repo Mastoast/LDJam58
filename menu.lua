@@ -341,34 +341,34 @@ function switch_mode(self)
 end
 
 function on_date_change()
-    if tday.day == bday.day and tday.month == bday.month then
+    if tday.day.value == bday.day.value  and tday.month.value  == bday.month.value  then
         birthday()
         if tday.year.value == bday.year.value then
             birthday_is_today()
         end
     end
-    if tday.day == 25 and tday.month == 12 then
+    if tday.day.value  == 25 and tday.month.value  == 12 then
         merry_christmas()
     end 
-    if tday.year == 1955 and tday.day == 5 and tday.month == 11 then
+    if tday.year.value  == 1955 and tday.day.value  == 5 and tday.month.value  == 11 then
         marty_mcfly()
     end 
-    if tday.day == 4 and tday.month == 5 then
+    if tday.day.value  == 4 and tday.month.value  == 5 then
         star_wars()
     end 
-    if tday.day == 13 and tday.month == 10 then
+    if tday.day.value  == 13 and tday.month.value  == 10 then
         parks_and_rec()
     end 
-    if tday.day == 2 and tday.month == 2 then
+    if tday.day.value  == 2 and tday.month.value  == 2 then
         groundhog_day()
     end 
-    if tday.day == 21 and tday.month == 9 then
+    if tday.day.value  == 21 and tday.month.value  == 9 then
         do_you_remember()
     end 
-    if tday.year == 1997 and tday.day == 29 and tday.month == 8 then
+    if tday.year.value  == 1997 and tday.day.value  == 29 and tday.month.value  == 8 then
         terminator_two()
     end
-    if tday.year == 1988 and tday.day == 24 and tday.month == 12 then
+    if tday.year.value  == 1988 and tday.day.value  == 24 and tday.month.value  == 12 then
         die_hard()
     end
 end
@@ -506,7 +506,7 @@ function birthday_is_today(self)
 end
 
 function merry_christmas(self)
-    unlock_badge("christmas")
+    unlock_badge("merry_christmas")
 end
 
 function marty_mcfly(self)
