@@ -40,6 +40,15 @@ function init_splash_screen_menu()
     title.is_centered = true
     title.color = 10
     title:init()
+    title.dir = -1
+    title.update = function(self)
+        if gtime % 60 == 0 then
+            self.y += self.dir
+        end
+        if gtime % 120 == 0 then
+            self.dir *= -1
+        end
+    end
     local startbtn = create(button, x + 45, y + 72)
     startbtn.text = "start game"
     startbtn.is_centered = true
