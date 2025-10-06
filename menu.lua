@@ -538,8 +538,13 @@ function die_hard(self)
 end
 
 function konami(self)
-    konami("die_hard")
+    unlock_badge("konami")
 end
+
+function kick_the_bucket(self)
+    unlock_badge("kick_the_bucket")
+end
+
 
 -- specific draws
 
