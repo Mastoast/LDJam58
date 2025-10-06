@@ -90,6 +90,15 @@ function object.contains(self, px, py)
         py < self.y + self.hit_y + self.hit_h
 end
 
+function object.on_camera(self)
+    return not (
+        self.x + self.hit_x + self.hit_w < cam.x or
+        self.x + self.hit_x > cam.x + 127 or
+        self.y + self.hit_y + self.hit_h < cam.y or
+        self.y + self.hit_y > cam.y + 127
+    )
+end
+
 function object.check_solid(self, ox, oy)
     ox = ox or 0
     oy = oy or 0

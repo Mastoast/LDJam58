@@ -237,16 +237,28 @@ end
 
 player = new_type(100)
 player.speed = 0.8
+player.active = false
 
 function player.update(self)
+    if not self.active then return end
     if btn(0) then self.x -= self.speed end
     if btn(1) then self.x += self.speed end
     if btn(2) then self.y -= self.speed end
     if btn(3) then self.y += self.speed end
     if self:overlaps(self.target) then
-        set_cam(main_menu, true)
         self.x, self.y = game.x + 64, game.y + 64
+        is_on_credits = true
+        set_cam(credits_screen, true)
+        self.active = false
     end
+end
+
+function player.draw(self)
+    palt(0,false)
+    palt(15,true)
+    object.draw(self)
+    palt(0,true)
+    palt(15,false)
 end
 
 -- PARTICLES

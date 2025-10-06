@@ -144,6 +144,7 @@ function _draw()
     end
 
     draw_spash_screen()
+    draw_game()
 
     -- draw objects
     for o in all(objects) do
