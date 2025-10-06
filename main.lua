@@ -26,7 +26,8 @@ function _init()
         normal = {tile = 16},
         lumberjack = {tile = 48},
         boot = {tile = 32},
-        play = {tile = 16, locked = true}
+        play = {tile = 16, locked = true},
+        patched = {tile = 119}
     }
     tday = {}
     bday = {}
@@ -54,8 +55,6 @@ end
 
 --[[ TODO
 - gameplay visuals
-- better achievement popup w/ effects
-- unlock credits speed
 ]]
 
 --[[
@@ -83,17 +82,8 @@ function _update60()
     elseif gstate == 3 then
         update_colorblind_mode()
     end
-    if gtime % 60 == 0 then
-        slow_update()
-    end
+    credit_update()
 end
-
-function slow_update()
-    if is_on_credits == true then
-        tcam.y = tcam.y+1
-        printh(tcam.y)
-    end
-end 
 
 function update_level()
     -- freeze
