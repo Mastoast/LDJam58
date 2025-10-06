@@ -118,8 +118,6 @@ thanks for playing!
 
 creditheight = #(split(credit_text, "\n")) * 10
 
--- TODO stop on max scroll
--- TODO success on max scroll
 function make_credits_appear(self)
     local play = create(text, credits_screen.x+64, credits_screen.y+120)
     play.text = credit_text
