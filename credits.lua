@@ -5,57 +5,69 @@ credit_text =[[credits
 
 responsible for 90%
 of the code that works
-mastoast
+MASTOAST
 
-writer Who thought meta humor was still cool
-pandalk
+writer Who thought meta
+humor was still cool
+PANDALK
 
 chief "annoying jingle" operator
-mastoast
+MASTOAST
 
-The one who drew that tree you can cut
-pandalk
+The one who drew that
+tree you can cut
+PANDALK
 
-the person who thought 900 grams of m&m's was enough for the week-end
-pandalk
+the person who thought
+900 grams of m&m's was
+enough for the week-end
+PANDALK
 
-chief of “add it to the list” department
-mastoast
+chief of
+"add it to the list"
+department
+MASTOAST
 
-chief officer of “just one more feature”
-pandalk
+chief officer of
+"just one more feature"
+PANDALK
 
-the person you can blame for everything
-mastoast
+the person you can blame
+for everything
+MASTOAST
 
-the person who forgot to push their code
-pandalk
+the person who forgot
+to push their code
+PANDALK
 
-that one developer who said “it works on my machine”
-mastoast
+that one developer who said
+"it works on my machine"
+MASTOAST
 
 [redacted for spoilers]
-pandalk
+PANDALK
 
 probably asleep right now
-mastoast
+MASTOAST
 
 director of Unintended features
-Pandalk
+PANDALK
 
-the guy who thought this was funny
-pandalk
+the guy who thought
+this was funny
+PANDALK
 
 
 special thanks:
 
-satoshi kon 
-richard garfield
-the disco elysium team
-the greater good
-my cat fleya
-bob. merci bob
-and you who is definitely reading this right now!
+SATOSHI KON 
+RICHARD GARFIELD
+THE DISCO ELYSIUM TEAM
+THE GREATER GOOD
+MY CAT FLEYA
+BOB. MERCI BOB
+AND YOU WHO ARE DEFINITELY
+READING THIS RIGHT NOW!
 
 
 
@@ -71,7 +83,11 @@ and you who is definitely reading this right now!
 
 
 
-anyway, anyone else hyped by the WoW housing feature? i can't wait to play a worse version of the sims in my favorite mmo.
+ANYWAY, ANYONE ELSE HYPED BY
+THE WOW HOUSING FEATURE?
+I CAN'T WAIT TO PLAY A WORSE
+VERSION OF THE SIMS
+IN MY FAVORITE MMO
 
 
 
@@ -83,7 +99,9 @@ anyway, anyone else hyped by the WoW housing feature? i can't wait to play a wor
 
 
 
-still there? wait, I must have something more.
+STILL THERE?
+WAIT,
+I MUST HAVE SOMETHING MORE
 
 
 

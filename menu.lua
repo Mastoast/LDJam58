@@ -336,6 +336,9 @@ function switch_mode(self)
         if mode != self.mode then
             mode = self.mode
             click_valid()
+            if mode == "patched" then
+                unlock_badge("connected")
+            end
         end
     end
 end
