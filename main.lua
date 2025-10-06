@@ -46,7 +46,7 @@ function _init()
         end
     end
     check_badges()
-    menuitem(1, "restart progress", function() restart_progress() end)
+    menuitem(1, "reset progress", function() reset_progress() end)
     --
     init_all_menus()
     mouse = create(cursor, -500, -500)
@@ -66,7 +66,7 @@ gstate
 3 = colorblind mode
 ]]
 
-function restart_progress()
+function reset_progress()
     --reset save
     for index = 1, #all_achievements do
         dset(index, 0)
