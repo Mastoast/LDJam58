@@ -218,8 +218,13 @@ notif.text = ""
 notif.c = 15
 notif.sc = 9
 notif.l = 140
+notif.dlt = 8
+notif.dltsp = 1.5
 
 function notif.update(self)
+    if self.dlt > 0 then
+        self.dlt = max(0, self.dlt - self.dltsp)
+    end
     self.l -= 1
     if self.l <= 0 then
         del(objects, self)
@@ -227,7 +232,7 @@ function notif.update(self)
 end
 
 function notif.draw(self)
-    print("\#8\^#"..self.text, cam.x, cam.y + 122, self.c)
+    print("\#8\^#"..self.text, cam.x, cam.y + 122 + self.dlt, self.c)
 end
 
 player = new_type(100)
