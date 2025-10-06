@@ -517,6 +517,7 @@ function achievement_achievement(self)
 end
 
 function start_game(self)
+    unlock_badge("start1")
     if mode == "play" then
         set_cam(game, true)
         ply.active = true
@@ -525,7 +526,6 @@ function start_game(self)
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
         txt.text = "switch to play mode to start"
         click_error()
-        unlock_badge("start1")
     end
 end
 
