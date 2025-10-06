@@ -69,6 +69,20 @@ function init_splash_screen_menu()
             shake = 3
         end
     end
+
+    local man = create(object, x + 103, y + 56, 8, 16)
+    man.spr = 20
+    man.on_click = function(self)
+        if mode == "boot" then
+            psfx("splash")
+            for i=1,10 do
+                local col = (i%2)==0 and 1 or 6
+                spawn_particles(3, 7, splash_screen.x+113, splash_screen.y+120, col, 32+flr(rnd(4)))
+            end
+            del(objects, self)
+            unlock_badge("perfect_murder")
+        end
+    end
 end
 
 function init_main_menu()
@@ -234,7 +248,7 @@ end
 function init_time_menu()
     local x, y = options_time_menu.x + 0, options_time_menu.y + 0
     local date = create(text, x + 64, y + 10)
-    date.text = "date"
+    date.text = "current date"
     date.is_centered = true
     date:init()
     date.selectable = false

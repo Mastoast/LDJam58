@@ -271,18 +271,19 @@ particles = {}
 -- size
 -- x / y
 -- color
-function spawn_particles(nb,s,x,y,c)
+function spawn_particles(nb,s,x,y,c,tmax)
     for i=1,flr(nb) do
-        add(particles, make_particle(s,x,y,c))
+        add(particles, make_particle(s,x,y,c,tmax))
     end
 end
 
-function make_particle(s,x,y,c)
+function make_particle(s,x,y,c,t_max)
     local p={
         s=s or 1,
         c=c or 7,
         x=x,y=y,k=k,
-        t=0, t_max=16+flr(rnd(4)),
+        t=0,
+        t_max=t_max or 16+flr(rnd(4)),
         dx=rnd(2)-1,dy=-rnd(3),
         ddy=0.05,
         update=update_particle,
