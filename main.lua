@@ -20,6 +20,8 @@ function _init()
     sfx_on = true
     music_on = true
     is_on_credits = false
+    popup_last_input = 0
+    popup_delay = 20
     --
     mode = "normal"
     mode_list = {

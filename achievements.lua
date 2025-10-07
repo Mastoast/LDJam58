@@ -44,6 +44,7 @@ function unlock_badge(code)
     local index = find_item_table_index(badge, all_achievements)
     dset(index, 1)
     badge_count += 1
+    popup_last_input = gtime
     add(incoming_popups, badge)
     --
     check_badges()
