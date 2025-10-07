@@ -191,7 +191,7 @@ INSIDES, LIKE WITH SEA URCHINS.
 thanks for playing!
 ]]
 
-creditheight = #(split(credit_text, "\n")) * 9.2
+creditheight = #(split(credit_text, "\n")) * 9.5
 
 function make_credits_appear(self)
     x, y = credits_screen.x, credits_screen.y
@@ -221,7 +221,7 @@ end
 
 function credit_update()
     if is_on_credits == true then
-        local on_bottom = cam.y > creditheight + 128 + 32
+        local on_bottom = tcam.y > creditheight + 128 + 32
         if btnp(🅾️) then
             if (not on_bottom) unlock_badge("credit1")
             is_on_credits = false
