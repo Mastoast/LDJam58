@@ -55,28 +55,30 @@ function check_badges()
     end
 end
 
-kcodei = 1
-kcode = {⬆️,⬆️,⬇️,⬇️,⬅️,➡️,⬅️,➡️,🅾️,❎}
-ourcodei = 1
-ourcode = {⬅️,⬅️,⬅️,⬆️,⬆️,⬆️,🅾️,🅾️,🅾️,🅾️}
+function on_konamicd()
+    unlock_badge("konami")
+end
+
+function on_ourcode()
+    unlock_badge("our_code")
+end
+
+input_codes = {
+    {i=1,code={⬆️,⬆️,⬇️,⬇️,⬅️,➡️,⬅️,➡️,🅾️,❎},callback=on_konamicd },
+    {i=1,code={⬅️,⬅️,⬅️,⬆️,⬆️,⬆️,🅾️,🅾️,🅾️,🅾️},callback=on_ourcode }
+}
+
 function update_inputs()
-    if btnp(kcode[kcodei]) then
-        kcodei += 1
-        if kcodei > #kcode then
-            unlock_badge("konami")
-            kcodei = 1
+    for input in all(input_codes) do
+        if btnp(input.code[input.i]) then
+            input.i += 1
+            if input.i > #input.code then
+                input.callback()
+                input.i = 1
+            end
+        elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
+            input.i = 1
         end
-    elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
-        kcodei = 1
-    end
-    if btnp(ourcode[ourcodei]) then
-        ourcodei += 1
-        if ourcodei > #ourcode then
-            unlock_badge("our_code")
-            ourcodei = 1
-        end
-    elseif btnp(⬆️) or btnp(⬇️) or btnp(⬅️) or btnp(➡️) or btnp(🅾️) or btnp(❎) then
-        ourcodei = 1
     end
 end
 
