@@ -217,16 +217,17 @@ function make_credits_appear(self)
             psfx("error1")
         end
     end
-    bckbtn.on_right_click = function(self)
-        unlock_badge("credit1")
-        is_on_credits = false
-        move_to_main_menu()
-    end
 end
 
 function credit_update()
     if is_on_credits == true then
-        if cam.y > creditheight + 128 + 32 then
+        local on_bottom = cam.y > creditheight + 128 + 32
+        if btnp(🅾️) then
+            if (not on_bottom) unlock_badge("credit1")
+            is_on_credits = false
+            move_to_main_menu()
+        end
+        if on_bottom then
             unlock_badge("credit2")
             return
         end

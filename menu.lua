@@ -382,7 +382,7 @@ end
 function colorblind_seq()
     local clickcnt = 0
     while clickcnt < 12 do
-        if btnp(❎) then
+        if btnp(❎) or btnp(🅾️) then
             prand_sfx()
             clickcnt += 1
         end
