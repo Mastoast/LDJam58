@@ -53,12 +53,6 @@ function _init()
     printh("END INIT ================")
 end
 
---[[ TODO
-kick bucket
-kick char
-background on menus
-]]
-
 --[[
 gstate
 1 = Menu
@@ -117,7 +111,7 @@ function update_level()
         end
         o.hover = on_cursor(o)
         o:update()
-        
+
         if o.hover then
             if btnp(❎) then
                 o:on_click(❎)
@@ -158,7 +152,7 @@ function _draw()
 
     -- UI
     if gstate == 2 then draw_popup() end
-    
+
     -- draw particles
     for a in all(particles) do
         a:draw()

@@ -23,7 +23,6 @@ function init_all_menus()
 end
 
 function init_splash_screen_menu()
-    
     local x, y = splash_screen.x + 0, splash_screen.y + 0
     local tree2 = create(object, x + 12, y + 10, 16, 32)
     tree2.spr = 1
@@ -54,7 +53,7 @@ function init_splash_screen_menu()
     startbtn.is_centered = true
     startbtn:init()
     startbtn.on_click = move_to_main_menu
-    
+
     local tree = create(object, x + 2, y + 60, 16, 32)
     tree.spr = 1
     tree.life = 3
@@ -193,7 +192,7 @@ end
 
 function init_sound_menu()
     local x, y = options_sound_menu.x + 0, options_sound_menu.y + 0
-    
+
     local general_sound = create(text, x + 64, y + 32)
     general_sound.text = "general sound"
     general_sound.is_centered = true
@@ -207,23 +206,21 @@ function init_sound_menu()
         music_on = self.checked
         sfx_on = self.checked
         if music_on == false and sfx_on == false then
-            sound_down()
-        end 
+            unlock_badge("soundp")
+        end
         if music_on == true and sfx_on == true then
-            sound_up()
-        end 
+            unlock_badge("soundm")
+        end
         click_valid()
     end
-    --general_sound.on_click = 
+
     local music = create(text, x + 64, y + 42)
     music.text = "music"
     music.is_centered = true
     music:init()
     music.selectable = false
 
-    
-
-    local music_cb = create(checkbox, music.x  - 40, music.y-1)
+    local music_cb = create(checkbox, music.x - 40, music.y - 1)
     music_cb.checked = true
     music_cb.on_click = function(self)
         checkbox.on_click(self)
@@ -239,7 +236,7 @@ function init_sound_menu()
     sound_effects.is_centered = true
     sound_effects:init()
     sound_effects.selectable = false
-    
+
     local sound_effects_cb = create(checkbox, sound_effects.x  - 40, sound_effects.y-1)
     sound_effects_cb.checked = true
     sound_effects_cb.on_click = function(self)
@@ -412,35 +409,35 @@ function switch_mode(self)
 end
 
 function on_date_change()
-    if tday.day.value == bday.day.value  and tday.month.value  == bday.month.value  then
-        birthday()
+    if tday.day.value == bday.day.value and tday.month.value == bday.month.value then
+        unlock_badge("birthday")
         if tday.year.value == bday.year.value then
-            birthday_is_today()
+            unlock_badge("birthday_today")
         end
     end
-    if tday.day.value  == 25 and tday.month.value  == 12 then
-        merry_christmas()
-    end 
-    if tday.year.value  == 1955 and tday.day.value  == 5 and tday.month.value  == 11 then
-        marty_mcfly()
-    end 
-    if tday.day.value  == 4 and tday.month.value  == 5 then
-        star_wars()
-    end 
-    if tday.day.value  == 13 and tday.month.value  == 10 then
-        parks_and_rec()
-    end 
-    if tday.day.value  == 2 and tday.month.value  == 2 then
-        groundhog_day()
-    end 
-    if tday.day.value  == 21 and tday.month.value  == 9 then
-        do_you_remember()
-    end 
-    if tday.year.value  == 1997 and tday.day.value  == 29 and tday.month.value  == 8 then
-        terminator_two()
+    if tday.day.value == 25 and tday.month.value == 12 then
+        unlock_badge("merry_christmas")
     end
-    if tday.year.value  == 1988 and tday.day.value  == 24 and tday.month.value  == 12 then
-        die_hard()
+    if tday.year.value == 1955 and tday.day.value == 5 and tday.month.value == 11 then
+        unlock_badge("marty_mcfly")
+    end
+    if tday.day.value == 4 and tday.month.value == 5 then
+        unlock_badge("star_wars")
+    end
+    if tday.day.value == 13 and tday.month.value == 10 then
+        unlock_badge("parks_and_rec")
+    end
+    if tday.day.value == 2 and tday.month.value == 2 then
+        unlock_badge("groundhog_day")
+    end
+    if tday.day.value == 21 and tday.month.value == 9 then
+        unlock_badge("do_you_remember")
+    end
+    if tday.year.value == 1997 and tday.day.value == 29 and tday.month.value == 8 then
+        unlock_badge("terminator_two")
+    end
+    if tday.year.value == 1988 and tday.day.value == 24 and tday.month.value == 12 then
+        unlock_badge("die_hard")
     end
 end
 
@@ -476,13 +473,15 @@ end
 function move_to_main_menu(self)
     psfx("transi2")
     set_cam(main_menu)
-    start_intro(self)
+    unlock_badge("intro1")
+    unlock_badge("intro2")
+    unlock_badge("intro3")
 end
 
 function move_to_achievements(self)
     psfx("transi1")
     set_cam(badges_menu)
-    achievement_achievement(self)
+    unlock_badge("badge")
 end
 
 function move_to_option_menu(self)
@@ -529,18 +528,6 @@ function set_cam(coords, tp)
     end
 end
 
--- unlock achievements
-
-function start_intro(self)
-    unlock_badge("intro1")
-    unlock_badge("intro2")
-    unlock_badge("intro3")
-end
-
-function achievement_achievement(self)
-    unlock_badge("badge")
-end
-
 function start_game(self)
     unlock_badge("start1")
     if mode == "play" then
@@ -554,89 +541,6 @@ function start_game(self)
     end
 end
 
-function sound_down(self)
-    unlock_badge("soundp")
-end
-
-function sound_up(self)
-    unlock_badge("soundm")
-end
-
---function hour_midnight(self)
---    unlock_badge("time1")
---end
-
-function date_movie(self)
-    unlock_badge("time2")
-end
-
-function easy_mode(self)
-    unlock_badge("test1")
-end
-
-function full_credit(self)
-    unlock_badge("test2")
-end
-
-function not_full_credit(self)
-    unlock_badge("test3")
-end
-
-function birthday(self)
-    unlock_badge("birthday")
-end
-
-function birthday_is_today(self)
-    unlock_badge("birthday_today")
-end
-
-function merry_christmas(self)
-    unlock_badge("merry_christmas")
-end
-
-function marty_mcfly(self)
-    unlock_badge("marty_mcfly")
-end
-
-function star_wars(self)
-    unlock_badge("star_wars")
-end
-
-function parks_and_rec(self)
-    unlock_badge("parks_and_rec")
-end
-
-function groundhog_day(self)
-    unlock_badge("groundhog_day")
-end
-
-function do_you_remember(self)
-    unlock_badge("do_you_remember")
-end
-
-function terminator_two(self)
-    unlock_badge("terminator_two")
-end
-
-function die_hard(self)
-    unlock_badge("die_hard")
-end
-
-function konami(self)
-    unlock_badge("konami")
-end
-
-function kick_the_bucket(self)
-    unlock_badge("kick_the_bucket")
-end
-
-function finish_the_game(self)
-    unlock_badge("finish_the_game")
-end
-
-function perfect_murder(self)
-    unlock_badge("perfect_murder")
-end
 -- specific draws
 
 function draw_spash_screen()
