@@ -205,8 +205,6 @@ function make_credits_appear(self)
         print_mltxt(self.text, self.x, self.y, self.color)
     end
 
-    --printh(credit_text)
-    --printh(play.color)
     local bckbtn = create(text, credits_screen.x, credits_screen.y)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 3000

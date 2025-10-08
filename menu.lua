@@ -368,7 +368,7 @@ function init_gameplay()
     ply.target = plyt
 end
 
--- stuff
+-- events functions
 
 function update_colorblind_mode()
     if blind_cor and costatus(blind_cor) != 'dead' then
@@ -380,12 +380,13 @@ function update_colorblind_mode()
 end
 
 function colorblind_seq()
-    local inputcnt = 5
+    local inputcnt = 9
     local clickcnt = 0
     while clickcnt < inputcnt do
-        if btnp(❎) or btnp(🅾️) then
+        if stat(30) or btnp(❎) or btnp(🅾️) then
             prand_sfx()
             clickcnt += 1
+            stat(31)
         end
         yield()
     end
