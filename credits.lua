@@ -209,7 +209,7 @@ function init_credits(self)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 3000
     bckbtn.on_click = function(self)
-        if mode != "patched" then
+        if mode != "patched" and not preclick then
             local n = create(notif, 0, 0)
             n.text = "patch needed to scroll faster"
             psfx("error1")
