@@ -53,6 +53,7 @@ function _init()
     init_all_menus()
     mouse = create(cursor, -500, -500)
     printh("END INIT ================")
+    pmusic("title")
 end
 
 --[[

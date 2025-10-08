@@ -26,8 +26,9 @@ sfxs = {
     metal = {n = 9, offset = 24, length = 1},
 }
 
-function psfx(code)
+function psfx(code, channel)
     if not sfx_on then return end
+    channel = channel or 3
     local fx = sfxs[code]
     if not fx then printh("NO SFX: "..code) return end
     sfx(fx.n, -1, fx.offset, fx.length)
