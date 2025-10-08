@@ -191,6 +191,7 @@ function modnumber.draw(self)
     local upc = (self.hover and target == "up") and self.sc or self.c
     local downc = (self.hover and target == "down") and self.sc or self.c
     local s = tostr(self.value)
+    s = (#s == 1) and "0"..s or s
     local btnx = self.x + self.hit_w/2 - 2
     print("⬆️", btnx + 1, self.y - 6, 0)
     print("⬆️", btnx, self.y - 7, upc)

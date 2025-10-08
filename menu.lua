@@ -262,17 +262,17 @@ function init_time_menu()
     date.selectable = false
     --
     local year = create(modnumber, x + 35, y + 30)
-    year.value = 1993
+    year.value = stat(90)
     year.min = 1900
     year.max = 2050
     year:init()
     local month = create(modnumber, x + 60, y + 30)
-    month.value = 10
+    month.value = stat(91)
     month.min = 1
     month.max = 12
     month:init()
     local day = create(modnumber, x + 80, y + 30)
-    day.value = 23
+    day.value = stat(92)
     day.min = 1
     day.max = 31
     day:init()
@@ -380,8 +380,9 @@ function update_colorblind_mode()
 end
 
 function colorblind_seq()
+    local inputcnt = 5
     local clickcnt = 0
-    while clickcnt < 12 do
+    while clickcnt < inputcnt do
         if btnp(❎) or btnp(🅾️) then
             prand_sfx()
             clickcnt += 1
