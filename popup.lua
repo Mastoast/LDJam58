@@ -37,8 +37,10 @@ function pop_popups()
     local delayed = gtime < popup_last_input + popup_delay
     local cam_static = abs(cam.x - tcam.x) < safe_distance and abs(cam.y - tcam.y) < safe_distance
     if #incoming_popups > 0 and cam_static and not delayed then
-        pmusic("fanfare")
-        init_popup(incoming_popups[1], 15, 170, true)
+        local msc = incoming_popups[1].msc or "fanfare"
+        local btn_time = incoming_popups[1].btn_time or 165
+        pmusic(msc)
+        init_popup(incoming_popups[1], 15, btn_time, true)
         del(incoming_popups, incoming_popups[1])
     end
 end

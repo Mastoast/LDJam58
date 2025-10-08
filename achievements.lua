@@ -20,7 +20,7 @@ all_achievements = {
     {code = "connected", name = "\^t\^wconnected", description ="stay up to date", tip = "enable day 1 patch mode."},
     {code = "sad_hector", name ="\^t\^wsad noises", description ="you just made our//sound designer sad", tip = "disable the musics."},
     {code = "konami", name ="\^t\^wkonami code", description = "such an og!", tip = "ask someone old"},
-    {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "1978, what a year...", tip = "three quarters of the Avatar//you're just missing water."},
+    {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "1978, what a year...", tip = "three quarters of the Avatar//you're just missing water.", msc="september",btn_time=237},
     {code = "kick_the_bucket", name ="\^t\^wkick the bucket", description ="are you proud of yourself?", tip = "it's literal, try the boot mode." },
     --{code = "test9", name ="\^t\^ware you//\^t\^wlying to me?", description = "è_é", tip = "set the month to//something impossible."},
     {code = "blind", name ="\^t\^wsecret mission", description = "you successfully//prevented the heist using//the 8 baboons", tip = "close your eyes,//the solution will come to you"},

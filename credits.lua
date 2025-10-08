@@ -193,15 +193,15 @@ thanks for playing!
 
 creditheight = #(split(credit_text, "\n")) * 9.5
 
-function make_credits_appear(self)
+function init_credits(self)
     x, y = credits_screen.x, credits_screen.y
-    local play = create(text, credits_screen.x+64, credits_screen.y+120)
-    play.text = credit_text
-    play.is_centered = false
-    play.selectable = false
-    play.color = 10
-    play:init()
-    play.draw = function (self)
+    local crd = create(text, credits_screen.x+64, credits_screen.y+120)
+    crd.text = credit_text
+    crd.is_centered = false
+    crd.selectable = false
+    crd.color = 10
+    crd:init()
+    crd.draw = function (self)
         print_mltxt(self.text, self.x, self.y, self.color)
     end
 
