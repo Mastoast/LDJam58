@@ -219,24 +219,47 @@ function make_credits_appear(self)
     end
 end
 
-function credit_update()
+function launch_credits()
+    last_mspeed = 32
+    preclick = btn(❎)
+    is_on_credits = true
+    set_cam(credits_screen, true)
+    pmusic("credits")
+end
+
+function update_credits()
     if is_on_credits == true then
-        local on_bottom = tcam.y > creditheight + 128 + 32
+        if not btn(❎) then preclick = false end
+        local on_bottom = tcam.y > creditheight + 128 + 12
         if btnp(🅾️) then
             if (not on_bottom) unlock_badge("credit1")
             is_on_credits = false
-            move_to_main_menu()
+            music(-1)
+            move_to_main_menu(nil, true)
         end
+        update_credits_music_speed(on_bottom)
         if on_bottom then
             unlock_badge("credit2")
             return
         end
-        local frameskp = (mode == "patched" and btn(❎) and 5) or 1
-        local credit_speed = (mode == "patched" and btn(❎) and 1) or 59
+        local frameskp = (mode == "patched" and btn(❎) and not preclick and 5) or 1
+        local credit_speed = (mode == "patched" and btn(❎) and not preclick and 1) or 59
         if gtime % 60 >= credit_speed then
             tcam.y = tcam.y+frameskp
         end
     end
+end
+
+function update_credits_music_speed(on_bottom)
+    local music_speed = (mode == "patched" and btn(❎) and not preclick and 8) or 64
+    music_speed = on_bottom and 32 or music_speed
+    if music_speed == last_mspeed then return end
+    for i in all(musics["credits"].sfxs) do
+        local sfxaddr = 0x3200 + i*68 -- speed byte
+        poke(sfxaddr+65, music_speed)
+    end
+    pmusic("credits")
+    last_mspeed = music_speed
 end
 
 function print_mltxt(str, x, y, col)

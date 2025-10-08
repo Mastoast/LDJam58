@@ -48,12 +48,15 @@ end
 ]]
 
 musics = {
-    fanfare = {n = 0}
+    fanfare={n=0},
+    title={n=1},
+    credits={n=16,sfxs={40,41,46,47,48,49}},
+    september={n=24},
 }
 
 function pmusic(code)
     if not music_on then return end
     local msc = musics[code]
     if not msc then printh("NO MUSIC: "..code) return end
-    music(msc, 0)
+    music(msc.n,0)
 end

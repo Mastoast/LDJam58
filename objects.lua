@@ -249,8 +249,7 @@ function player.update(self)
     self.y = mid(game.y+44, self.y, game.y + 120-44)
     if self:overlaps(self.target) then
         self.x, self.y = game.x + 64, game.y + 64
-        is_on_credits = true
-        set_cam(credits_screen, true)
+        launch_credits()
         self.active = false
         unlock_badge("finish_the_game")
     end

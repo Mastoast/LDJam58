@@ -11,6 +11,7 @@ game = { x = 512, y = 512}
 
 function init_all_menus()
     init_splash_screen_menu()
+    make_credits_appear()
     init_main_menu()
     init_achievements_menu()
     init_options_menu()
@@ -19,7 +20,6 @@ function init_all_menus()
     init_modes_menu()
     init_accessibility_menu()
     init_gameplay()
-    make_credits_appear()
 end
 
 function init_splash_screen_menu()
@@ -109,7 +109,7 @@ function init_main_menu()
     credits.text = "credits"
     credits.is_centered = true
     credits:init()
-    credits.on_click = move_to_credits
+    credits.on_click = launch_credits
     local achievements = create(text, x + 64, y + 70)
     achievements.text = "achievements"
     achievements.is_centered = true
@@ -470,9 +470,10 @@ end
 
 -- access menus
 
-function move_to_main_menu(self)
-    psfx("transi2")
-    set_cam(main_menu)
+function move_to_main_menu(self, tp)
+    tp = tp or false
+    if not tp then psfx("transi2") end
+    set_cam(main_menu, tp)
     unlock_badge("intro1")
     unlock_badge("intro2")
     unlock_badge("intro3")
@@ -507,12 +508,6 @@ end
 function move_to_modes_menu(self)
     psfx("transi1")
     set_cam(options_modes_menu)
-end
-
-function move_to_credits(self)
-    psfx("transi1")
-    is_on_credits = true
-    set_cam(credits_screen)
 end
 
 function move_to_splash_screen(self)

@@ -82,7 +82,7 @@ function _update60()
     elseif gstate == 3 then
         update_colorblind_mode()
     end
-    credit_update()
+    update_credits()
     update_inputs()
     update_particles()
 end
@@ -116,9 +116,9 @@ function update_level()
 
         if o.hover then
             if btnp(❎) then
-                o:on_click(❎)
+                o:on_click()
             elseif btnp(🅾️) then
-                o:on_right_click(🅾️)
+                o:on_right_click()
             end
         end
 
