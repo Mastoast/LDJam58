@@ -50,7 +50,7 @@ end
 
 musics = {
     fanfare={n=0},
-    title={n=1},
+    title={n=8},
     credits={n=16,sfxs={40,41,46,47,48,49}},
     september={n=24},
 }
