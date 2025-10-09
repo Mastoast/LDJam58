@@ -21,6 +21,17 @@ function init_popup(achievement, anim_time, btn_time, isnew)
         desc.color = 7
         local coin = create(asprite, cam.x + 56, cam.y + 8, 16, 16, popup_objects)
         coin.size = 1
+        coin.update = function(self)
+            asprite.update(self)
+            if on_cursor(self) and btnp(❎) and ptime >= pbtn_time then
+                psfx("metal")
+                spawn_particles(6, 3, cam.x + stat(32), cam.y + stat(33), 9)
+                if not all_achievements_index["coin"].unlocked then
+                    unlock_badge("coin", true)
+                    close_popup()
+                end
+            end
+        end
     else
         local tip = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
         tip.text = achievement.tip

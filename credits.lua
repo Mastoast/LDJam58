@@ -192,6 +192,7 @@ thanks for playing!
 ]]
 
 creditheight = #(split(credit_text, "\n")) * 9.5
+printh("creditheight : "..creditheight)
 
 function init_credits(self)
     x, y = credits_screen.x, credits_screen.y
@@ -227,6 +228,7 @@ end
 
 function update_credits()
     if is_on_credits == true then
+        if stat(54) == -1 then pmusic("credits") end
         if not btn(❎) then preclick = false end
         local on_bottom = tcam.y > creditheight + 128 + 12
         if btnp(🅾️) then

@@ -33,10 +33,12 @@ all_achievements = {
     {code = "launchgame", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
     {code = "our_code", name ="\^t\^wfind the secret//\^t\^wcode", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
+    {code = "coin", name ="\^t\^wmoney money//\^t\^wmoney", description = "you clicked the coin", tip = "achievementception"},
      --{code = "", name ="", description = "", tip = ""},
 }
 
-function unlock_badge(code)
+function unlock_badge(code, ontop)
+    local ontop = ontop or false
     local badge = all_achievements_index[code]
     if badge == nil then printh("NO BADGE: "..code) return end
     if badge.unlocked == true then return end
@@ -45,7 +47,11 @@ function unlock_badge(code)
     dset(index, 1)
     badge_count += 1
     popup_last_input = gtime
-    add(incoming_popups, badge)
+    if ontop then
+        add(incoming_popups, badge, 1)
+    else
+        add(incoming_popups, badge)
+    end
     --
     check_badges()
 end

@@ -456,9 +456,10 @@ function click_error()
     shake = 3
 end
 
-function click_valid()
+function click_valid(c)
+    c = c or 11
     psfx("tok1")
-    spawn_particles(6, 3, cam.x + stat(32), cam.y + stat(33), 11)
+    spawn_particles(6, 3, cam.x + stat(32), cam.y + stat(33), c)
 end
 
 function tree_on_click(self)
