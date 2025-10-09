@@ -359,6 +359,9 @@ function init_accessibility_menu()
         unlock_badge("blind")
         gstate = 3
         blind_cor = cocreate(colorblind_seq)
+        while (stat(30)) do
+            stat(31)
+        end
     end
     --
     local bckbtn = create(text, x, y)

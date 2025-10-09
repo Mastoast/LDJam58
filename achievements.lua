@@ -23,7 +23,7 @@ all_achievements = {
     {code = "do_you_remember", name ="\^t\^wdo you remember?", description = "1978, what a year...", tip = "three quarters of the Avatar//you're just missing water.", msc="september",btn_time=237},
     {code = "kick_the_bucket", name ="\^t\^wkick the bucket", description ="are you proud of yourself?", tip = "it's literal, try the boot mode." },
     --{code = "test9", name ="\^t\^ware you//\^t\^wlying to me?", description = "è_é", tip = "set the month to//something impossible."},
-    {code = "blind", name ="\^t\^wsecret mission", description = "you successfully//prevented the heist using//the 8 baboons", tip = "close your eyes,//the solution will come to you"},
+    {code = "blind", name ="\^t\^wsecret mission", description = "you successfully//prevented the heist//using the 8 baboons", tip = "close your eyes,//the solution will come to you"},
     {code = "groundhog_day", name ="\^t\^wtimelooping //\^t\^wwoodchuck", description = "you got out of the loop!", tip = "i'm a god."},
     {code = "paid_attention", name ="\^t\^wpaid attention", description = "we know you read the credits//here is your reward", tip = "did you pay attention?"},
     {code = "parks_and_rec", name ="\^t\^wtreat yo' self //\^t\^wday", description = "i'll take a greasy //lard bomb please!", tip = "i heard pawnee was great //at this time of the year."},
