@@ -119,13 +119,9 @@ function badge.draw(self)
     rectfill(self.x, self.y, self.x + self.hit_w - 1, self.y + self.hit_h - 1, col)
     if self.hover then
         rectfill(self.x-1, self.y-1, self.x + self.hit_w + 1, self.y + self.hit_h + 1, col)
-        print_centered(achievement.name, cam.x + 64, cam.y + 90, col, true, false)
-        if achievement.unlocked then
-            -- print(achievement.name, self.x, self.y + 10)
-            -- print(achievement.description, self.x, self.y + 18)
-        else
-            --print(achievement.tip, self.x, self.y + 10)
-        end
+        print_centered(achievement.name, cam.x + 64, cam.y + 90, col, true)
+        -- print_centered(achievement.description, cam.x + 64, cam.y + 90, 7)
+        -- print_centered(achievement.tip, cam.x + 64, cam.y + 90, 7)
     end
 end
 
@@ -138,6 +134,29 @@ end
 function badge.on_hover(self)
     local fx = {"bip1", "bip2", "bip3", "bip4", "bip5"}
     psfx(rchoice(fx))
+end
+
+cat = new_type(0)
+cat.txt="🐱"
+cat.hit_w=7
+cat.hit_h=6
+cat.hover=false
+cat.c1=7
+cat.c2=13
+
+function cat.draw(self)
+    local color = self.hover and self.c2 or self.c1
+    print(self.txt, self.x, self.y, color)
+end
+
+function cat.on_click(self)
+    spawn_particles(2, 3, cam.x + stat(32), cam.y + stat(33), self.c2)
+    -- TODO sfx
+    -- TODO del(objects, self) // disable
+    catcnt += 1
+    if catcnt == 5 then
+        unlock_badge("cats")
+    end
 end
 
 -- animated sprite

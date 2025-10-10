@@ -26,6 +26,7 @@ function _init()
     popup_last_input = 0
     popup_delay = 20
     is_menu_open = false
+    catcnt = 0
     --
     mode = "normal"
     mode_list = {
@@ -189,16 +190,13 @@ function lerp(start,finish,t)
 end
 
 -- print at center
-function print_centered(str, x, y, col, w, ui)
-    local size = w and 3 or 2
+function print_centered(str, x, y, col, w)
+    local size = w and 4 or 2
     local strs = split(str, "//")
     for i=0, #strs-1 do
-        local length = #(strs[i+1]) * size - size/2
-        if ui then
-            print(strs[i+1], cam.x + 64 - length, cam.y + y + i * size*2, col)
-        else
-            print(strs[i+1], x - length, y + i * size*2, col)
-        end
+        local chrcnt = #(strs[i+1]) - (w and 4 or 0)
+        local length = chrcnt * size - size/2
+        print(strs[i+1], x - length, y + i * size*2, col)
     end
 end
 

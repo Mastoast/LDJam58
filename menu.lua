@@ -163,6 +163,10 @@ function init_achievements_menu()
         local badge = create(badge, x + mx + (i % line_size) * distance, y + my + flr(i \ line_size) * distance)
         badge.achievement_index = i + 1
     end
+
+    local cat = create(cat, x+20, y+108)
+    cat.c1 = 0
+    cat.c2 = 1
     --
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
