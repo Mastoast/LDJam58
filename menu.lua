@@ -113,6 +113,7 @@ function init_main_menu()
     options.is_centered = true
     options:init()
     options.on_click = move_to_option_menu
+    spawn_particles(5, 3, options.x, options.y, 7)
     local credits = create(text, x + 64, y + 60)
     credits.text = "credits"
     credits.is_centered = true
@@ -121,11 +122,13 @@ function init_main_menu()
         psfx("transi2")
         launch_credits()
     end
+    spawn_particles(5, 3, credits.x, credits.y, 7)
     local achievements = create(text, x + 64, y + 70)
     achievements.text = "achievements"
     achievements.is_centered = true
     achievements:init()
     achievements.on_click = move_to_achievements
+    spawn_particles(5, 3, achievements.x, achievements.y, 7)
     local badgecnt = create(object, x + 64, 80, 24, 8)
     badgecnt.update = function(self)
         self.text = "(" .. badge_count .. "/" .. tostring(#all_achievements) .. ")"
@@ -141,6 +144,7 @@ function init_main_menu()
             unlock_badge("paid_attention")
         end
     end
+    spawn_particles(5, 3, badgecnt.x, badgecnt.y, 7)
 
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
