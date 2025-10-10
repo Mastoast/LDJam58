@@ -1,5 +1,3 @@
---Achievement Unlocked!
---by Mastoast and Pandalk
 objects = {}
 types = {}
 lookup = {}

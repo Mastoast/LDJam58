@@ -433,12 +433,6 @@ function on_date_change()
     if tday.year.value == 1955 and tday.day.value == 5 and tday.month.value == 11 then
         unlock_badge("marty_mcfly")
     end
-    if tday.day.value == 4 and tday.month.value == 5 then
-        unlock_badge("star_wars")
-    end
-    if tday.day.value == 13 and tday.month.value == 10 then
-        unlock_badge("parks_and_rec")
-    end
     if tday.day.value == 2 and tday.month.value == 2 then
         unlock_badge("groundhog_day")
     end
@@ -447,9 +441,6 @@ function on_date_change()
     end
     if tday.year.value == 1997 and tday.day.value == 29 and tday.month.value == 8 then
         unlock_badge("terminator_two")
-    end
-    if tday.year.value == 1988 and tday.day.value == 24 and tday.month.value == 12 then
-        unlock_badge("die_hard")
     end
 end
 

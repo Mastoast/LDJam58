@@ -1,3 +1,6 @@
+--Achievement Unlocked!
+--by Mastoast and Pandalk
+
 function _init()
     printh("NEW RUN ===================")
     -- enable mouse
@@ -35,7 +38,7 @@ function _init()
     bday = {}
     --
     -- saves
-    cartdata("mastoast_achievements_v1")
+    cartdata("mastoast_achievements_v2")
     -- -- complete save
     -- for index = 1, #all_achievements do
     --     dset(index, 1)
