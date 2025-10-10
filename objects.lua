@@ -230,10 +230,12 @@ function notif.update(self)
     if self.l <= 0 then
         del(objects, self)
     end
+    self.x = cam.x
+    self.y = cam.y + 122
 end
 
 function notif.draw(self)
-    print("\#8\^#"..self.text, cam.x, cam.y + 122 + self.dlt, self.c)
+    print("\#8\^#"..self.text, self.x, self.y + self.dlt, self.c)
 end
 
 player = new_type(100)

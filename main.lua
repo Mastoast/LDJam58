@@ -150,7 +150,9 @@ function _draw()
 
     -- draw objects
     for o in all(objects) do
-        o:draw()
+        if o:on_camera() then
+            o:draw()
+        end
     end
 
     -- UI

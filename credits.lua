@@ -198,12 +198,14 @@ function init_credits(self)
     x, y = credits_screen.x, credits_screen.y
     local crd = create(text, credits_screen.x+64, credits_screen.y+120)
     crd.text = credit_text
+    crd.txts = split(credit_text, "\n")
     crd.is_centered = false
     crd.selectable = false
     crd.color = 10
     crd:init()
     crd.draw = function (self)
-        print_mltxt(self.text, self.x, self.y, self.color)
+        if not is_on_credits then return end
+        print_txts(self.txts, self.x, self.y, self.color)
     end
 
     local bckbtn = create(text, credits_screen.x, credits_screen.y)
@@ -262,10 +264,8 @@ function update_credits_music_speed(on_bottom)
     last_mspeed = music_speed
 end
 
-function print_mltxt(str, x, y, col)
-    -- print(str, x, y, col)
+function print_txts(strs, x, y, col)
     local ymrg = 8
-    local strs = split(str, "\n")
     local i = 0
     for lstr in all(strs) do
         local length = #(lstr) * 2
