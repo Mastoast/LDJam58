@@ -11,7 +11,7 @@ game = { x = 512, y = 512}
 
 function init_all_menus()
     init_splash_screen_menu()
-    init_main_menu()
+    init_main_menu_new_game()
     init_achievements_menu()
     init_options_menu()
     init_sound_menu()
@@ -97,13 +97,17 @@ function init_splash_screen_menu()
     end
 end
 
-function init_main_menu()
+function init_main_menu_new_game()
     local x, y = main_menu.x + 0, main_menu.y + 0
     local start = create(text, 64, 40)
     start.text = "new game"
     start.is_centered = true
     start:init()
     start.on_click = start_game
+end
+
+function init_main_menu()
+    local x, y = main_menu.x + 0, main_menu.y + 0
     local options = create(text, x + 64, y + 50)
     options.text = "options"
     options.is_centered = true
@@ -538,6 +542,10 @@ function start_game(self)
         local txt = create(notif, cam.x + stat(32) + 5, cam.y + stat(33) - 5)
         txt.text = "switch to play mode to start"
         click_error()
+    end
+    if not is_menu_open then
+        init_main_menu()
+        is_menu_open = true
     end
 end
 

@@ -25,6 +25,7 @@ function _init()
     is_on_credits = false
     popup_last_input = 0
     popup_delay = 20
+    is_menu_open = false
     --
     mode = "normal"
     mode_list = {
@@ -50,7 +51,11 @@ function _init()
             badge_count += 1
         end
     end
-    check_badges()
+    if badge_count > 0 then
+        check_badges()
+        init_main_menu()
+        is_menu_open = true
+    end
     menuitem(1, "reset progress", function() reset_progress() end)
     --
     init_all_menus()

@@ -222,6 +222,11 @@ notif.l = 140
 notif.dlt = 8
 notif.dltsp = 1.5
 
+function notif.init(self)
+    self.x = cam.x
+    self.y = cam.y + 122
+end
+
 function notif.update(self)
     if self.dlt > 0 then
         self.dlt = max(0, self.dlt - self.dltsp)
