@@ -203,6 +203,7 @@ function init_credits(self)
     crd.selectable = false
     crd.color = 10
     crd:init()
+    crd.hit_h = creditheight
     crd.draw = function (self)
         if not is_on_credits then return end
         print_txts(self.txts, self.x, self.y, self.color)

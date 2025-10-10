@@ -104,28 +104,34 @@ function update_level()
     cam.y = lerp(cam.y, tcam.y, cam.speed)
 
     for o in all(objects) do
-        if o.freeze > 0 then
-            o.freeze -= 1
-            break
-        end
+        update_obj(o)
+    end
+end
 
-        if not o.hover and on_cursor(o) then
-            o:on_hover()
-        end
-        o.hover = on_cursor(o)
-        o:update()
+function update_obj(o)
+    if not o:on_camera() then return end
 
-        if o.hover then
-            if btnp(❎) then
-                o:on_click()
-            elseif btnp(🅾️) then
-                o:on_right_click()
-            end
-        end
+    if o.freeze > 0 then
+        o.freeze -= 1
+        return
+    end
 
-        if o.destroyed then
-            del(objects, o)
+    if not o.hover and on_cursor(o) then
+        o:on_hover()
+    end
+    o.hover = on_cursor(o)
+    o:update()
+
+    if o.hover then
+        if btnp(❎) then
+            o:on_click()
+        elseif btnp(🅾️) then
+            o:on_right_click()
         end
+    end
+
+    if o.destroyed then
+        del(objects, o)
     end
 end
 
