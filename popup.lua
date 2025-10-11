@@ -39,12 +39,16 @@ function init_popup(achievement, anim_time, btn_time, isnew)
         tip.color = 7
     end
     -- specific badge
-    -- TODO make clickable
-    if achievement.code == "cats" then
+    if achievement.code == "cats" and not achievement.unlocked then
         local cat = create(cat, cam.x+63, cam.y+72, 7, 6, popup_objects)
         cat.i = 3
         cat.c1 = 7
         cat.c2 = 9
+        cat.show = catidx[cat.i]
+        cat.update = function(self)
+            self.hover = on_cursor(self)
+            if self.hover and btnp(❎) then self:on_click() end
+        end
     end
 
     --

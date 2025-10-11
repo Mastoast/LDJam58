@@ -24,6 +24,7 @@ sfxs = {
     bip4 = {n = 9, offset = 5, length = 1},
     bip5 = {n = 9, offset = 6, length = 1},
     metal = {n = 9, offset = 24, length = 1},
+    cat = {n = 2, offset = 0, length = 16}
 }
 
 function psfx(code, channel)

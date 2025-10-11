@@ -152,7 +152,7 @@ end
 
 function cat.on_click(self)
     spawn_particles(2, 3, cam.x + stat(32), cam.y + stat(33), self.c2)
-    -- TODO sfx
+    psfx("cat")
     if not catidx[self.i] then
         catcnt += 1
         catidx[self.i] = true
