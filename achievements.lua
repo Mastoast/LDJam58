@@ -1,3 +1,18 @@
+function get_cat_badge_name(self)
+    if self.unlocked then return self.name end
+    -- "\^t\^w🐱🐱🐱🐱🐱     "
+    local name = "\^t\^w"
+    for i=1, #catidx do
+        name = name.." "
+    end
+    for i=1, #catidx do
+        -- \f P0 : foreground color
+        local char = catidx[i] and "\f9" or "\f6"
+        name = name..char.."🐱"
+    end
+    return name
+end
+
 all_achievements = {
     {code = "intro1", name = "\^t\^wa warm welcome", description = "you launched the game", tip = ""},
     {code = "intro2", name = "\^t\^wfirst step", description = "you got your first//achievement", tip = ""},
@@ -34,7 +49,7 @@ all_achievements = {
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
     {code = "our_code", name ="\^t\^wfind the secret//\^t\^wcode", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
     {code = "coin", name ="\^t\^wmoney money//\^t\^wmoney", description = "you clicked the coin", tip = "achievementception"},
-    {code = "cats", name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
+    {code = "cats", dname=get_cat_badge_name, name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
      --{code = "", name ="", description = "", tip = ""},
 }
 

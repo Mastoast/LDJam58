@@ -161,7 +161,6 @@ function cat.on_click(self)
     if catcnt >= 5 then
         unlock_badge("cats")
     end
-    printh("CAT : "..catcnt)
 end
 
 -- animated sprite

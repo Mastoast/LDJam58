@@ -11,9 +11,20 @@ function init_popup(achievement, anim_time, btn_time, isnew)
     local tcol = achievement.unlocked and 9 or 13
     local title = create(text, cam.x + 64, cam.y + tty, 8, 8, popup_objects)
     title.text = achievement.name
+    title.dtext = achievement.dname and achievement:dname() or nil
+	title.get_dtext=achievement.dname
     title.is_centered = true
     title.wide = true
     title.color = tcol
+    if achievement.dname then
+		title.update=function(self)
+			self.dtext = self:get_dtext()
+		end
+        title.draw = function(self)
+            print_centered(self.text, self.x + 1, self.y + 1, 0, self.wide)
+            print_centered(self.dtext, self.x, self.y, self.color, self.wide)
+        end
+    end
     if achievement.unlocked then
         local desc = create(text, cam.x + 64, cam.y + 64, 8, 8, popup_objects)
         desc.text = achievement.description
