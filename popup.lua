@@ -38,6 +38,14 @@ function init_popup(achievement, anim_time, btn_time, isnew)
         tip.is_centered = true
         tip.color = 7
     end
+    -- specific badge
+    -- TODO make clickable
+    if achievement.code == "cats" then
+        local cat = create(cat, cam.x+63, cam.y+72, 7, 6, popup_objects)
+        cat.i = 3
+        cat.c1 = 7
+        cat.c2 = 9
+    end
 
     --
     pop_cor = cocreate(popup_animation)

@@ -143,20 +143,25 @@ cat.hit_h=6
 cat.hover=false
 cat.c1=7
 cat.c2=13
+cat.show=false
 
 function cat.draw(self)
-    local color = self.hover and self.c2 or self.c1
+    local color = (self.hover or self.show) and self.c2 or self.c1
     print(self.txt, self.x, self.y, color)
 end
 
 function cat.on_click(self)
     spawn_particles(2, 3, cam.x + stat(32), cam.y + stat(33), self.c2)
     -- TODO sfx
-    -- TODO del(objects, self) // disable
-    catcnt += 1
-    if catcnt == 5 then
+    if not catidx[self.i] then
+        catcnt += 1
+        catidx[self.i] = true
+        self.show=true
+    end
+    if catcnt >= 5 then
         unlock_badge("cats")
     end
+    printh("CAT : "..catcnt)
 end
 
 -- animated sprite

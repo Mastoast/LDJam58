@@ -95,6 +95,11 @@ function init_splash_screen_menu()
             unlock_badge("perfect_murder")
         end
     end
+
+    local cat = create(cat,x+63,y+102)
+    cat.i = 1
+    cat.c1 = 5
+    cat.c2 = 4
 end
 
 function init_main_menu_new_game()
@@ -165,6 +170,7 @@ function init_achievements_menu()
     end
 
     local cat = create(cat, x+20, y+108)
+    cat.i = 4
     cat.c1 = 0
     cat.c2 = 1
     --
@@ -388,6 +394,11 @@ function init_gameplay()
     ply = create(player, game.x + 64, game.y + 64)
     local plyt = create(text, game.x + 88, game.y + 44)
     ply.target = plyt
+
+    local cat = create(cat,game.x+85,game.y+37)
+    cat.i = 5
+    cat.c1 = 12
+    cat.c2 = 7
 end
 
 -- events functions

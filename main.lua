@@ -27,6 +27,7 @@ function _init()
     popup_delay = 20
     is_menu_open = false
     catcnt = 0
+    catidx = {false,false,false,false,false}
     --
     mode = "normal"
     mode_list = {

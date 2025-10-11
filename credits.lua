@@ -209,6 +209,11 @@ function init_credits(self)
         print_txts(self.txts, self.x, self.y, self.color)
     end
 
+    local cat = create(cat,x+92,y+648)
+    cat.i = 2
+    cat.c1 = 10
+    cat.c2 = 2
+
     local bckbtn = create(text, credits_screen.x, credits_screen.y)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 3000

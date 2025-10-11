@@ -34,7 +34,7 @@ all_achievements = {
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
     {code = "our_code", name ="\^t\^wfind the secret//\^t\^wcode", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
     {code = "coin", name ="\^t\^wmoney money//\^t\^wmoney", description = "you clicked the coin", tip = "achievementception"},
-    {code = "cats", name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱 //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
+    {code = "cats", name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
      --{code = "", name ="", description = "", tip = ""},
 }
 
