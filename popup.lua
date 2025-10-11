@@ -16,7 +16,7 @@ function init_popup(achievement, anim_time, btn_time, isnew)
     title.is_centered = true
     title.wide = true
     title.color = tcol
-    if achievement.dname then
+    if achievement.dname and not achievement.unlocked then
 		title.update=function(self)
 			self.dtext = self:get_dtext()
 		end
