@@ -1,4 +1,5 @@
 main_menu = { x = 0, y = 0 }
+irl_menu = { x = 0, y = -128 }
 badges_menu = { x = 128, y = 128 }
 options_menu = { x = 0, y = 128 }
 options_sound_menu = { x = 0, y = 256}
@@ -20,6 +21,7 @@ function init_all_menus()
     init_accessibility_menu()
     init_credits()
     init_gameplay()
+    init_irl_menu()
 end
 
 function init_splash_screen_menu()
@@ -52,6 +54,12 @@ function init_splash_screen_menu()
         if gtime % 120 == 0 then
             self.dir *= -1
         end
+    local bckbtn = create(text, x, y)
+    bckbtn.hit_w = 128
+    bckbtn.hit_h = 128
+    bckbtn.on_right_click = move_to_irl_screen
+    --local bcktxt = create(text, x + 120-46, y+120)
+    --bcktxt.text = "🅾️ to go back"
     end
 
     local startbtn = create(button, x + 45, y + 72)
@@ -102,6 +110,41 @@ function init_splash_screen_menu()
     cat.c2 = 4
 end
 
+function init_irl_menu()
+    local x, y = irl_menu.x + 0, irl_menu.y + 0
+    --local sprite_screen = 
+    --local table = create(object, x + 2, y + 60, 102, 118)
+    --local tower = create(object, x + 12, y + 10, 16, 32)
+    --tower.on_click = tower_on_click
+    local screen_string_sprite = {
+    74, 93, 93, 75, 76, 
+    93, 106, 107, 106, 75, 
+    93, 92, 91, 108, 75, 
+    74, 93, 93, 75, 76, 
+    0, 0, 123, 0, 0}
+
+    local screen_string_turn_x_axis = {
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    }
+
+    local screen_string_turn_y_axis = {
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    }
+    local screen = create(object, x + 22, y + 50, 24, 16)
+    screen.spr = 90
+    screen.on_click = screen_on_click
+    --local cd = create(object, x + 22, y + 50, 16, 32)
+    --cd.on_click = cd_on_click
+    
+end
 function init_main_menu_new_game()
     local x, y = main_menu.x + 0, main_menu.y + 0
     local start = create(text, 64, 40)
@@ -495,6 +538,25 @@ function tree_on_click(self)
     end
 end
 
+
+function tower_on_click(self)
+    if mode == "cd" then 
+    unlock_badge("CD")
+    mode = "hand"
+    end
+end 
+
+function screen_on_click(self) 
+    mode = "normal"
+    move_to_splash_screen()
+end 
+
+function cd_on_click(self)
+    if mode == "hand" then
+        mode = "cd"
+    end
+end 
+
 -- access menus
 
 function move_to_main_menu(self, tp)
@@ -541,6 +603,11 @@ function move_to_splash_screen(self)
     pmusic("title")
     psfx("transi1")
     set_cam(splash_screen)
+end
+
+function move_to_irl_screen(self)
+    psfx("transi1")
+    set_cam(irl_menu)
 end
 
 function set_cam(coords, tp)

@@ -50,6 +50,7 @@ all_achievements = {
     {code = "our_code", name ="\^t\^wfind the secret//\^t\^wcode", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
     {code = "coin", name ="\^t\^wmoney money//\^t\^wmoney", description = "you clicked the coin", tip = "achievementception"},
     {code = "cats", dname=get_cat_badge_name, name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
+    {code = "cd", name ="\^t\^winsert cd 2", description = "finally ready to play", tip = "go outside."}
      --{code = "", name ="", description = "", tip = ""},
 }
 
