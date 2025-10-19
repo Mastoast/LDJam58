@@ -33,9 +33,12 @@ function _init()
     mode_list = {
         normal = {tile = 16},
         lumberjack = {tile = 48},
-        boot = {tile = 32},
+        boot = {tile = 130},
         play = {tile = 16, locked = true},
-        patched = {tile = 119}
+        ng_plus = {tile = 16, locked = true},
+        patched = {tile = 119},
+        hand = {tile = 131},
+        cd = {tile = 104, 121}
     }
     tday = {}
     bday = {}

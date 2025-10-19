@@ -133,14 +133,23 @@ function init_irl_menu()
 
     local screen_string_turn_y_axis = {
     false, false, false, false, false, 
-    false, false, false, false, false, 
-    false, false, false, false, false, 
-    false, false, false, false, false, 
+    true, false, false, false, true, 
+    true, false, false, false, true, 
+    true, false, false, false, true,
     false, false, false, false, false, 
     }
-    local screen = create(object, x + 22, y + 50, 24, 16)
-    screen.spr = 90
+    local screen = create(object, x + 22, y + 50, 24, 16) 
+    for i=1, 25 do
+        spr(screen_string_sprite[i],
+        screen.x + ((i%5)*8),
+        screen.y + ((i\5)*8), 
+        1, 1, 
+        screen_string_turn_x_axis[i], 
+        screen_string_turn_y_axis[i]) 
+
+    end 
     screen.on_click = screen_on_click
+    --screen.spr = 90
     --local cd = create(object, x + 22, y + 50, 16, 32)
     --cd.on_click = cd_on_click
     
@@ -385,16 +394,23 @@ function init_modes_menu()
     local ystrt = 32
     local yspace = 15
     local i = 0
+    local skip = 0
+    local i_plus_skip = i + skip
     for k, v in pairs(mode_list) do
-        local modetxt = create(text, x + 64, y + ystrt + i * yspace)
-        modetxt.text = k.." mode"
-        modetxt.is_centered = true
-        modetxt:init()
-        modetxt.selectable = false
-        local mode_cb = create(checkbox_mode, modetxt.x  - 40, modetxt.y-1)
-        mode_cb.on_click = switch_mode
-        mode_cb.mode = k
-        i += 1
+        if mode_list[i] =="hand" or mode_list[i] =="cd" then
+            skip +=1
+        end 
+        else
+            local modetxt = create(text, x + 64, y + ystrt + i * yspace)
+            modetxt.text = k.." mode"
+            modetxt.is_centered = true
+            modetxt:init()
+            modetxt.selectable = false
+            local mode_cb = create(checkbox_mode, modetxt.x  - 40, modetxt.y-1)
+            mode_cb.on_click = switch_mode
+            mode_cb.mode = k
+            i += 1
+        end
     end
     --
     local bckbtn = create(text, x, y)

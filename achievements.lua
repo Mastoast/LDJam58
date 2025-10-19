@@ -16,7 +16,7 @@ end
 all_achievements = {
     {code = "intro1", name = "\^t\^wa warm welcome", description = "you launched the game", tip = ""},
     {code = "intro2", name = "\^t\^wfirst step", description = "you got your first//achievement", tip = ""},
-    {code = "intro3", name = "\^t\^wwow!!", description = "you got your second//achievement", tip = ""},
+    {code = "intro3", name = "\^t\^wincredible!", description = "you got your second//achievement", tip = ""},
     {code = "start1", name = "\^t\^wyou are not//\^t\^wprepared", description = "try to//launch the game", tip = "did you try to//launch the game ?"},
     {code = "badge", name = "\^t\^wgreat success", description = "open the achievement page", tip = "why are you here? if you//can read this, you've done it"},
     {code = "birthday", name ="\^t\^wbirthday!", description = "it's your birthday//happy birthday!", tip = "don't forget//to set up//your birthday date!"},
@@ -44,13 +44,16 @@ all_achievements = {
     -- {code = "parks_and_rec", name ="\^t\^wtreat yo' self //\^t\^wday", description = "i'll take a greasy //lard bomb please!", tip = "i heard pawnee was great //at this time of the year."},
     -- {code = "die_hard", name ="\^t\^who ho ho,//\^t\^wnow i have//\^t\^wa machine gun", description = "it really is a christmas movie!", tip = "welcome to the party pal!"},
     {code = "tree", name ="\^t\^wwork work", description = "me not that//kind of orc!", tip = "cut the tree."},
-    {code = "perfect_murder", name ="\^t\^wperfect murder", description = "nooooo!", tip = "no witnesses//don't forget your shoes."},
+    {code = "snowman", name ="\^t\^wClick the Snowman", description = "let it gooo!", tip = "if you can't see it, maybe //it has already melted away?"},
+    {code = "perfect_murder", name ="\^t\^wperfect murder", description = "you monster!", tip = "no witnesses//don't forget your shoes."},
     {code = "launchgame", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},
     {code = "our_code", name ="\^t\^wfind the secret//\^t\^wcode", description = "you definitely aren't//a yu-gi-oh player", tip = "did you read the instructions?"},
     {code = "coin", name ="\^t\^wmoney money//\^t\^wmoney", description = "you clicked the coin", tip = "achievementception"},
     {code = "cats", dname=get_cat_badge_name, name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
-    {code = "cd", name ="\^t\^winsert cd 2", description = "finally ready to play", tip = "go outside."}
+    {code = "cd", name ="\^t\^winsert cd 2", description = "finally ready to play", tip = "take the red pill, neo"},
+    {code = "secret_ending", name ="\^t\^wsecret ending", description = "you found the secret ending, congrats", tip = "only works in new game +"},
+    {code = "unlock_all_achievements", name ="\^t\^wunlock all//achievements", description = "you have truly done it all//congrats.", tip = "only the best get that far."}
      --{code = "", name ="", description = "", tip = ""},
 }
 
@@ -77,6 +80,14 @@ function check_badges()
     if badge_count >= 20 then
         mode_list["play"].locked = false
     end
+    --ici
+   -- if badg >= 20 then
+  --      mode_list["ng_plus"].locked = false
+  --  end
+    if badge_count >= 30 then
+        unlock_badge("unlock_all_achievements")
+    end
+
 end
 
 function on_konamicd()
