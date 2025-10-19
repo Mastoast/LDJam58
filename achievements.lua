@@ -44,7 +44,7 @@ all_achievements = {
     -- {code = "parks_and_rec", name ="\^t\^wtreat yo' self //\^t\^wday", description = "i'll take a greasy //lard bomb please!", tip = "i heard pawnee was great //at this time of the year."},
     -- {code = "die_hard", name ="\^t\^who ho ho,//\^t\^wnow i have//\^t\^wa machine gun", description = "it really is a christmas movie!", tip = "welcome to the party pal!"},
     {code = "tree", name ="\^t\^wwork work", description = "me not that//kind of orc!", tip = "cut the tree."},
-    {code = "snowman", name ="\^t\^wClick the Snowman", description = "let it gooo!", tip = "if you can't see it, maybe //it has already melted away?"},
+    --{code = "snowman", name ="\^t\^wClick the Snowman", description = "let it gooo!", tip = "if you can't see it, maybe //it has already melted away?"},
     {code = "perfect_murder", name ="\^t\^wperfect murder", description = "you monster!", tip = "no witnesses//don't forget your shoes."},
     {code = "launchgame", name ="\^t\^wthe end is//\^t\^wnever the end", description = "wow, you did it!", tip ="launch the game."},
     {code = "finish_the_game", name ="\^t\^wfinish the game", description = "you're so good at this!", tip = "it's easy, just try."},

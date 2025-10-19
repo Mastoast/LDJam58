@@ -110,48 +110,130 @@ end
 
 function init_irl_menu()
     local x, y = irl_menu.x + 0, irl_menu.y + 0
-    --local sprite_screen = 
-    --local table = create(object, x + 2, y + 60, 102, 118)
-    --local tower = create(object, x + 12, y + 10, 16, 32)
-    --tower.on_click = tower_on_click
-    screen_string_sprite = {
-    74, 93, 93, 75, 76, 
-    93, 106, 107, 106, 75, 
-    93, 92, 91, 108, 75, 
-    74, 93, 93, 75, 76, 
-    0, 0, 123, 0, 0}
 
-    screen_string_turn_x_axis = {
-    false, false, false, false, false, 
-    false, false, false, false, false, 
-    false, false, false, false, false, 
-    false, false, false, false, false, 
-    false, false, false, false, false, 
-    }
+    local desk = create(object, x + 10, y + 80, 80, 40)
+    desk.draw = function(self)
+        for i=0, 38 do 
+            if (i < 26) then
+                spr(103,
+                self.x + ((i%13)*8),
+                self.y + ((i\13)*8), 
+                1, 1, 
+                false,
+                false) 
+            else
+                spr(102,
+                self.x + ((i%13)*8),
+                self.y + ((i\13)*8), 
+                1, 1, 
+                false,
+                false) 
+            end
+        end
+        spr(118,
+            self.x + 8,
+            self.y + 24, 
+            1, 1, 
+            false,
+            false) 
+        for i=0, 2 do 
+            spr(117,
+            self.x + 8,
+            self.y + 32 + i*8, 
+            1, 1, 
+            false,
+            false)
+        end
+    end
+    --screen
+    screen_string_sprite = {
+    74, 93, 93, 93, 76, 
+    122, 106, 107, 106, 124, 
+    122, 92, 91, 108, 124, 
+    115, 93, 93, 75, 116, 
+    65, 65, 123, 65, 65}
+
+    --screen_string_turn_x_axis = {
+    --false, false, false, false, false, 
+    --false, false, false, false, false, 
+    --false, false, false, false, false, 
+    --false, true, true, true, false, 
+    --false, false, false, false, false, 
+    --}
 
     screen_string_turn_y_axis = {
     false, false, false, false, false, 
-    true, false, false, false, true, 
-    true, false, false, false, true, 
-    true, false, false, false, true,
+    false, false, false, false, false, 
+    false, false, false, false, false, 
+    false, true, true, true, false,
     false, false, false, false, false, 
     }
-    local screen = create(object, x + 22, y + 50, 24, 16) 
+    local screen = create(object, x + 22, y + 50, 40, 40) 
     screen.draw = function(self)
-        for i=1, 25 do
-            spr(screen_string_sprite[i],
+        for i=0, 24 do
+            spr(screen_string_sprite[i+1],
             self.x + ((i%5)*8),
             self.y + ((i\5)*8), 
             1, 1, 
-            screen_string_turn_x_axis[i], 
-            screen_string_turn_y_axis[i]) 
+            false,
+            --screen_string_turn_x_axis[i+1],
+            screen_string_turn_y_axis[i+1]) 
         end 
     end
     screen.on_click = screen_on_click
-    --screen.spr = 90
-    --local cd = create(object, x + 22, y + 50, 16, 32)
-    --cd.on_click = cd_on_click
-    
+    --screen end
+    --tower
+    tower_string_sprite = {
+    94, 95, 126,
+    110, 111, 127,
+    125, 78, 78,
+    125, 78, 78,
+    109, 78, 78}
+
+    local tower = create(object, x + 80, y + 56, 16, 32)
+    tower.draw = function(self)
+        for i=0, 14 do
+           spr(tower_string_sprite[i+1],
+            self.x + ((i%3)*8),
+            self.y + ((i\3)*8), 
+            1, 1, 
+            false,
+            false)
+        end
+    end
+    tower.on_click = function(self)
+        if mode == "cd" then
+            psfx("splash")
+            unlock_badge("cd")
+            mode = "hand"
+        end
+    end
+    local towertwo = create(object, x + 80, y + 56, 16, 32)
+    towertwo.draw = function(self)    
+        for i=0, 3 do
+            spr(79,
+            self.x + ((i%3)*8),
+            self.y - 8, 
+            1, 1, 
+            false,
+            false)
+        end 
+        spr(143,
+            self.x,
+            self.y - 8, 
+            1, 1, 
+            false,
+            false)
+    end 
+    --tower end
+    -- cd
+
+    local cd = create(object, x + 60, y + 88, 16, 16) 
+    cd.spr = 104
+    cd.on_click = function(self)
+        mode = "cd"
+    end
+    --cd end
 end
 function init_main_menu_new_game()
     local x, y = main_menu.x + 0, main_menu.y + 0
