@@ -114,14 +114,14 @@ function init_irl_menu()
     --local table = create(object, x + 2, y + 60, 102, 118)
     --local tower = create(object, x + 12, y + 10, 16, 32)
     --tower.on_click = tower_on_click
-    local screen_string_sprite = {
+    screen_string_sprite = {
     74, 93, 93, 75, 76, 
     93, 106, 107, 106, 75, 
     93, 92, 91, 108, 75, 
     74, 93, 93, 75, 76, 
     0, 0, 123, 0, 0}
 
-    local screen_string_turn_x_axis = {
+    screen_string_turn_x_axis = {
     false, false, false, false, false, 
     false, false, false, false, false, 
     false, false, false, false, false, 
@@ -129,7 +129,7 @@ function init_irl_menu()
     false, false, false, false, false, 
     }
 
-    local screen_string_turn_y_axis = {
+    screen_string_turn_y_axis = {
     false, false, false, false, false, 
     true, false, false, false, true, 
     true, false, false, false, true, 
@@ -137,15 +137,16 @@ function init_irl_menu()
     false, false, false, false, false, 
     }
     local screen = create(object, x + 22, y + 50, 24, 16) 
-    for i=1, 25 do
-        spr(screen_string_sprite[i],
-        screen.x + ((i%5)*8),
-        screen.y + ((i\5)*8), 
-        1, 1, 
-        screen_string_turn_x_axis[i], 
-        screen_string_turn_y_axis[i]) 
-
-    end 
+    screen.draw = function(self)
+        for i=1, 25 do
+            spr(screen_string_sprite[i],
+            screen.x + ((i%5)*8),
+            screen.y + ((i\5)*8), 
+            1, 1, 
+            screen_string_turn_x_axis[i], 
+            screen_string_turn_y_axis[i]) 
+        end 
+    end
     screen.on_click = screen_on_click
     --screen.spr = 90
     --local cd = create(object, x + 22, y + 50, 16, 32)
