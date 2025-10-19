@@ -53,7 +53,7 @@ all_achievements = {
     {code = "cats", dname=get_cat_badge_name, name ="\^t\^w🐱🐱🐱🐱🐱     ", description = "🐱  🐱  🐱  //🐱🐱🐱  ", tip = " ⬇️ //➡️ 🐱 ⬅️  "},
     {code = "cd", name ="\^t\^winsert cd 2", description = "finally ready to play", tip = "take the red pill, neo"},
     --{code = "secret_ending", name ="\^t\^wsecret ending", description = "you found the secret ending, congrats", tip = "only works in new game +"},
-    {code = "unlock_all_achievements", name ="\^t\^wunlock all//\^t\^achievements", description = "you have truly done it all//congrats.", tip = "only the best get that far."}
+    {code = "unlock_all_achievements", name ="\^t\^wunlock all//\^t\^ achievements", description = "you have truly done it all//congrats.", tip = "only the best get that far."}
      --{code = "", name ="", description = "", tip = ""},
 }
 
