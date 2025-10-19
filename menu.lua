@@ -140,8 +140,8 @@ function init_irl_menu()
     screen.draw = function(self)
         for i=1, 25 do
             spr(screen_string_sprite[i],
-            screen.x + ((i%5)*8),
-            screen.y + ((i\5)*8), 
+            self.x + ((i%5)*8),
+            self.y + ((i\5)*8), 
             1, 1, 
             screen_string_turn_x_axis[i], 
             screen_string_turn_y_axis[i]) 
