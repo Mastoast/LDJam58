@@ -616,6 +616,7 @@ function move_to_splash_screen(self)
 end
 
 function move_to_irl_screen(self)
+    mode = "hand"
     psfx("transi1")
     set_cam(irl_menu)
 end

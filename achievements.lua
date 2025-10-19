@@ -82,12 +82,11 @@ function check_badges()
     end
     --ici
    -- if badg >= 20 then
-  --      mode_list["ng_plus"].locked = false
+  --      mode_list["new_game_plus"].locked = false
   --  end
-    if badge_count >= 30 then
+    if badge_count >= #all_achievements-1 then
         unlock_badge("unlock_all_achievements")
     end
-
 end
 
 function on_konamicd()

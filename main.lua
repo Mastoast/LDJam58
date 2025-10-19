@@ -31,12 +31,12 @@ function _init()
     --
     mode = "normal"
     mode_list = {
-        normal = {tile = 16},
-        lumberjack = {tile = 48},
-        boot = {tile = 130},
-        play = {tile = 16, locked = true},
-        ng_plus = {tile = 16, locked = true},
-        patched = {tile = 119},
+        normal = {tile = 16, showed = true},
+        lumberjack = {tile = 48, showed = true},
+        boot = {tile = 130, showed = true},
+        play = {tile = 16, locked = true, showed = true},
+        newgameplus = {tile = 16, locked = true, showed = true},
+        patched = {tile = 119, showed = true},
         hand = {tile = 131, showed = false},
         cd = {tile = 104, 121, showed = false}
     }
