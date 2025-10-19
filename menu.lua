@@ -394,13 +394,9 @@ function init_modes_menu()
     local ystrt = 32
     local yspace = 15
     local i = 0
-    local skip = 0
-    local i_plus_skip = i + skip
+
     for k, v in pairs(mode_list) do
-        if mode_list[i] =="hand" or mode_list[i] =="cd" then
-            skip +=1
-        end 
-        else
+        if v.showed then
             local modetxt = create(text, x + 64, y + ystrt + i * yspace)
             modetxt.text = k.." mode"
             modetxt.is_centered = true

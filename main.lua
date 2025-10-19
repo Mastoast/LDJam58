@@ -37,8 +37,8 @@ function _init()
         play = {tile = 16, locked = true},
         ng_plus = {tile = 16, locked = true},
         patched = {tile = 119},
-        hand = {tile = 131},
-        cd = {tile = 104, 121}
+        hand = {tile = 131, showed = false},
+        cd = {tile = 104, 121, showed = false}
     }
     tday = {}
     bday = {}
