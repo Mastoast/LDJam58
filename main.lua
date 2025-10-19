@@ -38,7 +38,7 @@ function _init()
         newgameplus = {tile = 16, locked = true, showed = true},
         patched = {tile = 119, showed = true},
         hand = {tile = 131, showed = false},
-        cd = {tile = 104, 121, showed = false}
+        cd = {tile = 104, 121, showed = false, w = 2, h = 2}
     }
     tday = {}
     bday = {}
