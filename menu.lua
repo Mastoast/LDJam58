@@ -40,7 +40,6 @@ function init_splash_screen_menu()
     tree3.spr = 1
     tree3.life = 3
     tree3.on_click = tree_on_click
-
     local title = create(text, x + 64, y + 32)
     title.text = "\^t\^wshadow sword       //// \^t\^    iv"
     title.is_centered = true
@@ -54,13 +53,12 @@ function init_splash_screen_menu()
         if gtime % 120 == 0 then
             self.dir *= -1
         end
+    end
+
     local bckbtn = create(text, x, y)
     bckbtn.hit_w = 128
     bckbtn.hit_h = 128
     bckbtn.on_right_click = move_to_irl_screen
-    --local bcktxt = create(text, x + 120-46, y+120)
-    --bcktxt.text = "🅾️ to go back"
-    end
 
     local startbtn = create(button, x + 45, y + 72)
     startbtn.text = "start game"
