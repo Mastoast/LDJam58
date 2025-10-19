@@ -128,11 +128,6 @@ function draw_popup()
     local sy = lerp(0, 128 - my*2, pratio)
     local x = lerp(cam.x + 64, cam.x + mx, pratio)
     local y = lerp(cam.y + 64, cam.y + my, pratio)
-
-    -- fillp(0b1000010100100100)
-    --rrectfill(x, y, sx, sy, 4, 0x21)
-    -- fillp()
-    -- rrect(x, y, sx, sy, 4, 13)
     
     local mrg = 2
     rrectfill(x - mrg, y - mrg, sx + mrg*2, sy+mrg*2, 4, 13)

@@ -215,11 +215,6 @@ end
 -- \^# : Solid background. The default is a transparent background.
 -- \^$ : Wrap. Automatically wraps text when it reaches the right edge of the screen.
 
--- random range
-function rrnd(min, max)
-    return flr(min + rnd(max - min))
-end
-
 -- random choice from table
 function rchoice(table)
     return table[flr(rnd(#table)) + 1]
