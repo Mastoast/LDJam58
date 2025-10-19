@@ -103,9 +103,10 @@ end
 cursor = new_type(16)
 
 function cursor.draw(self)
-    spr(mode_list[mode].tile, cam.x + stat(32), cam.y + stat(33))
+    local w = mode_list[mode].w or 1
+    local h = mode_list[mode].h or 1
+    spr(mode_list[mode].tile, cam.x + stat(32), cam.y + stat(33), w, h)
 end
-
 
 
 -- achievement badge
